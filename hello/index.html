@@ -36,7 +36,7 @@
     
     
       
-        <title>Hello - Snippets</title>
+        <title>Hello with CLI - Snippets</title>
       
     
     
@@ -94,7 +94,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href=".." title="Snippets" class="md-header-nav__button md-logo">
           
-            <i class="md-icon"></i>
+            <i class="md-icon">language</i>
           
         </a>
       </div>
@@ -109,7 +109,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Hello
+                Hello with CLI
               
             </span>
           
@@ -164,7 +164,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href=".." title="Snippets" class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <i class="md-icon">language</i>
       
     </a>
     Snippets
@@ -209,11 +209,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Hello
+        Hello with CLI
       </label>
     
-    <a href="./" title="Hello" class="md-nav__link md-nav__link--active">
-      Hello
+    <a href="./" title="Hello with CLI" class="md-nav__link md-nav__link--active">
+      Hello with CLI
     </a>
     
       
@@ -227,6 +227,20 @@
         <li class="md-nav__item">
   <a href="#rust" class="md-nav__link">
     Rust
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    C
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dart" class="md-nav__link">
+    Dart
   </a>
   
 </li>
@@ -267,6 +281,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    C
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dart" class="md-nav__link">
+    Dart
+  </a>
+  
+</li>
+      
       
       
       
@@ -284,10 +312,29 @@
               
                 
                 
-                  <h1>Hello</h1>
+                  <h1>Hello with CLI</h1>
                 
                 <h2 id="rust">Rust</h2>
-<div class="codehilite"><pre><span></span>cargo new hello
+<div class="codehilite"><pre><span></span>cargo new hello -- bin
+cd hello
+cargo run
+</pre></div>
+
+
+<h2 id="c">C</h2>
+<div class="codehilite"><pre><span></span>dotnet new console -o hello
+cd hello
+dotnet run
+</pre></div>
+
+
+<h2 id="dart">Dart</h2>
+<div class="codehilite"><pre><span></span>pub global activate stagehand
+mkdir hello
+cd hello
+stagehand console-full
+pub get
+dart bin/main.dart
 </pre></div>
                 
                   
