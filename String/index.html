@@ -1,0 +1,831 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="..">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>String - Runnable Snippets</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#c0ca33">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="lime" data-md-color-accent="lime">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#string" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Runnable Snippets" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">language</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Runnable Snippets
+            </span>
+            <span class="md-header-nav__topic">
+              
+                String
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Runnable Snippets" class="md-nav__button md-logo">
+      
+        <i class="md-icon">language</i>
+      
+    </a>
+    Runnable Snippets
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Playground links/" title="Playground links" class="md-nav__link">
+      Playground links
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Data types
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Data types
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Dict/" title="Dictionary" class="md-nav__link">
+      Dictionary
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../List/" title="List" class="md-nav__link">
+      List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        String
+      </label>
+    
+    <a href="./" title="String" class="md-nav__link md-nav__link--active">
+      String
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#c35" class="md-nav__link">
+    C#
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dart" class="md-nav__link">
+    Dart
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go" class="md-nav__link">
+    Go
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nim" class="md-nav__link">
+    Nim
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rust" class="md-nav__link">
+    Rust
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typescript" class="md-nav__link">
+    TypeScript
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Structure or Class/" title="Structure or Class" class="md-nav__link">
+      Structure or Class
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Execution time/" title="Execution time" class="md-nav__link">
+      Execution time
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      File
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        File
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Write & Read lines/" title="Write & Read Lines" class="md-nav__link">
+      Write & Read Lines
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Scaffold with CLI/" title="Scaffold with CLI" class="md-nav__link">
+      Scaffold with CLI
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../System command/" title="System command" class="md-nav__link">
+      System command
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#c35" class="md-nav__link">
+    C#
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dart" class="md-nav__link">
+    Dart
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go" class="md-nav__link">
+    Go
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nim" class="md-nav__link">
+    Nim
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rust" class="md-nav__link">
+    Rust
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typescript" class="md-nav__link">
+    TypeScript
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="string">String</h1>
+<h2 id="c35">C#</h2>
+<div class="codehilite"><pre><span></span><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">name</span> <span class="p">=</span> <span class="s">&quot;John&quot;</span><span class="p">;</span>
+        <span class="kt">var</span> <span class="n">age</span> <span class="p">=</span> <span class="m">21</span><span class="p">;</span>
+        <span class="kt">var</span> <span class="n">date</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">;</span>
+
+        <span class="c1">// String interpolation:</span>
+        <span class="kt">var</span> <span class="n">str1</span> <span class="p">=</span> <span class="err">$</span><span class="s">&quot;{name} age is {age}, today is {date.DayOfWeek}, {date:HH:mm} now.&quot;</span><span class="p">;</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">str1</span><span class="p">);</span>
+
+        <span class="c1">// String formatting:</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;{0} age is {1}, today is {2}, {3:HH:mm} now.&quot;</span><span class="p">,</span>
+            <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">date</span><span class="p">.</span><span class="n">DayOfWeek</span><span class="p">,</span> <span class="n">date</span><span class="p">);</span>
+
+        <span class="c1">// float, hexadecimal</span>
+        <span class="kt">var</span> <span class="n">str2</span> <span class="p">=</span> <span class="n">String</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;four decimals: {0:0.0000}, hex for {1}: 0x{2:X}&quot;</span><span class="p">,</span> <span class="m">0.123456</span><span class="p">,</span> <span class="m">16</span><span class="p">,</span> <span class="m">16</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">str2</span><span class="p">);</span>
+
+        <span class="c1">// Parse numbers in string</span>
+        <span class="kt">var</span> <span class="n">elems</span> <span class="p">=</span> <span class="n">str2</span><span class="p">.</span><span class="n">Split</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">);</span>
+        <span class="kt">char</span><span class="p">[]</span> <span class="n">toTrim</span> <span class="p">=</span> <span class="p">{</span> <span class="sc">&#39;:&#39;</span><span class="p">,</span> <span class="sc">&#39;,&#39;</span> <span class="p">};</span>
+
+        <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">item</span> <span class="k">in</span> <span class="n">elems</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">try</span>
+            <span class="p">{</span>
+                <span class="kt">var</span> <span class="n">num</span> <span class="p">=</span> <span class="n">Double</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">item</span><span class="p">.</span><span class="n">Trim</span><span class="p">(</span><span class="n">toTrim</span><span class="p">));</span>
+                <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Found float {0} in \&quot;{1}\&quot;&quot;</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">item</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">catch</span> <span class="p">(</span><span class="n">FormatException</span> <span class="n">e</span><span class="p">)</span>
+            <span class="p">{</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="dart">Dart</h2>
+<div class="codehilite"><pre><span></span><span class="c1">// dependencies:</span>
+<span class="c1">//  sprintf: ^4.0.2</span>
+
+<span class="k">import</span> <span class="s1">&#39;package:sprintf/sprintf.dart&#39;</span><span class="p">;</span>
+
+<span class="n">main</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span> <span class="n">arguments</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;John&quot;</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="n">age</span> <span class="o">=</span> <span class="m">21</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="n">date</span> <span class="o">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">now</span><span class="p">();</span>
+  <span class="kd">var</span> <span class="n">day</span> <span class="o">=</span> <span class="n">date</span><span class="p">.</span><span class="n">weekday</span><span class="p">;</span>
+
+  <span class="c1">// String interpolation</span>
+  <span class="kd">var</span> <span class="n">str1</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">$</span><span class="n">name</span><span class="s2"> age is </span><span class="si">$</span><span class="n">age</span><span class="s2">, weekday is </span><span class="si">$</span><span class="n">day</span><span class="s2">, </span><span class="si">${</span><span class="n">date</span><span class="p">.</span><span class="n">hour</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="n">date</span><span class="p">.</span><span class="n">minute</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span>
+  <span class="n">print</span><span class="p">(</span><span class="n">str1</span><span class="p">);</span>
+
+  <span class="c1">// String formatting float hex</span>
+  <span class="kd">var</span> <span class="n">str2</span> <span class="o">=</span> <span class="n">sprintf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">four decimals: %.4f, hex for %d: 0x%x&quot;</span><span class="p">,</span> <span class="p">[</span><span class="m">0.123456</span><span class="p">,</span> <span class="m">16</span><span class="p">,</span> <span class="m">16</span><span class="p">]);</span>
+  <span class="n">print</span><span class="p">(</span><span class="n">str2</span><span class="p">);</span>
+
+  <span class="c1">// Parse number in string</span>
+
+  <span class="c1">// Eliminate &#39;,&#39;, &#39;:&#39;</span>
+  <span class="n">str2</span> <span class="o">=</span> <span class="n">str2</span><span class="p">.</span><span class="n">replaceAll</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+  <span class="n">str2</span> <span class="o">=</span> <span class="n">str2</span><span class="p">.</span><span class="n">replaceAll</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+
+  <span class="kd">var</span> <span class="n">elems</span> <span class="o">=</span> <span class="n">str2</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="n">item</span> <span class="k">in</span> <span class="n">elems</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="kt">num</span> <span class="o">=</span> <span class="kt">double</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+      <span class="n">print</span><span class="p">(</span><span class="s2">&quot; Found float </span><span class="si">$</span><span class="n">num</span><span class="s2"> in </span><span class="se">\&quot;</span><span class="si">$</span><span class="n">item</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">}</span>    
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="go">Go</h2>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;fmt&quot;</span>
+    <span class="s">&quot;strings&quot;</span>
+    <span class="s">&quot;time&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">name</span> <span class="o">:=</span> <span class="s">&quot;John&quot;</span>
+    <span class="nx">age</span> <span class="o">:=</span> <span class="mi">21</span>
+    <span class="nx">date</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Now</span><span class="p">()</span>
+
+    <span class="c1">// String interpolation</span>
+    <span class="nx">str1</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;%s age is %d, weekday is %s, %d:%d\n&quot;</span><span class="p">,</span>
+        <span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">,</span> <span class="nx">date</span><span class="p">.</span><span class="nx">Weekday</span><span class="p">(),</span> <span class="nx">date</span><span class="p">.</span><span class="nx">Hour</span><span class="p">(),</span> <span class="nx">date</span><span class="p">.</span><span class="nx">Minute</span><span class="p">())</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="nx">str1</span><span class="p">)</span>
+
+    <span class="nx">str2</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;four decimals %.4f, hex for %d: 0x%x \n&quot;</span><span class="p">,</span> <span class="mf">1.23456</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="nx">str2</span><span class="p">)</span>
+
+    <span class="nx">elems</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">Split</span><span class="p">(</span><span class="nx">str2</span><span class="p">,</span> <span class="s">&quot; &quot;</span><span class="p">)</span>
+    <span class="kd">var</span> <span class="nx">num</span> <span class="kt">float64</span>
+    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">item</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">elems</span> <span class="p">{</span>
+        <span class="nx">item</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">Trim</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="s">&quot;,:&quot;</span><span class="p">)</span>
+        <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Sscanf</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">num</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">err</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+            <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;Found float %f in \&quot;%s\&quot;\n&quot;</span><span class="p">,</span> <span class="nx">num</span><span class="p">,</span> <span class="nx">item</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="nim">Nim</h2>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="n">strformat</span>
+<span class="kn">import</span> <span class="n">times</span>
+<span class="kn">import</span> <span class="n">strutils</span>
+<span class="kn">import</span> <span class="n">sequtils</span>
+
+<span class="k">let</span>  <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;John&quot;</span><span class="p">;</span>
+<span class="k">let</span>  <span class="n">age</span> <span class="o">=</span> <span class="mi">21</span><span class="p">;</span>
+<span class="k">let</span>  <span class="n">date</span> <span class="o">=</span> <span class="n">now</span><span class="p">()</span>
+
+<span class="c"># String interpolation</span>
+<span class="k">let</span>  <span class="n">str1</span> <span class="o">=</span> <span class="o">&amp;</span><span class="s">&quot;{name} age is {age}, weekday is {date.weekday}, {date.hour}:{date.minute}&quot;</span>
+<span class="n">echo</span> <span class="n">str1</span>
+
+<span class="c"># String formatting</span>
+<span class="k">let</span> <span class="n">str2</span> <span class="o">=</span> <span class="o">&amp;</span><span class="s">&quot;four decimals: {0.123456:2.4f}, hex for {16}: 0x{16:X}&quot;</span>
+<span class="n">echo</span> <span class="n">str2</span>
+
+<span class="kd">var</span> <span class="n">elems</span> <span class="o">=</span> <span class="n">str2</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">)</span>
+
+<span class="c"># Eliminate &#39;,&#39;, &#39;:&#39;</span>
+<span class="n">elems</span> <span class="o">=</span>  <span class="n">map</span><span class="p">(</span><span class="n">elems</span><span class="p">,</span> <span class="k">proc</span> <span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="kt">string</span><span class="p">):</span> <span class="kt">string</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">))</span>
+<span class="n">elems</span> <span class="o">=</span>  <span class="n">map</span><span class="p">(</span><span class="n">elems</span><span class="p">,</span> <span class="k">proc</span> <span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="kt">string</span><span class="p">):</span> <span class="kt">string</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;:&quot;</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">))</span>
+
+<span class="c"># Parse string for numbers</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">elems</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">let</span> <span class="n">num</span> <span class="o">=</span> <span class="n">parseFloat</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="n">echo</span> <span class="o">&amp;</span><span class="s">&quot;Found float {num} in </span><span class="se">\&quot;</span><span class="s">{item}</span><span class="se">\&quot;</span><span class="s">&quot;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">discard</span>
+</pre></div>
+
+
+<h2 id="python">Python</h2>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;John&quot;</span>
+<span class="n">age</span> <span class="o">=</span> <span class="mi">21</span>
+<span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="c1"># String interpolation</span>
+<span class="n">str1</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;{name } age is {age}, today is {date.day}, {date.hour}:{date.minute}&quot;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span>
+
+<span class="c1">#  String formatting</span>
+<span class="n">str1</span> <span class="o">=</span> <span class="s2">&quot;{} age is {}, today us {}, {}:{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">day</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">hour</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">minute</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span>
+
+<span class="c1"># float, hexadecimal</span>
+<span class="n">str2</span> <span class="o">=</span> <span class="s2">&quot;four decimals: {:.4f}, hex for {}: 0x{:x}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">0.123456</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">str2</span><span class="p">)</span>
+
+<span class="c1"># parse string for numbers</span>
+<span class="n">elems</span> <span class="o">=</span> <span class="n">str2</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">elems</span><span class="p">:</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Found {num} in </span><span class="se">\&quot;</span><span class="s2">{item}</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+</pre></div>
+
+
+<h2 id="rust">Rust</h2>
+<div class="codehilite"><pre><span></span><span class="c1">// [dependencies]</span>
+<span class="c1">// chrono = &quot;*&quot;</span>
+<span class="k">use</span><span class="w"> </span><span class="n">chrono</span>::<span class="p">{</span><span class="n">Datelike</span><span class="p">,</span><span class="w"> </span><span class="n">Timelike</span><span class="p">,</span><span class="w"> </span><span class="n">Utc</span><span class="p">};</span><span class="w"></span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;John&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">21</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Utc</span>::<span class="n">now</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// STring formatting: string, int, date</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">str1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">format</span><span class="o">!</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="s">&quot;{} age is {} weekday is, {:?}, {:?}:{:?}&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">name</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">age</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">date</span><span class="p">.</span><span class="n">weekday</span><span class="p">(),</span><span class="w"></span>
+<span class="w">        </span><span class="n">date</span><span class="p">.</span><span class="n">hour</span><span class="p">(),</span><span class="w"></span>
+<span class="w">        </span><span class="n">date</span><span class="p">.</span><span class="n">minute</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">str1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//float, hex</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">str2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">format</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;four decimals: {:.4}, hex for {}: 0x{:X}&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.123456</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">str2</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Parse string for numbers</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">elems</span>: <span class="nb">Vec</span><span class="o">&lt;&amp;</span><span class="kt">str</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str2</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">).</span><span class="n">collect</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Eliminate &#39;,&#39;, &#39;:&#39;</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">elems1</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elems</span><span class="p">.</span><span class="n">into_iter</span><span class="p">().</span><span class="n">map</span><span class="p">(</span><span class="o">|</span><span class="n">x</span><span class="o">|</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">)).</span><span class="n">collect</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">elems1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elems1</span><span class="p">.</span><span class="n">into_iter</span><span class="p">().</span><span class="n">map</span><span class="p">(</span><span class="o">|</span><span class="n">x</span><span class="o">|</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;:&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">)).</span><span class="n">collect</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">elems1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">match</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="n">parse</span>::<span class="o">&lt;</span><span class="kt">f64</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nb">Ok</span><span class="p">(</span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot; Found float {} in </span><span class="se">\&quot;</span><span class="s">{}</span><span class="se">\&quot;</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">item</span><span class="p">),</span><span class="w"></span>
+<span class="w">            </span><span class="nb">Err</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+
+<h2 id="typescript">TypeScript</h2>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">name1</span> <span class="o">=</span> <span class="s2">&quot;John&quot;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">21</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+
+<span class="c1">// String interpolation (use backtick)</span>
+<span class="kd">let</span> <span class="nx">str1</span> <span class="o">=</span> <span class="sb">`</span><span class="si">${</span><span class="nx">name1</span><span class="si">}</span><span class="sb"> age is </span><span class="si">${</span><span class="nx">age</span><span class="si">}</span><span class="sb">, today is </span><span class="si">${</span><span class="nx">date</span><span class="p">.</span><span class="nx">getDay</span><span class="p">()</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="nx">date</span><span class="p">.</span><span class="nx">getHours</span><span class="p">()</span><span class="si">}</span><span class="sb">:</span><span class="si">${</span><span class="nx">date</span><span class="p">.</span><span class="nx">getMinutes</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str1</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="kd">let</span> <span class="nx">str2</span> <span class="o">=</span> <span class="sb">`four decimals: </span><span class="si">${</span><span class="mf">1.23456</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="sb">, hex for </span><span class="si">${</span><span class="nx">num</span><span class="si">}</span><span class="sb"> is 0x</span><span class="si">${</span><span class="nx">num</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str2</span><span class="p">);</span>
+
+<span class="c1">// Parse string for number</span>
+<span class="kd">let</span> <span class="nx">elems</span> <span class="o">=</span> <span class="nx">str2</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">);</span>
+<span class="nx">elems</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">item</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">num</span> <span class="o">=</span> <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">num</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Found float </span><span class="si">${</span><span class="nx">num</span><span class="si">}</span><span class="sb"> in </span><span class="err">\</span><span class="sb">&quot;</span><span class="si">${</span><span class="nx">item</span><span class="si">}</span><span class="err">\</span><span class="sb">&quot;`</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../List/" title="List" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                List
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Structure or Class/" title="Structure or Class" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Structure or Class
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.c648116f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>

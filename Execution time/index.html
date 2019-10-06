@@ -245,6 +245,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../String/" title="String" class="md-nav__link">
+      String
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../Structure or Class/" title="Structure or Class" class="md-nav__link">
       Structure or Class
     </a>
@@ -326,6 +338,13 @@
         <li class="md-nav__item">
   <a href="#rust" class="md-nav__link">
     Rust
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typescript" class="md-nav__link">
+    TypeScript
   </a>
   
 </li>
@@ -459,6 +478,13 @@
         <li class="md-nav__item">
   <a href="#rust" class="md-nav__link">
     Rust
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typescript" class="md-nav__link">
+    TypeScript
   </a>
   
 </li>
@@ -722,6 +748,40 @@
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">divisors</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
+</pre></div>
+
+
+<h2 id="typescript">TypeScript</h2>
+<div class="codehilite"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="s2">&quot;Elapsed&quot;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">perfects</span> <span class="o">=</span> <span class="nx">classifyPerfect</span><span class="p">(</span><span class="mi">20001</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="s2">&quot;Elapsed&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">perfects</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">classifyPerfect</span><span class="p">(</span><span class="nx">nnum</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">perfects</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">n</span> <span class="o">&lt;</span> <span class="nx">nnum</span><span class="p">;</span> <span class="nx">n</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">divisors</span> <span class="o">=</span> <span class="nx">findProperDivisor</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">divisors</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">divisors</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">x</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">sum</span> <span class="o">==</span> <span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">perfects</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">perfects</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">findProperDivisor</span><span class="p">(</span><span class="nx">n</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">divisors</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="kd">let</span> <span class="nx">endloop</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">n</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">endloop</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">n</span> <span class="o">%</span> <span class="nx">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">divisors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">divisors</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
                 
                   

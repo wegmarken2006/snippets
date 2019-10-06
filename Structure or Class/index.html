@@ -245,6 +245,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../String/" title="String" class="md-nav__link">
+      String
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -272,6 +284,13 @@
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#c35" class="md-nav__link">
+    C#
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#dart" class="md-nav__link">
@@ -417,6 +436,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#c35" class="md-nav__link">
+    C#
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dart" class="md-nav__link">
     Dart
   </a>
@@ -469,6 +495,60 @@
                 
                 
                 <h1 id="structure-or-class">Structure or Class</h1>
+<h2 id="c35">C#</h2>
+<div class="codehilite"><pre><span></span><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Person</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">firstName</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">secondName</span><span class="p">;</span>
+    <span class="c1">//constructor with default arguments</span>
+    <span class="k">public</span> <span class="nf">Person</span><span class="p">(</span><span class="kt">string</span> <span class="n">fname</span> <span class="p">=</span> <span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="kt">string</span> <span class="n">sname</span> <span class="p">=</span> <span class="s">&quot;Doe&quot;</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">firstName</span> <span class="p">=</span> <span class="n">fname</span><span class="p">;</span>
+        <span class="n">secondName</span> <span class="p">=</span> <span class="n">sname</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">Customer</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">Person</span> <span class="n">person</span><span class="p">;</span>
+    <span class="c1">//keep  balance private</span>
+    <span class="kt">double</span> <span class="n">balance</span> <span class="p">=</span> <span class="m">0.0</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="nf">Customer</span><span class="p">(</span><span class="n">Person</span> <span class="n">p</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">person</span> <span class="p">=</span> <span class="n">p</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">//methods</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">AddToBalance</span><span class="p">(</span><span class="kt">double</span> <span class="n">sum</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">balance</span> <span class="p">+=</span> <span class="n">sum</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="nf">GetBalance</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">balance</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">p1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Person</span><span class="p">(</span><span class="s">&quot;Mark&quot;</span><span class="p">);</span>
+        <span class="kt">var</span> <span class="n">c1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Customer</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span>
+
+        <span class="c1">//methos</span>
+        <span class="n">c1</span><span class="p">.</span><span class="n">AddToBalance</span><span class="p">(</span><span class="m">100.0</span><span class="p">);</span>
+        <span class="n">c1</span><span class="p">.</span><span class="n">AddToBalance</span><span class="p">(</span><span class="m">10.0</span><span class="p">);</span>
+
+        <span class="c1">//property</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;New {0} balance: {1}&quot;</span><span class="p">,</span> <span class="n">c1</span><span class="p">.</span><span class="n">person</span><span class="p">.</span><span class="n">firstName</span><span class="p">,</span> <span class="n">c1</span><span class="p">.</span><span class="n">GetBalance</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
 <h2 id="dart">Dart</h2>
 <div class="codehilite"><pre><span></span><span class="c1">//file moda.dart -&gt; package moda</span>
 <span class="kd">class</span> <span class="nc">Person</span> <span class="p">{</span>  
@@ -738,7 +818,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../List/" title="List" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../String/" title="String" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -747,7 +827,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                List
+                String
               </span>
             </div>
           </a>
