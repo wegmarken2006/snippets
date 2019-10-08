@@ -327,6 +327,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#typescript" class="md-nav__link">
+    TypeScript
+  </a>
+  
+</li>
+      
       
       
       
@@ -335,6 +342,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Union/" title="Union" class="md-nav__link">
+      Union
+    </a>
   </li>
 
         
@@ -473,6 +492,13 @@
         <li class="md-nav__item">
   <a href="#rust" class="md-nav__link">
     Rust
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typescript" class="md-nav__link">
+    TypeScript
   </a>
   
 </li>
@@ -739,7 +765,7 @@
 <span class="n">new_balance</span> <span class="o">=</span> <span class="n">c1</span><span class="o">.</span><span class="n">get_balance</span><span class="p">()</span>
 
 <span class="c1"># property</span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot; New {c1.person.first_name} balance: {new_balance}&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot; New {c1.person.firstName} balance: {new_balance}&quot;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -798,6 +824,47 @@
 <span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;New {} balance: {} &quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">c1</span><span class="p">.</span><span class="n">person</span><span class="p">.</span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">c1</span><span class="p">.</span><span class="n">get_balance</span><span class="p">());</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
+
+
+<h2 id="typescript">TypeScript</h2>
+<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">Person</span> <span class="p">{</span>
+    <span class="nx">firstName</span>: <span class="kt">string</span><span class="p">;</span>
+    <span class="nx">secondName</span>: <span class="kt">string</span><span class="p">;</span>
+    <span class="c1">//Default/Optional parameters </span>
+    <span class="kr">constructor</span><span class="p">(</span><span class="nx">fname</span>: <span class="kt">string</span> <span class="o">=</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="nx">sname</span>: <span class="kt">string</span> <span class="o">=</span> <span class="s2">&quot;Doe&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">=</span> <span class="nx">fname</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">secondName</span> <span class="o">=</span> <span class="nx">sname</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">Customer</span> <span class="p">{</span>
+    <span class="nx">person</span>: <span class="kt">Person</span><span class="p">;</span>
+    <span class="kr">private</span> <span class="nx">_balance</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="kr">constructor</span><span class="p">(</span><span class="nx">p</span>: <span class="kt">Person</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">person</span> <span class="o">=</span> <span class="nx">p</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">addToBalance</span><span class="p">(</span><span class="nx">sum</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_balance</span> <span class="o">+=</span> <span class="nx">sum</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">getBalance() {</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_balance</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">&quot;Mark&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">c1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Customer</span><span class="p">(</span><span class="nx">p1</span><span class="p">);</span>
+<span class="nx">c1</span><span class="p">.</span><span class="nx">person</span> <span class="o">=</span> <span class="nx">p1</span><span class="p">;</span>
+
+<span class="c1">//Method</span>
+<span class="nx">c1</span><span class="p">.</span><span class="nx">addToBalance</span><span class="p">(</span><span class="mf">100.0</span><span class="p">);</span>
+<span class="nx">c1</span><span class="p">.</span><span class="nx">addToBalance</span><span class="p">(</span><span class="mf">10.0</span><span class="p">);</span>
+
+<span class="c1">//Property</span>
+<span class="kd">var</span> <span class="nx">pname</span> <span class="o">=</span> <span class="nx">c1</span><span class="p">.</span><span class="nx">person</span><span class="p">.</span><span class="nx">firstName</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">balance</span> <span class="o">=</span> <span class="nx">c1</span><span class="p">.</span><span class="nx">getBalance</span><span class="p">();</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`New </span><span class="si">${</span><span class="nx">pname</span><span class="si">}</span><span class="sb"> balance: </span><span class="si">${</span><span class="nx">balance</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</pre></div>
                 
                   
                 
@@ -833,13 +900,13 @@
           </a>
         
         
-          <a href="../Execution time/" title="Execution time" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../Union/" title="Union" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Execution time
+                Union
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

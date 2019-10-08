@@ -263,6 +263,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Union/" title="Union" class="md-nav__link">
+      Union
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -508,7 +520,8 @@
                 
                 <h1 id="execution-time">Execution time</h1>
 <h2 id="c35">C#</h2>
-<div class="codehilite"><pre><span></span><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><span class="c1">// exe -&gt; dotnet publish -c Release -r win10-x64 --self-contained true</span>
+<span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System.Diagnostics</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System.Linq</span><span class="p">;</span>
@@ -522,7 +535,6 @@
         <span class="kt">var</span> <span class="n">perfects</span> <span class="p">=</span> <span class="n">classifyPerfects</span><span class="p">(</span><span class="m">20001</span><span class="p">);</span>
         <span class="n">timer</span><span class="p">.</span><span class="n">Stop</span><span class="p">();</span> <span class="c1">//END MEASURE</span>
 
-        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Perfects: {0}&quot;</span><span class="p">,</span> <span class="n">perfects</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>
         <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">item</span> <span class="k">in</span> <span class="n">perfects</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&quot;{0} &quot;</span><span class="p">,</span> <span class="n">item</span><span class="p">);</span>
@@ -534,6 +546,7 @@
         <span class="kt">var</span> <span class="n">perfects</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
         <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">n</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span> <span class="n">n</span> <span class="p">&lt;</span> <span class="n">num</span><span class="p">;</span> <span class="n">n</span><span class="p">++)</span> <span class="p">{</span>
             <span class="kt">var</span> <span class="n">divisors</span> <span class="p">=</span> <span class="n">findProperDivisor</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+            <span class="c1">// list_sum</span>
             <span class="kt">var</span> <span class="n">sum</span> <span class="p">=</span> <span class="n">divisors</span><span class="p">.</span><span class="n">Sum</span><span class="p">();</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">sum</span> <span class="p">==</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">perfects</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
@@ -645,7 +658,7 @@
 
 
 <h2 id="nim">Nim</h2>
-<div class="codehilite"><pre><span></span><span class="c"># compile with: nim c -d:release  &lt;filename&gt;</span>
+<div class="codehilite"><pre><span></span><span class="c"># exe -&gt; nim c -d:release  &lt;filename&gt;</span>
 <span class="kn">import</span> <span class="n">times</span> <span class="k">as</span> <span class="n">ts</span>
 <span class="kn">import</span> <span class="n">sequtils</span> <span class="k">as</span> <span class="n">sq</span>
 
@@ -672,7 +685,6 @@
 <span class="kd">var</span> <span class="n">perfects</span> <span class="o">=</span> <span class="n">classifyPerfects</span><span class="p">(</span><span class="mi">20001</span><span class="p">)</span>
 <span class="kd">var</span> <span class="n">endt</span> <span class="o">=</span> <span class="n">ts</span><span class="p">.</span><span class="n">getTime</span><span class="p">()</span> <span class="c"># END MEASURE</span>
 
-<span class="n">echo</span> <span class="n">perfects</span><span class="p">.</span><span class="n">len</span>
 <span class="n">echo</span> <span class="n">perfects</span>
 <span class="n">echo</span> <span class="n">endt</span> <span class="o">-</span> <span class="n">start</span>
 </pre></div>
@@ -694,6 +706,7 @@
     <span class="n">perfects</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
         <span class="n">divisors</span> <span class="o">=</span> <span class="n">find_proper_divisors</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="c1"># list_sum</span>
         <span class="n">sumd</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">divisors</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">sumd</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
             <span class="n">perfects</span> <span class="o">+=</span> <span class="p">[</span><span class="n">n</span><span class="p">]</span>
@@ -703,7 +716,6 @@
 <span class="n">perfects</span> <span class="o">=</span> <span class="n">classify_perfects</span><span class="p">(</span><span class="mi">20001</span><span class="p">)</span>
 <span class="n">end_time</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="c1"># END MEASURE</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Perfects: {len(perfects)}&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">perfects</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;{item}&quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Elapsed: {((end_time - start_time)*1000)} ms&quot;</span><span class="p">)</span>
@@ -711,17 +723,15 @@
 
 
 <h2 id="rust">Rust</h2>
-<div class="codehilite"><pre><span></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">time</span>::<span class="p">{</span><span class="n">Instant</span><span class="p">};</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><span class="c1">//exe -&gt; cargo build --release</span>
+<span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">time</span>::<span class="p">{</span><span class="n">Instant</span><span class="p">};</span><span class="w"></span>
 
 <span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Instant</span>::<span class="n">now</span><span class="p">();</span><span class="w"> </span><span class="c1">//START MEASURE</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">perfects</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">classify_perfect</span><span class="p">(</span><span class="mi">20001</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">new_now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Instant</span>::<span class="n">now</span><span class="p">();</span><span class="w">  </span><span class="c1">//END MEASURE</span>
 
-<span class="w">    </span><span class="c1">//Output</span>
-<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;Perfects: {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">perfects</span><span class="p">.</span><span class="n">len</span><span class="p">());</span><span class="w"></span>
 <span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">perfects</span><span class="p">);</span><span class="w"></span>
-
 <span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;Elapsed: {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">new_now</span><span class="p">.</span><span class="n">duration_since</span><span class="p">(</span><span class="n">now</span><span class="p">));</span><span class="w"></span>
 
 <span class="p">}</span><span class="w"></span>
@@ -731,6 +741,7 @@
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="p">..</span><span class="n">num</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">divisors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find_proper_divisors</span><span class="p">(</span><span class="n">n</span><span class="p">);</span><span class="w"></span>
 
+<span class="w">        </span><span class="c1">// list_sum</span>
 <span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">sum</span>: <span class="kt">i32</span> <span class="o">=</span><span class="w"> </span><span class="n">divisors</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">sum</span><span class="p">();</span><span class="w"></span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">            </span><span class="n">perfects</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">n</span><span class="p">);</span><span class="w"></span>
@@ -752,9 +763,9 @@
 
 
 <h2 id="typescript">TypeScript</h2>
-<div class="codehilite"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="s2">&quot;Elapsed&quot;</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">time</span><span class="p">(</span><span class="s2">&quot;Elapsed&quot;</span><span class="p">);</span> <span class="c1">//START MEASURE</span>
 <span class="kd">let</span> <span class="nx">perfects</span> <span class="o">=</span> <span class="nx">classifyPerfect</span><span class="p">(</span><span class="mi">20001</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="s2">&quot;Elapsed&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">timeEnd</span><span class="p">(</span><span class="s2">&quot;Elapsed&quot;</span><span class="p">);</span> <span class="c1">//END MEASURE</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">perfects</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
 
 <span class="kd">function</span> <span class="nx">classifyPerfect</span><span class="p">(</span><span class="nx">nnum</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">{</span>
@@ -803,7 +814,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../Structure or Class/" title="Structure or Class" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../Union/" title="Union" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -812,7 +823,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Structure or Class
+                Union
               </span>
             </div>
           </a>

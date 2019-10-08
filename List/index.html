@@ -303,6 +303,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#typescript" class="md-nav__link">
+    TypeScript
+  </a>
+  
+</li>
+      
       
       
       
@@ -334,6 +341,18 @@
   <li class="md-nav__item">
     <a href="../Structure or Class/" title="Structure or Class" class="md-nav__link">
       Structure or Class
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Union/" title="Union" class="md-nav__link">
+      Union
     </a>
   </li>
 
@@ -477,6 +496,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#typescript" class="md-nav__link">
+    TypeScript
+  </a>
+  
+</li>
+      
       
       
       
@@ -576,7 +602,6 @@
   <span class="kd">var</span> <span class="n">lst5</span> <span class="o">=</span> <span class="n">lst4</span><span class="p">.</span><span class="n">where</span><span class="p">((</span><span class="n">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">x</span> <span class="o">!=</span> <span class="s2">&quot;STR00&quot;</span><span class="p">);</span>
 
   <span class="n">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">$</span><span class="n">lst5</span><span class="s1">&#39;</span><span class="p">);</span>
-
 <span class="p">}</span>
 </pre></div>
 
@@ -739,6 +764,39 @@
 
 <span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">lst5</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
+</pre></div>
+
+
+<h2 id="typescript">TypeScript</h2>
+<div class="codehilite"><pre><span></span><span class="c1">// new empty list</span>
+<span class="kd">var</span> <span class="nx">lst1</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="c1">//new initialized list</span>
+<span class="kd">var</span> <span class="nx">lst2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;str20&quot;</span><span class="p">,</span> <span class="s2">&quot;str21&quot;</span><span class="p">];</span>
+
+<span class="c1">// append element</span>
+<span class="nx">lst1</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">&quot;str10&quot;</span><span class="p">);</span>
+
+<span class="c1">// append list</span>
+<span class="nx">lst1</span> <span class="o">=</span> <span class="nx">lst1</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">lst2</span><span class="p">);</span>
+
+<span class="c1">// add head element</span>
+<span class="nx">lst1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;str00&quot;</span><span class="p">].</span><span class="nx">concat</span><span class="p">(</span><span class="nx">lst1</span><span class="p">);</span>
+
+<span class="c1">//reverse</span>
+<span class="nx">lst1</span> <span class="o">=</span> <span class="nx">lst1</span><span class="p">.</span><span class="nx">reverse</span><span class="p">();</span>
+
+<span class="c1">// sublist[&quot;str21&quot;, &quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]-&gt;[&quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]</span>
+<span class="c1">// list length</span>
+<span class="kd">var</span> <span class="nx">lst3</span> <span class="o">=</span> <span class="nx">lst1</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">lst1</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">lst3</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+
+<span class="c1">// map and filter</span>
+<span class="kd">var</span> <span class="nx">lst4</span> <span class="o">=</span> <span class="nx">lst3</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">x</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">());</span>
+<span class="kd">var</span> <span class="nx">lst5</span> <span class="o">=</span> <span class="nx">lst4</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">x</span> <span class="o">!=</span> <span class="s2">&quot;STR00&quot;</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">lst5</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
 </pre></div>
                 
                   
