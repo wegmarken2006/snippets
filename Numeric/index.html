@@ -368,6 +368,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#go" class="md-nav__link">
+    Go
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     Python
   </a>
@@ -444,6 +451,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#go" class="md-nav__link">
+    Go
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     Python
   </a>
@@ -476,25 +490,124 @@
                 
                 <h1 id="numeric">Numeric</h1>
 <h2 id="c35">C#</h2>
-<div class="codehilite"><pre><span></span><span class="c1">//dotnet add package Microsoft.ML.Probabilistic</span>
+<div class="codehilite"><pre><span></span><span class="c1">//dotnet add package MathNet.Numerics</span>
+
 <span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">Microsoft.ML.Probabilistic.Math</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">MathNet.Numerics.Statistics</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">MathNet.Numerics.LinearAlgebra.Double</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Diagnostics</span><span class="p">;</span>
 
 <span class="k">public</span> <span class="k">class</span> <span class="nc">Program</span>
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="kt">double</span><span class="p">[,]</span> <span class="n">x</span> <span class="p">=</span> <span class="p">{{</span><span class="m">1.0</span><span class="p">,</span><span class="m">2.0</span><span class="p">,</span><span class="m">3.0</span><span class="p">},{</span><span class="m">3.0</span><span class="p">,</span><span class="m">4.0</span><span class="p">,</span><span class="m">5.0</span><span class="p">},{</span><span class="m">0.0</span><span class="p">,</span><span class="m">5.0</span><span class="p">,</span><span class="m">6.0</span><span class="p">}};</span>
-        <span class="kt">var</span> <span class="n">a</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Matrix</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+        <span class="kt">var</span> <span class="n">timer</span> <span class="p">=</span> <span class="n">Stopwatch</span><span class="p">.</span><span class="n">StartNew</span><span class="p">();</span> <span class="c1">//START MEASURE</span>
+        <span class="kt">double</span><span class="p">[,]</span> <span class="n">x</span> <span class="p">=</span> <span class="p">{</span> <span class="p">{</span> <span class="m">1.0</span><span class="p">,</span> <span class="m">2.0</span><span class="p">,</span> <span class="m">3.0</span> <span class="p">},</span> <span class="p">{</span> <span class="m">3.0</span><span class="p">,</span> <span class="m">4.0</span><span class="p">,</span> <span class="m">5.0</span> <span class="p">},</span> <span class="p">{</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">5.0</span><span class="p">,</span> <span class="m">6.0</span> <span class="p">}</span> <span class="p">};</span>
+        <span class="kt">var</span> <span class="n">a</span> <span class="p">=</span> <span class="n">DenseMatrix</span><span class="p">.</span><span class="n">OfArray</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
         <span class="kt">var</span> <span class="n">at</span> <span class="p">=</span> <span class="n">a</span><span class="p">.</span><span class="n">Transpose</span><span class="p">();</span>
-        <span class="kt">var</span> <span class="n">b</span> <span class="p">=</span> <span class="n">a</span><span class="p">*</span><span class="n">at</span><span class="p">;</span>
+        <span class="kt">var</span> <span class="n">i</span> <span class="p">=</span> <span class="n">a</span><span class="p">.</span><span class="n">Inverse</span><span class="p">();</span>
+        <span class="kt">var</span> <span class="n">v</span> <span class="p">=</span> <span class="n">a</span><span class="p">.</span><span class="n">ToColumnArrays</span><span class="p">();</span>
+        <span class="c1">//columns mean</span>
+        <span class="kt">var</span> <span class="n">am0</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">double</span><span class="p">&gt;();</span>
+        <span class="c1">//columns standard deviation</span>
+        <span class="kt">var</span> <span class="n">as0</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">double</span><span class="p">&gt;();</span>
+        <span class="c1">//columns max</span>
+        <span class="kt">var</span> <span class="n">amax0</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">double</span><span class="p">&gt;();</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">item</span> <span class="k">in</span> <span class="n">v</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">stats</span> <span class="p">=</span> <span class="k">new</span> <span class="n">DescriptiveStatistics</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+            <span class="n">am0</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">stats</span><span class="p">.</span><span class="n">Mean</span><span class="p">);</span>
+            <span class="n">as0</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">stats</span><span class="p">.</span><span class="n">StandardDeviation</span><span class="p">);</span>
+            <span class="n">amax0</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">stats</span><span class="p">.</span><span class="n">Maximum</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="kt">var</span> <span class="n">b</span> <span class="p">=</span> <span class="n">a</span> <span class="p">*</span> <span class="n">at</span><span class="p">;</span>
         <span class="kt">var</span> <span class="n">dt</span> <span class="p">=</span> <span class="n">a</span><span class="p">.</span><span class="n">Determinant</span><span class="p">();</span>
-        <span class="c1">//var i = a.Inverse(); not implemented yet</span>
-        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;{0}&quot;</span><span class="p">,</span> <span class="n">at</span><span class="p">);</span>
-        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;{0}&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
-        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;{0}&quot;</span><span class="p">,</span> <span class="n">dt</span><span class="p">);</span>
-        <span class="c1">//Console.WriteLine(&quot;{0}&quot;, i);</span>
+        <span class="n">timer</span><span class="p">.</span><span class="n">Stop</span><span class="p">();</span> <span class="c1">//END MEASURE</span>
+
+        <span class="n">am0</span><span class="p">.</span><span class="n">ForEach</span><span class="p">((</span><span class="n">x</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&quot;{0} &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">));</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+        <span class="n">as0</span><span class="p">.</span><span class="n">ForEach</span><span class="p">((</span><span class="n">x</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&quot;{0} &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">));</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+        <span class="n">amax0</span><span class="p">.</span><span class="n">ForEach</span><span class="p">((</span><span class="n">x</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&quot;{0} &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">));</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;{0} &quot;</span><span class="p">,</span> <span class="n">at</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;{0} &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;{0} &quot;</span><span class="p">,</span> <span class="n">dt</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;{0} &quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;\nElapsed: {0}ms&quot;</span><span class="p">,</span> <span class="n">timer</span><span class="p">.</span><span class="n">ElapsedMilliseconds</span><span class="p">);</span>
     <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="go">Go</h2>
+<div class="codehilite"><pre><span></span><span class="c1">//go get -u -t gonum.org/v1/gonum/...</span>
+
+<span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;fmt&quot;</span>
+    <span class="s">&quot;time&quot;</span>
+
+    <span class="s">&quot;gonum.org/v1/gonum/mat&quot;</span>
+    <span class="s">&quot;gonum.org/v1/gonum/stat&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">start</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Now</span><span class="p">()</span> <span class="c1">//START MEASURE</span>
+
+    <span class="nx">a</span> <span class="o">:=</span> <span class="nx">mat</span><span class="p">.</span><span class="nx">NewDense</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[]</span><span class="kt">float64</span><span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">})</span>
+    <span class="nx">rNum</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">Dims</span><span class="p">()</span>
+
+    <span class="c1">//columns mean</span>
+    <span class="nx">am0</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">float64</span><span class="p">{}</span>
+    <span class="c1">//columns standard deviation</span>
+    <span class="nx">as0</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">float64</span><span class="p">{}</span>
+    <span class="c1">//columns max</span>
+    <span class="nx">amax0</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">float64</span><span class="p">{}</span>
+
+    <span class="nx">weights</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">float64</span><span class="p">{}</span>
+    <span class="k">for</span> <span class="nx">index</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">index</span> <span class="p">&lt;</span> <span class="nx">rNum</span><span class="p">;</span> <span class="nx">index</span><span class="o">++</span> <span class="p">{</span>
+        <span class="nx">weights</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">weights</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="nx">index</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">index</span> <span class="p">&lt;</span> <span class="nx">rNum</span><span class="p">;</span> <span class="nx">index</span><span class="o">++</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">dst</span> <span class="p">[]</span><span class="kt">float64</span>
+        <span class="nx">col</span> <span class="o">:=</span> <span class="nx">mat</span><span class="p">.</span><span class="nx">Col</span><span class="p">(</span><span class="nx">dst</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">a</span><span class="p">)</span>
+        <span class="nx">mean</span><span class="p">,</span> <span class="nx">std</span> <span class="o">:=</span> <span class="nx">stat</span><span class="p">.</span><span class="nx">MeanStdDev</span><span class="p">(</span><span class="nx">col</span><span class="p">,</span> <span class="nx">weights</span><span class="p">)</span>
+        <span class="nx">am0</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">am0</span><span class="p">,</span> <span class="nx">mean</span><span class="p">)</span>
+        <span class="nx">as0</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">as0</span><span class="p">,</span> <span class="nx">std</span><span class="p">)</span>
+        <span class="nx">amax0</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">amax0</span><span class="p">,</span> <span class="nx">f64Max</span><span class="p">(</span><span class="nx">col</span><span class="p">))</span>
+    <span class="p">}</span>
+
+    <span class="nx">at</span> <span class="o">:=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">T</span><span class="p">()</span>
+    <span class="kd">var</span> <span class="nx">b</span> <span class="nx">mat</span><span class="p">.</span><span class="nx">Dense</span> <span class="c1">// construct a new zero-value matrix</span>
+    <span class="nx">b</span><span class="p">.</span><span class="nx">Mul</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">at</span><span class="p">)</span>
+    <span class="nx">dt</span> <span class="o">:=</span> <span class="nx">mat</span><span class="p">.</span><span class="nx">Det</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+    <span class="kd">var</span> <span class="nx">i</span> <span class="nx">mat</span><span class="p">.</span><span class="nx">Dense</span> <span class="c1">// construct a new zero-value matrix</span>
+    <span class="nx">i</span><span class="p">.</span><span class="nx">Inverse</span><span class="p">((</span><span class="nx">a</span><span class="p">))</span>
+
+    <span class="nx">duration</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Since</span><span class="p">(</span><span class="nx">start</span><span class="p">)</span> <span class="c1">//END MEASURE</span>
+
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;\n%v&quot;</span><span class="p">,</span> <span class="nx">am0</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;\n%v&quot;</span><span class="p">,</span> <span class="nx">as0</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;\n%v&quot;</span><span class="p">,</span> <span class="nx">amax0</span><span class="p">)</span>
+    <span class="nx">fat</span> <span class="o">:=</span> <span class="nx">mat</span><span class="p">.</span><span class="nx">Formatted</span><span class="p">(</span><span class="nx">at</span><span class="p">,</span> <span class="nx">mat</span><span class="p">.</span><span class="nx">Prefix</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">),</span> <span class="nx">mat</span><span class="p">.</span><span class="nx">Squeeze</span><span class="p">())</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;\n%v\n&quot;</span><span class="p">,</span> <span class="nx">fat</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;\n%v&quot;</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;\n%v&quot;</span><span class="p">,</span> <span class="nx">dt</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;\n%v&quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;\nElapsed: %v&quot;</span><span class="p">,</span> <span class="nx">duration</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">f64Max</span><span class="p">(</span><span class="nx">v</span> <span class="p">[]</span><span class="kt">float64</span><span class="p">)</span> <span class="kt">float64</span> <span class="p">{</span>
+    <span class="nx">max</span> <span class="o">:=</span> <span class="nx">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="nx">index</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">index</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">v</span><span class="p">);</span> <span class="nx">index</span><span class="o">++</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="nx">v</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span> <span class="p">&gt;</span> <span class="nx">max</span> <span class="p">{</span>
+            <span class="nx">max</span> <span class="p">=</span> <span class="nx">v</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">max</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -537,9 +650,13 @@
 
 <span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Instant</span>::<span class="n">now</span><span class="p">();</span><span class="w"> </span><span class="c1">//START MEASURE</span>
+
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">py_matrix</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mf">1.</span><span class="p">,</span><span class="w"> </span><span class="mf">2.</span><span class="p">,</span><span class="w"> </span><span class="mf">3.</span><span class="p">],</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mf">3.</span><span class="p">,</span><span class="w"> </span><span class="mf">4.</span><span class="p">,</span><span class="w"> </span><span class="mf">5.</span><span class="p">],</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="w"> </span><span class="mf">0.</span><span class="p">,</span><span class="w"> </span><span class="mf">5.</span><span class="p">,</span><span class="w"> </span><span class="mf">6.</span><span class="p">]]);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//columns mean</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">am0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">mean</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//columns standard deviation</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">as0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">sd</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//columns max</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">amax0</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">f64</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[];</span><span class="w"></span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">cols</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">row</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="n">len</span><span class="p">();</span><span class="w"></span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="p">..</span><span class="n">cols</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -549,6 +666,7 @@
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">at</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">dt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">.</span><span class="n">det</span><span class="p">();</span><span class="w"></span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">.</span><span class="n">inv</span><span class="p">().</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;inverse failed&quot;</span><span class="p">);</span><span class="w"></span>
+
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">new_now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Instant</span>::<span class="n">now</span><span class="p">();</span><span class="w">  </span><span class="c1">//END MEASURE</span>
 
 <span class="w">    </span><span class="n">am0</span><span class="p">.</span><span class="n">print</span><span class="p">();</span><span class="w"></span>
