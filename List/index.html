@@ -416,6 +416,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../Numeric/" title="Numeric" class="md-nav__link">
+      Numeric
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../Scaffold with CLI/" title="Scaffold with CLI" class="md-nav__link">
       Scaffold with CLI
     </a>
@@ -524,6 +536,7 @@
 <h2 id="c35">C#</h2>
 <div class="codehilite"><pre><span></span><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Linq</span><span class="p">;</span>
 
 <span class="k">public</span> <span class="k">class</span> <span class="nc">Program</span>
 <span class="p">{</span>
@@ -546,6 +559,10 @@
 
         <span class="c1">//reverse</span>
         <span class="n">lst1</span><span class="p">.</span><span class="n">Reverse</span><span class="p">();</span>
+
+        <span class="c1">//access elem with out of bounds check</span>
+        <span class="kt">var</span> <span class="n">elem</span>  <span class="p">=</span> <span class="n">lst1</span><span class="p">.</span><span class="n">ElementAtOrDefault</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">&quot;Elem *{0}* &quot;</span><span class="p">,</span> <span class="n">elem</span><span class="p">);</span>
 
         <span class="c1">//sublist[&quot;str21&quot;, &quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]-&gt;[&quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]</span>
         <span class="c1">//list length</span>
@@ -591,17 +608,29 @@
   <span class="c1">//reverse</span>
   <span class="n">lst1</span> <span class="o">=</span> <span class="n">lst1</span><span class="p">.</span><span class="n">reversed</span><span class="p">.</span><span class="n">toList</span><span class="p">();</span>
 
+  <span class="c1">//trap out of bounds access</span>
+  <span class="kd">var</span> <span class="n">elem</span> <span class="o">=</span> <span class="n">getElemAt</span><span class="p">(</span><span class="n">lst1</span><span class="p">,</span> <span class="m">100</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="s1">&#39;Elem *</span><span class="si">$</span><span class="n">elem</span><span class="s1">*&#39;</span><span class="p">);</span>
+
   <span class="c1">// sublist[&quot;str21&quot;, &quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]-&gt;[&quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]</span>
   <span class="c1">// list length</span>
   <span class="kd">var</span> <span class="n">lst3</span> <span class="o">=</span> <span class="n">lst1</span><span class="p">.</span><span class="n">sublist</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">lst1</span><span class="p">.</span><span class="n">length</span><span class="p">);</span>
-
   <span class="n">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">$</span><span class="n">lst3</span><span class="s1">&#39;</span><span class="p">);</span>
 
   <span class="c1">// map and filter</span>
   <span class="kd">var</span> <span class="n">lst4</span> <span class="o">=</span> <span class="n">lst3</span><span class="p">.</span><span class="n">map</span><span class="p">((</span><span class="n">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">x</span><span class="p">.</span><span class="n">toUpperCase</span><span class="p">());</span>
   <span class="kd">var</span> <span class="n">lst5</span> <span class="o">=</span> <span class="n">lst4</span><span class="p">.</span><span class="n">where</span><span class="p">((</span><span class="n">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">x</span> <span class="o">!=</span> <span class="s2">&quot;STR00&quot;</span><span class="p">);</span>
-
   <span class="n">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">$</span><span class="n">lst5</span><span class="s1">&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">String</span> <span class="n">getElemAt</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span> <span class="n">lst</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">String</span> <span class="n">elem</span><span class="p">;</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="n">elem</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">elem</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">elem</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -635,10 +664,13 @@
     <span class="c1">//reverse</span>
     <span class="nx">sort</span><span class="p">.</span><span class="nx">Sort</span><span class="p">(</span><span class="nx">sort</span><span class="p">.</span><span class="nx">Reverse</span><span class="p">(</span><span class="nx">lst1</span><span class="p">))</span>
 
+    <span class="c1">//trap out of bounds access</span>
+    <span class="nx">elem</span> <span class="o">:=</span> <span class="nx">getElemAt</span><span class="p">(</span><span class="nx">lst1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;\nElem *%v*&quot;</span><span class="p">,</span> <span class="nx">elem</span><span class="p">)</span>
+
     <span class="c1">//sublist[&quot;str21&quot;, &quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]-&gt;[&quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]</span>
     <span class="c1">//list length</span>
     <span class="nx">lst3</span> <span class="o">:=</span> <span class="nx">lst1</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="nx">lst1</span><span class="p">)]</span>
-
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;\n%v&quot;</span><span class="p">,</span> <span class="nx">lst3</span><span class="p">)</span>
 
     <span class="c1">//map and filter</span>
@@ -652,7 +684,6 @@
             <span class="nx">lst5</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">lst5</span><span class="p">,</span> <span class="nx">elem</span><span class="p">)</span>
         <span class="p">}</span>
     <span class="p">}</span>
-
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;\n%v&quot;</span><span class="p">,</span> <span class="nx">lst5</span><span class="p">)</span>
 <span class="p">}</span>
 
@@ -661,6 +692,16 @@
 <span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="nx">stringList</span><span class="p">)</span> <span class="nx">Len</span><span class="p">()</span> <span class="kt">int</span>           <span class="p">{</span> <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nx">p</span><span class="p">)</span> <span class="p">}</span>
 <span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="nx">stringList</span><span class="p">)</span> <span class="nx">Less</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">p</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">&lt;</span> <span class="nx">p</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">}</span>
 <span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="nx">stringList</span><span class="p">)</span> <span class="nx">Swap</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span>      <span class="p">{</span> <span class="nx">p</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">p</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">=</span> <span class="nx">p</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span> <span class="nx">p</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">getElemAt</span><span class="p">(</span><span class="nx">lst</span> <span class="nx">stringList</span><span class="p">,</span> <span class="nx">index</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+    <span class="k">defer</span> <span class="nx">recoverList</span><span class="p">()</span>
+    <span class="nx">elem</span> <span class="o">:=</span> <span class="nx">lst</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nx">elem</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">recoverList</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nb">recover</span><span class="p">()</span>
+<span class="p">}</span>
 </pre></div>
 
 
@@ -668,6 +709,13 @@
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="n">sequtils</span> <span class="k">as</span> <span class="n">sq</span>
 <span class="kn">import</span> <span class="n">algorithm</span> <span class="k">as</span> <span class="n">al</span>
 <span class="kn">import</span> <span class="n">strutils</span> <span class="k">as</span> <span class="n">st</span>
+<span class="kn">import</span> <span class="n">strformat</span>
+
+<span class="k">proc </span><span class="nf">getElemAt</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span> <span class="kt">seq</span><span class="o">[</span><span class="kt">string</span><span class="o">]</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="kt">int</span><span class="p">):</span> <span class="kt">string</span> <span class="o">=</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">lst</span><span class="o">[</span><span class="n">index</span><span class="o">]</span>
+    <span class="k">except</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="s">&quot;&quot;</span>
 
 <span class="c"># new empty list</span>
 <span class="kd">var</span> <span class="n">lst1</span><span class="p">:</span> <span class="kt">seq</span><span class="o">[</span><span class="kt">string</span><span class="o">]</span> <span class="o">=</span> <span class="o">@[]</span>
@@ -686,6 +734,10 @@
 
 <span class="c"># reverse</span>
 <span class="n">lst1</span> <span class="o">=</span> <span class="n">al</span><span class="p">.</span><span class="n">reversed</span><span class="p">(</span><span class="n">lst1</span><span class="p">)</span>
+
+<span class="c"># trap out of bounds access</span>
+<span class="k">let</span> <span class="n">elem</span> <span class="o">=</span> <span class="n">getElemAt</span><span class="p">(</span><span class="n">lst1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">echo</span> <span class="o">&amp;</span><span class="s">&quot;Elem *{elem}*&quot;</span> 
 
 <span class="c"># sublist[&quot;str21&quot;, &quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]-&gt;[&quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]</span>
 <span class="c"># list length</span>
@@ -710,6 +762,11 @@
 
 <span class="c1"># append element</span>
 <span class="n">lst1</span> <span class="o">=</span> <span class="n">lst1</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;str10&quot;</span><span class="p">]</span>
+<span class="k">def</span> <span class="nf">elem_at_index</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">lst</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
 <span class="c1"># append list</span>
 <span class="n">lst1</span> <span class="o">=</span> <span class="n">lst1</span> <span class="o">+</span> <span class="n">lst2</span>
@@ -719,6 +776,10 @@
 
 <span class="c1"># reverse</span>
 <span class="n">lst1</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+
+<span class="c1"># trap outof bounds access</span>
+<span class="n">elem</span> <span class="o">=</span> <span class="n">elem_at_index</span><span class="p">(</span><span class="n">lst1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Elem *{elem}*&quot;</span><span class="p">)</span>
 
 <span class="c1"># sublist[&quot;str21&quot;, &quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]-&gt;[&quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]</span>
 <span class="c1"># list length</span>
@@ -751,6 +812,14 @@
 
 <span class="w">    </span><span class="c1">//reverse</span>
 <span class="w">    </span><span class="n">lst1</span><span class="p">.</span><span class="n">reverse</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">//access elem with out of bounds check</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">elem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="n">lst1</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nb">None</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;not found&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nb">Some</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;Elem {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">elem</span><span class="p">);</span><span class="w"></span>
+
 
 <span class="w">    </span><span class="c1">// sublist[&quot;str21&quot;, &quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]-&gt;[&quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]</span>
 <span class="w">    </span><span class="c1">// list length</span>
