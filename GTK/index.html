@@ -1,0 +1,894 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="..">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>GTK - Runnable Snippets</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#c0ca33">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="lime" data-md-color-accent="lime">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#gtk" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Runnable Snippets" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">language</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Runnable Snippets
+            </span>
+            <span class="md-header-nav__topic">
+              
+                GTK
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Runnable Snippets" class="md-nav__button md-logo">
+      
+        <i class="md-icon">language</i>
+      
+    </a>
+    Runnable Snippets
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Playground links/" title="Playground links" class="md-nav__link">
+      Playground links
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Cross/" title="Cross Compilation" class="md-nav__link">
+      Cross Compilation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Data types
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Data types
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Dict/" title="Dictionary" class="md-nav__link">
+      Dictionary
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../List/" title="List" class="md-nav__link">
+      List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../String/" title="String" class="md-nav__link">
+      String
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Structure or Class/" title="Structure or Class" class="md-nav__link">
+      Structure or Class
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Union/" title="Union" class="md-nav__link">
+      Union
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Execution time/" title="Execution time" class="md-nav__link">
+      Execution time
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      File
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        File
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Write & Read lines/" title="Write & Read Lines" class="md-nav__link">
+      Write & Read Lines
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
+    
+    <label class="md-nav__link" for="nav-7">
+      GUI
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        GUI
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        GTK
+      </label>
+    
+    <a href="./" title="GTK" class="md-nav__link md-nav__link--active">
+      GTK
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#go" class="md-nav__link">
+    Go
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nim" class="md-nav__link">
+    Nim
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rust" class="md-nav__link">
+    Rust
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#builderui" class="md-nav__link">
+    builder.ui
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Numeric/" title="Numeric" class="md-nav__link">
+      Numeric
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Scaffold with CLI/" title="Scaffold with CLI" class="md-nav__link">
+      Scaffold with CLI
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../System command/" title="System command" class="md-nav__link">
+      System command
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#go" class="md-nav__link">
+    Go
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nim" class="md-nav__link">
+    Nim
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rust" class="md-nav__link">
+    Rust
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#builderui" class="md-nav__link">
+    builder.ui
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="gtk">GTK</h1>
+<h2 id="go">Go</h2>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;fmt&quot;</span>
+    <span class="s">&quot;os&quot;</span>
+
+    <span class="s">&quot;github.com/gotk3/gotk3/glib&quot;</span>
+    <span class="s">&quot;github.com/gotk3/gotk3/gtk&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">app</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">gtk</span><span class="p">.</span><span class="nx">ApplicationNew</span><span class="p">(</span><span class="s">&quot;org.gtk.example&quot;</span><span class="p">,</span> <span class="nx">glib</span><span class="p">.</span><span class="nx">APPLICATION_FLAGS_NONE</span><span class="p">)</span>
+
+    <span class="nx">count</span> <span class="o">:=</span> <span class="mi">0</span>
+
+    <span class="nx">app</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="s">&quot;activate&quot;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">b</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">gtk</span><span class="p">.</span><span class="nx">BuilderNew</span><span class="p">()</span>
+        <span class="nx">b</span><span class="p">.</span><span class="nx">AddFromFile</span><span class="p">(</span><span class="s">&quot;builder.ui&quot;</span><span class="p">)</span>
+
+        <span class="nx">obj</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">b</span><span class="p">.</span><span class="nx">GetObject</span><span class="p">(</span><span class="s">&quot;window&quot;</span><span class="p">)</span>
+        <span class="nx">win</span> <span class="o">:=</span> <span class="nx">obj</span><span class="p">.(</span><span class="o">*</span><span class="nx">gtk</span><span class="p">.</span><span class="nx">ApplicationWindow</span><span class="p">)</span>
+        <span class="nx">obj</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">b</span><span class="p">.</span><span class="nx">GetObject</span><span class="p">(</span><span class="s">&quot;button1&quot;</span><span class="p">)</span>
+        <span class="nx">button1</span> <span class="o">:=</span> <span class="nx">obj</span><span class="p">.(</span><span class="o">*</span><span class="nx">gtk</span><span class="p">.</span><span class="nx">Button</span><span class="p">)</span>
+        <span class="nx">obj</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">b</span><span class="p">.</span><span class="nx">GetObject</span><span class="p">(</span><span class="s">&quot;quit&quot;</span><span class="p">)</span>
+        <span class="nx">bQuit</span> <span class="o">:=</span> <span class="nx">obj</span><span class="p">.(</span><span class="o">*</span><span class="nx">gtk</span><span class="p">.</span><span class="nx">Button</span><span class="p">)</span>
+        <span class="nx">obj</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">b</span><span class="p">.</span><span class="nx">GetObject</span><span class="p">(</span><span class="s">&quot;label1&quot;</span><span class="p">)</span>
+        <span class="nx">label</span> <span class="o">:=</span> <span class="nx">obj</span><span class="p">.(</span><span class="o">*</span><span class="nx">gtk</span><span class="p">.</span><span class="nx">Label</span><span class="p">)</span>
+        <span class="nx">cStr</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot; %d&quot;</span><span class="p">,</span> <span class="nx">count</span><span class="p">)</span>
+        <span class="nx">label</span><span class="p">.</span><span class="nx">SetText</span><span class="p">(</span><span class="nx">cStr</span><span class="p">)</span>
+
+        <span class="nx">button1</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="s">&quot;clicked&quot;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nx">count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="nx">cStr</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot; %d&quot;</span><span class="p">,</span> <span class="nx">count</span><span class="p">)</span>
+            <span class="nx">label</span><span class="p">.</span><span class="nx">SetText</span><span class="p">(</span><span class="nx">cStr</span><span class="p">)</span>
+        <span class="p">})</span>
+
+        <span class="nx">bQuit</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="s">&quot;clicked&quot;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Bye&quot;</span><span class="p">)</span>
+            <span class="nx">win</span><span class="p">.</span><span class="nx">Destroy</span><span class="p">()</span>
+        <span class="p">})</span>
+
+        <span class="nx">win</span><span class="p">.</span><span class="nx">ShowAll</span><span class="p">()</span>
+        <span class="nx">app</span><span class="p">.</span><span class="nx">AddWindow</span><span class="p">(</span><span class="nx">win</span><span class="p">)</span>
+    <span class="p">})</span>
+
+    <span class="nx">app</span><span class="p">.</span><span class="nx">Run</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="nim">Nim</h2>
+<div class="codehilite"><pre><span></span><span class="c"># nimble install gintro</span>
+<span class="kn">import</span> <span class="n">gintro</span><span class="o">/[</span><span class="n">gtk</span><span class="p">,</span> <span class="n">gobject</span><span class="p">,</span> <span class="n">gio</span><span class="o">]</span>
+<span class="kn">import</span> <span class="n">strformat</span>
+
+<span class="kd">var</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">proc </span><span class="nf">hello</span><span class="p">(</span><span class="n">b</span><span class="p">:</span> <span class="n">Button</span><span class="p">;</span> <span class="n">lbl</span><span class="p">:</span> <span class="n">Label</span><span class="p">)</span> <span class="o">=</span>
+  <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="n">lbl</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="o">&amp;</span><span class="s">&quot; {count} &quot;</span>
+
+<span class="k">proc </span><span class="nf">quitApp</span><span class="p">(</span><span class="n">b</span><span class="p">:</span> <span class="n">Button</span><span class="p">;</span> <span class="n">app</span><span class="p">:</span> <span class="n">Application</span><span class="p">)</span> <span class="o">=</span>
+  <span class="n">echo</span> <span class="s">&quot;Bye&quot;</span>
+  <span class="n">quit</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="k">proc </span><span class="nf">appActivate</span><span class="p">(</span><span class="n">app</span><span class="p">:</span> <span class="n">Application</span><span class="p">)</span> <span class="o">=</span>
+  <span class="k">let</span> <span class="n">builder</span> <span class="o">=</span> <span class="n">newBuilder</span><span class="p">()</span>
+  <span class="k">discard</span> <span class="n">builder</span><span class="p">.</span><span class="n">addFromFile</span><span class="p">(</span><span class="s">&quot;builder.ui&quot;</span><span class="p">)</span>
+  <span class="k">let</span> <span class="n">window</span> <span class="o">=</span> <span class="n">builder</span><span class="p">.</span><span class="n">getApplicationWindow</span><span class="p">(</span><span class="s">&quot;window&quot;</span><span class="p">)</span>
+  <span class="n">window</span><span class="p">.</span><span class="n">setApplication</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+  <span class="kd">var</span> <span class="n">button</span> <span class="o">=</span> <span class="n">builder</span><span class="p">.</span><span class="n">getButton</span><span class="p">(</span><span class="s">&quot;button1&quot;</span><span class="p">)</span>
+  <span class="k">let</span> <span class="n">label</span> <span class="o">=</span> <span class="n">builder</span><span class="p">.</span><span class="n">getLabel</span><span class="p">(</span><span class="s">&quot;label1&quot;</span><span class="p">)</span>
+  <span class="n">button</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">&quot;clicked&quot;</span><span class="p">,</span> <span class="n">hello</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+  <span class="n">button</span> <span class="o">=</span> <span class="n">builder</span><span class="p">.</span><span class="n">getButton</span><span class="p">(</span><span class="s">&quot;quit&quot;</span><span class="p">)</span>
+  <span class="n">button</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">&quot;clicked&quot;</span><span class="p">,</span> <span class="n">quitApp</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
+
+<span class="k">proc </span><span class="nf">main</span> <span class="o">=</span>
+  <span class="k">let</span> <span class="n">app</span> <span class="o">=</span> <span class="n">newApplication</span><span class="p">(</span><span class="s">&quot;org.gtk.example&quot;</span><span class="p">)</span>
+  <span class="n">connect</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="s">&quot;activate&quot;</span><span class="p">,</span> <span class="n">appActivate</span><span class="p">)</span>
+  <span class="k">discard</span> <span class="n">run</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+
+<h2 id="python">Python</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Tested in Ubuntu 18.04</span>
+<span class="kn">import</span> <span class="nn">gi</span>
+<span class="n">gi</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s1">&#39;Gtk&#39;</span><span class="p">,</span> <span class="s1">&#39;3.0&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">gi.repository</span> <span class="kn">import</span> <span class="n">Gtk</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">on_button_clicked</span><span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">count</span>
+    <span class="n">label</span><span class="p">:</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Label</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span><span class="s2">&quot;label1&quot;</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">label</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot; {count}&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">on_b_quit_clicked</span><span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Bye&quot;</span><span class="p">)</span>
+    <span class="n">quit</span><span class="p">()</span>
+
+
+<span class="n">builder</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Builder</span><span class="p">()</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">add_from_file</span><span class="p">(</span><span class="s2">&quot;builder.ui&quot;</span><span class="p">)</span>
+<span class="n">window</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span><span class="s2">&quot;window&quot;</span><span class="p">)</span>
+<span class="n">button</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span><span class="s2">&quot;button1&quot;</span><span class="p">)</span>
+<span class="n">label</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span><span class="s2">&quot;label1&quot;</span><span class="p">)</span>
+<span class="n">b_quit</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span><span class="s2">&quot;quit&quot;</span><span class="p">)</span>
+
+<span class="n">button</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;clicked&quot;</span><span class="p">,</span> <span class="n">on_button_clicked</span><span class="p">)</span>
+<span class="n">b_quit</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;clicked&quot;</span><span class="p">,</span> <span class="n">on_b_quit_clicked</span><span class="p">)</span>
+<span class="n">window</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
+<span class="n">Gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+
+<h2 id="rust">Rust</h2>
+<div class="codehilite"><pre><span></span><span class="c1">//[dependencies]</span>
+<span class="c1">//gio = &quot;0.7.0&quot;</span>
+<span class="c1">//gtk = &quot;0.7.0&quot;</span>
+
+<span class="c1">//rustup default stable-x86_64-pc-windows-gnu</span>
+
+<span class="k">use</span><span class="w"> </span><span class="n">gio</span>::<span class="n">prelude</span>::<span class="o">*</span><span class="p">;</span><span class="w"></span>
+<span class="k">use</span><span class="w"> </span><span class="n">gtk</span>::<span class="n">prelude</span>::<span class="o">*</span><span class="p">;</span><span class="w"></span>
+<span class="k">use</span><span class="w"> </span><span class="n">gtk</span>::<span class="o">*</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">cell</span>::<span class="n">RefCell</span><span class="p">;</span><span class="w"></span>
+<span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">env</span>::<span class="n">args</span><span class="p">;</span><span class="w"></span>
+<span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">rc</span>::<span class="n">Rc</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">//utility functions</span>
+
+<span class="c1">//get generic object from builder</span>
+<span class="k">fn</span> <span class="nf">get_gen_obj</span><span class="o">&lt;</span><span class="n">T</span>: <span class="nc">IsA</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">id</span>: <span class="kp">&amp;</span><span class="kt">str</span><span class="p">,</span><span class="w"> </span><span class="n">builder</span>: <span class="kp">&amp;</span><span class="nc">Builder</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">T</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">gen_obj</span>: <span class="nc">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">builder</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">get_object</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">expect</span><span class="p">(</span><span class="o">&amp;</span><span class="n">format</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;Couldn&#39;t get {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="n">gen_obj</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">fn</span> <span class="nf">get_num_label_val</span><span class="p">(</span><span class="n">id</span>: <span class="kp">&amp;</span><span class="kt">str</span><span class="p">,</span><span class="w"> </span><span class="n">builder</span>: <span class="kp">&amp;</span><span class="nc">Builder</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">lbl1</span>: <span class="nc">Label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_gen_obj</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">builder</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">l1val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lbl1</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">get_text</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">and_then</span><span class="p">(</span><span class="o">|</span><span class="n">s</span><span class="o">|</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">trim</span><span class="p">().</span><span class="n">parse</span>::<span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">().</span><span class="n">ok</span><span class="p">())</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">unwrap_or</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">l1val</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">fn</span> <span class="nf">set_num_label_val</span><span class="p">(</span><span class="n">id</span>: <span class="kp">&amp;</span><span class="kt">str</span><span class="p">,</span><span class="w"> </span><span class="n">builder</span>: <span class="kp">&amp;</span><span class="nc">Builder</span><span class="p">,</span><span class="w"> </span><span class="n">val</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">lbl1</span>: <span class="nc">Label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_gen_obj</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">builder</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">lbl1</span><span class="p">.</span><span class="n">set_text</span><span class="p">(</span><span class="o">&amp;</span><span class="n">format</span><span class="o">!</span><span class="p">(</span><span class="s">&quot; {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">));</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="c1">// utility end</span>
+
+<span class="k">fn</span> <span class="nf">app_activate</span><span class="p">(</span><span class="n">application</span>: <span class="kp">&amp;</span><span class="nc">Application</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// First we get the file content.</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">glade_src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">include_str</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;builder.ui&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Then we call the Builder call.</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">builder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Builder</span>::<span class="n">new_from_string</span><span class="p">(</span><span class="n">glade_src</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">window</span>: <span class="nc">ApplicationWindow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_gen_obj</span><span class="p">(</span><span class="s">&quot;window&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">builder</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">window</span><span class="p">.</span><span class="n">set_application</span><span class="p">(</span><span class="nb">Some</span><span class="p">(</span><span class="n">application</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">button</span>: <span class="nc">Button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_gen_obj</span><span class="p">(</span><span class="s">&quot;button1&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">builder</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">label</span>: <span class="nc">Label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_gen_obj</span><span class="p">(</span><span class="s">&quot;label1&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">builder</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">label</span><span class="p">.</span><span class="n">set_text</span><span class="p">(</span><span class="o">&amp;</span><span class="n">format</span><span class="o">!</span><span class="p">(</span><span class="s">&quot; {} &quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//to avoid moving builder so that it can be accessed later</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">builder_rc_1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rc</span>::<span class="n">new</span><span class="p">(</span><span class="n">RefCell</span>::<span class="n">new</span><span class="p">(</span><span class="n">builder</span><span class="p">.</span><span class="n">clone</span><span class="p">()));</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">button</span><span class="p">.</span><span class="n">connect_clicked</span><span class="p">(</span><span class="k">move</span><span class="w"> </span><span class="o">|</span><span class="n">_</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">builder_ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="p">(</span><span class="o">*</span><span class="n">builder_rc_1</span><span class="p">.</span><span class="n">borrow</span><span class="p">());</span><span class="w"></span>
+<span class="w">        </span><span class="c1">//increment counter in label1 text</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_num_label_val</span><span class="p">(</span><span class="s">&quot;label1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">builder_ptr</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">set_num_label_val</span><span class="p">(</span><span class="s">&quot;label1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">builder_ptr</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">q_button</span>: <span class="nc">Button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_gen_obj</span><span class="p">(</span><span class="s">&quot;quit&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">builder</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">//avoid ownership check to use &quot;window&quot; inside the closure</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">window_weak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">window</span><span class="p">.</span><span class="n">downgrade</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">q_button</span><span class="p">.</span><span class="n">connect_clicked</span><span class="p">(</span><span class="k">move</span><span class="w"> </span><span class="o">|</span><span class="n">_</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;Bye&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">window</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">window_weak</span><span class="p">.</span><span class="n">upgrade</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">window</span><span class="p">.</span><span class="n">destroy</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
+<span class="w">    </span><span class="n">window</span><span class="p">.</span><span class="n">show_all</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Application</span>::<span class="n">new</span><span class="p">(</span><span class="nb">Some</span><span class="p">(</span><span class="s">&quot;org.gtk.example&quot;</span><span class="p">),</span><span class="w"> </span><span class="nb">Default</span>::<span class="n">default</span><span class="p">())</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;Initialization failed...&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">application</span><span class="p">.</span><span class="n">connect_activate</span><span class="p">(</span><span class="k">move</span><span class="w"> </span><span class="o">|</span><span class="n">app</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">app_activate</span><span class="p">(</span><span class="n">app</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
+<span class="w">    </span><span class="n">application</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="o">&amp;</span><span class="n">args</span><span class="p">().</span><span class="n">collect</span>::<span class="o">&lt;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="n">_</span><span class="o">&gt;&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+
+<h2 id="builderui">builder.ui</h2>
+<p>Generated with <a href="https://glade.gnome.org/">Glade</a></p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="c">&lt;!-- Generated with glade 3.22.1 --&gt;</span>
+<span class="nt">&lt;interface&gt;</span>
+  <span class="nt">&lt;requires</span> <span class="na">lib=</span><span class="s">&quot;gtk+&quot;</span> <span class="na">version=</span><span class="s">&quot;3.0&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;object</span> <span class="na">class=</span><span class="s">&quot;GtkApplicationWindow&quot;</span> <span class="na">id=</span><span class="s">&quot;window&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;visible&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;can_focus&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;border_width&quot;</span><span class="nt">&gt;</span>10<span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;title&quot;</span><span class="nt">&gt;</span>Grid<span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;child&gt;</span>
+      <span class="nt">&lt;placeholder/&gt;</span>
+    <span class="nt">&lt;/child&gt;</span>
+    <span class="nt">&lt;child&gt;</span>
+      <span class="nt">&lt;object</span> <span class="na">class=</span><span class="s">&quot;GtkGrid&quot;</span> <span class="na">id=</span><span class="s">&quot;grid&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;visible&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;can_focus&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;child&gt;</span>
+          <span class="nt">&lt;object</span> <span class="na">class=</span><span class="s">&quot;GtkButton&quot;</span> <span class="na">id=</span><span class="s">&quot;button1&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;label&quot;</span><span class="nt">&gt;</span>Button 1<span class="nt">&lt;/property&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;visible&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;can_focus&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;receives_default&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+          <span class="nt">&lt;/object&gt;</span>
+          <span class="nt">&lt;packing&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;left_attach&quot;</span><span class="nt">&gt;</span>0<span class="nt">&lt;/property&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;top_attach&quot;</span><span class="nt">&gt;</span>0<span class="nt">&lt;/property&gt;</span>
+          <span class="nt">&lt;/packing&gt;</span>
+        <span class="nt">&lt;/child&gt;</span>
+        <span class="nt">&lt;child&gt;</span>
+          <span class="nt">&lt;object</span> <span class="na">class=</span><span class="s">&quot;GtkButton&quot;</span> <span class="na">id=</span><span class="s">&quot;quit&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;label&quot;</span><span class="nt">&gt;</span>Quit<span class="nt">&lt;/property&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;visible&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;can_focus&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;receives_default&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+          <span class="nt">&lt;/object&gt;</span>
+          <span class="nt">&lt;packing&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;left_attach&quot;</span><span class="nt">&gt;</span>0<span class="nt">&lt;/property&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;top_attach&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/property&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;width&quot;</span><span class="nt">&gt;</span>2<span class="nt">&lt;/property&gt;</span>
+          <span class="nt">&lt;/packing&gt;</span>
+        <span class="nt">&lt;/child&gt;</span>
+        <span class="nt">&lt;child&gt;</span>
+          <span class="nt">&lt;object</span> <span class="na">class=</span><span class="s">&quot;GtkLabel&quot;</span> <span class="na">id=</span><span class="s">&quot;label1&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;visible&quot;</span><span class="nt">&gt;</span>True<span class="nt">&lt;/property&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;can_focus&quot;</span><span class="nt">&gt;</span>False<span class="nt">&lt;/property&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;label&quot;</span> <span class="na">translatable=</span><span class="s">&quot;yes&quot;</span><span class="nt">&gt;</span>label<span class="nt">&lt;/property&gt;</span>
+          <span class="nt">&lt;/object&gt;</span>
+          <span class="nt">&lt;packing&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;left_attach&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/property&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;top_attach&quot;</span><span class="nt">&gt;</span>0<span class="nt">&lt;/property&gt;</span>
+          <span class="nt">&lt;/packing&gt;</span>
+        <span class="nt">&lt;/child&gt;</span>
+      <span class="nt">&lt;/object&gt;</span>
+    <span class="nt">&lt;/child&gt;</span>
+  <span class="nt">&lt;/object&gt;</span>
+<span class="nt">&lt;/interface&gt;</span>
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../Write & Read lines/" title="Write & Read Lines" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Write & Read Lines
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Numeric/" title="Numeric" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Numeric
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.c648116f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>

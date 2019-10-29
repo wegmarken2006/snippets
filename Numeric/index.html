@@ -201,15 +201,27 @@
       
 
 
+  <li class="md-nav__item">
+    <a href="../Cross/" title="Cross Compilation" class="md-nav__link">
+      Cross Compilation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-4">
       Data types
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-4">
         Data types
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -299,13 +311,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-5">
+    <label class="md-nav__link" for="nav-6">
       File
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <label class="md-nav__title" for="nav-6">
         File
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -319,6 +331,42 @@
   <li class="md-nav__item">
     <a href="../Write & Read lines/" title="Write & Read Lines" class="md-nav__link">
       Write & Read Lines
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      GUI
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        GUI
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../GTK/" title="GTK" class="md-nav__link">
+      GTK
     </a>
   </li>
 
@@ -383,6 +431,13 @@
       
         <li class="md-nav__item">
   <a href="#rust" class="md-nav__link">
+    Rust
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rust_1" class="md-nav__link">
     Rust
   </a>
   
@@ -466,6 +521,13 @@
       
         <li class="md-nav__item">
   <a href="#rust" class="md-nav__link">
+    Rust
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rust_1" class="md-nav__link">
     Rust
   </a>
   
@@ -679,6 +741,67 @@
 <span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;Elapsed: {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">new_now</span><span class="p">.</span><span class="n">duration_since</span><span class="p">(</span><span class="n">now</span><span class="p">));</span><span class="w"> </span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
+
+
+<h2 id="rust_1">Rust</h2>
+<div class="codehilite"><pre><span></span><span class="c1">//[dependencies]</span>
+<span class="c1">//ndarray = &quot;0.13.0&quot;</span>
+<span class="c1">//ndarray-linalg = { version = &quot;0.12&quot;, features = [&quot;intel-mkl&quot;] }</span>
+<span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">time</span>::<span class="n">Instant</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">ndarray</span><span class="p">;</span><span class="w"></span>
+<span class="k">extern</span><span class="w"> </span><span class="k">crate</span><span class="w"> </span><span class="n">ndarray_linalg</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">use</span><span class="w"> </span><span class="n">ndarray</span>::<span class="o">*</span><span class="p">;</span><span class="w"></span>
+<span class="c1">//use ndarray::prelude::*;</span>
+<span class="c1">//use ndarray_linalg::cholesky::{DeterminantC, InverseC};</span>
+<span class="k">use</span><span class="w"> </span><span class="n">ndarray_linalg</span>::<span class="o">*</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">pub</span><span class="w"> </span><span class="k">trait</span><span class="w"> </span><span class="n">VecStats</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">max</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">f64</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">VecStats</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Array1</span><span class="o">&lt;</span><span class="kt">f64</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">max</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">f64</span> <span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">max_el</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">self</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">elem</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="bp">self</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="o">*</span><span class="n">elem</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max_el</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">max_el</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">elem</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">max_el</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Instant</span>::<span class="n">now</span><span class="p">();</span><span class="w"> </span><span class="c1">//START MEASURE</span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">a</span>: <span class="nc">Array2</span><span class="o">&lt;</span><span class="kt">f64</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="o">!</span><span class="p">[[</span><span class="mf">1.</span><span class="p">,</span><span class="w"> </span><span class="mf">2.</span><span class="p">,</span><span class="w"> </span><span class="mf">3.</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mf">3.</span><span class="p">,</span><span class="w"> </span><span class="mf">4.</span><span class="p">,</span><span class="w"> </span><span class="mf">5.</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span><span class="w"> </span><span class="mf">5.</span><span class="p">,</span><span class="w"> </span><span class="mf">6.</span><span class="p">]];</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//let a = Array::from_shape_vec((3, 3), vec![1., 2., 3., 3., 4., 5., 0., 5., 6.]).unwrap();</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">am0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">mean_axis</span><span class="p">(</span><span class="n">Axis</span><span class="p">(</span><span class="mi">0</span><span class="p">)).</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;Mean error&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">as0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">std_axis</span><span class="p">(</span><span class="n">Axis</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="mf">1.</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">amax0</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">f64</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[];</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">cols</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">ncols</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="p">..</span><span class="n">cols</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">amax0</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">column</span><span class="p">(</span><span class="n">index</span><span class="p">).</span><span class="n">to_owned</span><span class="p">().</span><span class="n">max</span><span class="p">())</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">t</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="o">&amp;</span><span class="n">at</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">inv</span><span class="p">().</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;Inversion error&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">dt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">det</span><span class="p">().</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;Determinant error&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">new_now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Instant</span>::<span class="n">now</span><span class="p">();</span><span class="w"> </span><span class="c1">//END MEASURE</span>
+
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">am0</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">as0</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">amax0</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">at</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dt</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;Elapsed: {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">new_now</span><span class="p">.</span><span class="n">duration_since</span><span class="p">(</span><span class="n">now</span><span class="p">));</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
                 
                   
                 
@@ -699,7 +822,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../Write & Read lines/" title="Write & Read Lines" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../GTK/" title="GTK" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -708,7 +831,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Write & Read Lines
+                GTK
               </span>
             </div>
           </a>
