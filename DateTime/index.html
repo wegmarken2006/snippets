@@ -1,0 +1,1108 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="..">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Date & Time - Runnable Snippets</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#c0ca33">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="lime" data-md-color-accent="lime">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#date-time" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Runnable Snippets" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">language</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Runnable Snippets
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Date & Time
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Runnable Snippets" class="md-nav__button md-logo">
+      
+        <i class="md-icon">language</i>
+      
+    </a>
+    Runnable Snippets
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Tools, Tips, Trick
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Tools, Tips, Trick
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Playground links/" title="Playground links" class="md-nav__link">
+      Playground links
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Scaffold with CLI/" title="Scaffold with CLI" class="md-nav__link">
+      Scaffold with CLI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Packages/" title="Packages" class="md-nav__link">
+      Packages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Installation tricks/" title="Installation tricks" class="md-nav__link">
+      Installation tricks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Cross/" title="Cross Compilation" class="md-nav__link">
+      Cross Compilation
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Concurrency
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Concurrency
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Async/" title="Async" class="md-nav__link">
+      Async
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Channels/" title="Channels" class="md-nav__link">
+      Channels
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Constructs
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Constructs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../For Enumerate/" title="For Enumerate" class="md-nav__link">
+      For Enumerate
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../For Range/" title="For Range" class="md-nav__link">
+      For Range
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Data types
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Data types
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Date & Time
+      </label>
+    
+    <a href="./" title="Date & Time" class="md-nav__link md-nav__link--active">
+      Date & Time
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dart" class="md-nav__link">
+    Dart
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go" class="md-nav__link">
+    Go
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rust" class="md-nav__link">
+    Rust
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Dict/" title="Dictionary" class="md-nav__link">
+      Dictionary
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../List/" title="List" class="md-nav__link">
+      List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../String/" title="String" class="md-nav__link">
+      String
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Structure or Class/" title="Structure or Class" class="md-nav__link">
+      Structure or Class
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Union/" title="Union" class="md-nav__link">
+      Union
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Execution time/" title="Execution time" class="md-nav__link">
+      Execution time
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      FFI
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        FFI
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../C Callable/" title="C Callable" class="md-nav__link">
+      C Callable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../C Call/" title="C Call" class="md-nav__link">
+      C Call
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      File
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        File
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Write & Read lines/" title="Write & Read Lines" class="md-nav__link">
+      Write & Read Lines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../CSV/" title="CSV" class="md-nav__link">
+      CSV
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Frameworks
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Frameworks
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Flutter/" title="Flutter" class="md-nav__link">
+      Flutter
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      GUI
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        GUI
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../GTK/" title="GTK" class="md-nav__link">
+      GTK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Numeric/" title="Numeric" class="md-nav__link">
+      Numeric
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../System command/" title="System command" class="md-nav__link">
+      System command
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      Video
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        Video
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../VideoCapture/" title="Video Capture" class="md-nav__link">
+      Video Capture
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../FaceDetect/" title="Video Capture" class="md-nav__link">
+      Video Capture
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dart" class="md-nav__link">
+    Dart
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go" class="md-nav__link">
+    Go
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rust" class="md-nav__link">
+    Rust
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="date-time">Date &amp; Time</h1>
+<h2 id="dart">Dart</h2>
+<div class="codehilite"><pre><span></span><span class="c1">//dependencies:</span>
+<span class="c1">//  intl: ^0.16.1</span>
+
+<span class="k">import</span> <span class="s1">&#39;package:intl/intl.dart&#39;</span><span class="p">;</span>
+
+<span class="n">main</span><span class="p">()</span> <span class="kd">async</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="n">today</span> <span class="o">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">now</span><span class="p">();</span>
+
+  <span class="c1">// from date to string</span>
+  <span class="kd">var</span> <span class="n">today_str</span> <span class="o">=</span> <span class="n">DateFormat</span><span class="p">(</span><span class="s1">&#39;yyyy-MM-dd**kk:mm:ss&#39;</span><span class="p">).</span><span class="n">format</span><span class="p">(</span><span class="n">today</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="n">date_str</span> <span class="o">=</span> <span class="n">DateFormat</span><span class="p">(</span><span class="s1">&#39;dd-MM-yyyy&#39;</span><span class="p">).</span><span class="n">format</span><span class="p">(</span><span class="n">today</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="n">time_str</span> <span class="o">=</span> <span class="n">DateFormat</span><span class="p">(</span><span class="s1">&#39;kk:mm&#39;</span><span class="p">).</span><span class="n">format</span><span class="p">(</span><span class="n">today</span><span class="p">);</span>
+
+  <span class="c1">// from string to date</span>
+  <span class="kd">var</span> <span class="n">today2</span> <span class="o">=</span> <span class="n">DateFormat</span><span class="p">(</span><span class="s1">&#39;yyyy-MM-dd**kk:mm:ss&#39;</span><span class="p">).</span><span class="n">parse</span><span class="p">(</span><span class="n">today_str</span><span class="p">);</span>
+
+  <span class="kd">var</span> <span class="n">hour</span> <span class="o">=</span> <span class="n">today</span><span class="p">.</span><span class="n">hour</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="n">minute</span> <span class="o">=</span> <span class="n">today</span><span class="p">.</span><span class="n">minute</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="n">day</span> <span class="o">=</span> <span class="n">today</span><span class="p">.</span><span class="n">day</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="n">month</span> <span class="o">=</span> <span class="n">today</span><span class="p">.</span><span class="n">month</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="n">year</span> <span class="o">=</span> <span class="n">today</span><span class="p">.</span><span class="n">year</span><span class="p">;</span>
+
+  <span class="c1">// weekday</span>
+  <span class="kd">var</span> <span class="n">days_of_week</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;sun&quot;</span><span class="p">,</span> <span class="s2">&quot;mon&quot;</span><span class="p">,</span> <span class="s2">&quot;tue&quot;</span><span class="p">,</span> <span class="s2">&quot;wed&quot;</span><span class="p">,</span> <span class="s2">&quot;thu&quot;</span><span class="p">,</span> <span class="s2">&quot;fry&quot;</span><span class="p">,</span> <span class="s2">&quot;sat&quot;</span><span class="p">];</span>
+  <span class="kd">var</span> <span class="n">weekday</span> <span class="o">=</span> <span class="n">days_of_week</span><span class="p">[</span><span class="n">today</span><span class="p">.</span><span class="n">weekday</span><span class="p">];</span>
+
+  <span class="kd">var</span> <span class="n">tomorrow</span> <span class="o">=</span> <span class="n">today</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Duration</span><span class="p">(</span><span class="nl">days:</span> <span class="m">1</span><span class="p">));</span>
+
+  <span class="c1">// difference between dates</span>
+  <span class="kd">var</span> <span class="n">next_week</span> <span class="o">=</span> <span class="n">today</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Duration</span><span class="p">(</span><span class="nl">days:</span> <span class="m">7</span><span class="p">));</span>
+  <span class="kd">var</span> <span class="n">delta_w</span> <span class="o">=</span> <span class="n">next_week</span><span class="p">.</span><span class="n">difference</span><span class="p">(</span><span class="n">today</span><span class="p">).</span><span class="n">inDays</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="n">next_year</span> <span class="o">=</span> <span class="n">today</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">Duration</span><span class="p">(</span><span class="nl">days:</span> <span class="m">366</span><span class="p">));</span>
+  <span class="kd">var</span> <span class="n">n_year</span> <span class="o">=</span> <span class="n">next_year</span><span class="p">.</span><span class="n">year</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="n">delta_y</span> <span class="o">=</span> <span class="n">n_year</span> <span class="o">-</span> <span class="n">year</span><span class="p">;</span>
+
+  <span class="n">print</span><span class="p">(</span><span class="n">today</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="n">today_str</span><span class="p">);</span>
+  <span class="n">print</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">$</span><span class="n">day</span><span class="s1">-</span><span class="si">$</span><span class="n">month</span><span class="s1">-</span><span class="si">$</span><span class="n">year</span><span class="s1">  </span><span class="si">$</span><span class="n">hour</span><span class="s1">:</span><span class="si">$</span><span class="n">minute</span><span class="s1">&#39;</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="n">date_str</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="n">time_str</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="n">today2</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="n">weekday</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="n">tomorrow</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="n">delta_w</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="n">delta_y</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="go">Go</h2>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;fmt&quot;</span>
+    <span class="s">&quot;time&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">today</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Now</span><span class="p">()</span>
+    <span class="nx">year</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">Year</span><span class="p">()</span>
+    <span class="nx">month</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">Month</span><span class="p">()</span>
+    <span class="nx">day</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">Day</span><span class="p">()</span>
+    <span class="nx">hour</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">Hour</span><span class="p">()</span>
+    <span class="nx">minute</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">Minute</span><span class="p">()</span>
+    <span class="nx">second</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">Second</span><span class="p">()</span>
+
+    <span class="c1">// from date to string</span>
+    <span class="nx">todayStr</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;%d-%02d-%02d**%02d:%02d:%02d&quot;</span><span class="p">,</span>
+        <span class="nx">year</span><span class="p">,</span> <span class="nx">month</span><span class="p">,</span> <span class="nx">day</span><span class="p">,</span> <span class="nx">hour</span><span class="p">,</span> <span class="nx">minute</span><span class="p">,</span> <span class="nx">second</span><span class="p">)</span>
+    <span class="nx">dateStr</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">Format</span><span class="p">(</span><span class="s">&quot;2006-01-02&quot;</span><span class="p">)</span>
+    <span class="nx">timeStr</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">Format</span><span class="p">(</span><span class="s">&quot;15:04:05&quot;</span><span class="p">)</span>
+
+    <span class="c1">// from string to date</span>
+    <span class="nx">today2</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Parse</span><span class="p">(</span><span class="s">&quot;2006-01-02**15:04:05&quot;</span><span class="p">,</span> <span class="nx">todayStr</span><span class="p">)</span>
+
+    <span class="c1">// weekday</span>
+    <span class="nx">weekday</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">Weekday</span><span class="p">()</span>
+
+    <span class="nx">tomorrow</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">AddDate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1">// difference between dates</span>
+    <span class="nx">nextWeek</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">AddDate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+    <span class="nx">deltaW</span> <span class="o">:=</span> <span class="nx">nextWeek</span><span class="p">.</span><span class="nx">Sub</span><span class="p">(</span><span class="nx">today</span><span class="p">).</span><span class="nx">Hours</span><span class="p">()</span> <span class="o">/</span> <span class="mi">24</span>
+    <span class="nx">nextYear</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">AddDate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="nx">nYear</span> <span class="o">:=</span> <span class="nx">nextYear</span><span class="p">.</span><span class="nx">Year</span><span class="p">()</span>
+    <span class="nx">deltaY</span> <span class="o">:=</span> <span class="nx">nYear</span> <span class="o">-</span> <span class="nx">year</span>
+
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%v\n&quot;</span><span class="p">,</span> <span class="nx">today</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%v\n&quot;</span><span class="p">,</span> <span class="nx">todayStr</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%v\n&quot;</span><span class="p">,</span> <span class="nx">dateStr</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%v\n&quot;</span><span class="p">,</span> <span class="nx">timeStr</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%v\n&quot;</span><span class="p">,</span> <span class="nx">today2</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%v\n&quot;</span><span class="p">,</span> <span class="nx">weekday</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%v\n&quot;</span><span class="p">,</span> <span class="nx">tomorrow</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%v\n&quot;</span><span class="p">,</span> <span class="nx">deltaW</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%v\n&quot;</span><span class="p">,</span> <span class="nx">deltaY</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="python">Python</h2>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+<span class="kn">from</span> <span class="nn">dateutil</span> <span class="kn">import</span> <span class="n">relativedelta</span>
+
+<span class="n">today</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+
+<span class="c1"># from date to string</span>
+<span class="n">today_str</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">today</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">**%H:%M:%S&#39;</span><span class="p">)</span>
+<span class="n">date_str</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">today</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%d</span><span class="s1">-%m-%Y&#39;</span><span class="p">)</span>
+<span class="n">time_str</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">today</span><span class="p">,</span> <span class="s1">&#39;%H:%M&#39;</span><span class="p">)</span>
+
+<span class="c1"># from string to date</span>
+<span class="n">today2</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">today_str</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">**%H:%M:%S&#39;</span><span class="p">)</span>
+<span class="n">hour</span> <span class="o">=</span> <span class="n">today</span><span class="o">.</span><span class="n">hour</span>
+<span class="n">minute</span> <span class="o">=</span> <span class="n">today</span><span class="o">.</span><span class="n">minute</span>
+<span class="n">day</span> <span class="o">=</span> <span class="n">today</span><span class="o">.</span><span class="n">day</span>
+<span class="n">month</span> <span class="o">=</span> <span class="n">today</span><span class="o">.</span><span class="n">month</span>
+<span class="n">year</span> <span class="o">=</span> <span class="n">today</span><span class="o">.</span><span class="n">year</span>
+
+<span class="c1"># weekday</span>
+<span class="n">days_of_week</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;mon&quot;</span><span class="p">,</span> <span class="s2">&quot;tue&quot;</span><span class="p">,</span> <span class="s2">&quot;wed&quot;</span><span class="p">,</span> <span class="s2">&quot;thu&quot;</span><span class="p">,</span> <span class="s2">&quot;fry&quot;</span><span class="p">,</span> <span class="s2">&quot;sat&quot;</span><span class="p">,</span> <span class="s2">&quot;sun&quot;</span><span class="p">]</span>
+<span class="n">weekday</span> <span class="o">=</span> <span class="n">days_of_week</span><span class="p">[</span><span class="n">today</span><span class="o">.</span><span class="n">weekday</span><span class="p">()]</span>
+
+<span class="n">tomorrow</span> <span class="o">=</span> <span class="n">today</span> <span class="o">+</span> <span class="n">dt</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">tomorrow_str</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">tomorrow</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%d</span><span class="s1">-%m-%Y&#39;</span><span class="p">)</span>
+
+<span class="c1"># difference between dates</span>
+<span class="n">next_week</span> <span class="o">=</span> <span class="n">today</span> <span class="o">+</span> <span class="n">dt</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">delta_w</span> <span class="o">=</span> <span class="p">(</span><span class="n">next_week</span> <span class="o">-</span><span class="n">today</span><span class="p">)</span><span class="o">.</span><span class="n">days</span>
+<span class="n">next_year</span> <span class="o">=</span> <span class="n">today</span> <span class="o">+</span> <span class="n">dt</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">366</span><span class="p">)</span>
+<span class="n">delta_y</span> <span class="o">=</span> <span class="p">(</span><span class="n">relativedelta</span><span class="o">.</span><span class="n">relativedelta</span><span class="p">(</span><span class="n">next_year</span><span class="p">,</span> <span class="n">today</span><span class="p">))</span><span class="o">.</span><span class="n">years</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">today_str</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{day}</span><span class="s1">-</span><span class="si">{month}</span><span class="s1">-</span><span class="si">{year}</span><span class="s1">  </span><span class="si">{hour}</span><span class="s1">:</span><span class="si">{minute}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">date_str</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">time_str</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">today2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">weekday</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tomorrow_str</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">delta_w</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">delta_y</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="rust">Rust</h2>
+<div class="codehilite"><pre><span></span><span class="c1">// chrono = &quot;*&quot;</span>
+<span class="k">use</span><span class="w"> </span><span class="n">chrono</span>::<span class="p">{</span><span class="n">Datelike</span><span class="p">,</span><span class="w"> </span><span class="n">Duration</span><span class="p">,</span><span class="w"> </span><span class="n">NaiveDateTime</span><span class="p">,</span><span class="w"> </span><span class="n">Timelike</span><span class="p">,</span><span class="w"> </span><span class="n">Utc</span><span class="p">};</span><span class="w"></span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">today</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Utc</span>::<span class="n">now</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">//from date to string</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">today_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">format</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;%Y-%m-%d**%H:%M:%S&quot;</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">date_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">format</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;%d-%m-%Y&quot;</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">time_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">format</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;%H:%M&quot;</span><span class="p">));</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// from string to date</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">today2</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">        </span><span class="n">NaiveDateTime</span>::<span class="n">parse_from_str</span><span class="p">(</span><span class="o">&amp;</span><span class="n">today_str</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%Y-%m-%d**%H:%M:%S&quot;</span><span class="p">).</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;Error parse&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">hour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">hour</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">minute</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">minute</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">day</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">month</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">year</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// weekday</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">weekday</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="n">weekday</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">tomorrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">today</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Duration</span>::<span class="n">days</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">tomorrow_str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">format</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">tomorrow</span><span class="p">.</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;%d-%m-%Y&quot;</span><span class="p">));</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// difference between dates</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">next_week</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">today</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Duration</span>::<span class="n">days</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">delta_w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">next_week</span><span class="p">.</span><span class="n">signed_duration_since</span><span class="p">(</span><span class="n">today</span><span class="p">).</span><span class="n">num_days</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">next_year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">today</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Duration</span>::<span class="n">days</span><span class="p">(</span><span class="mi">366</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">nyear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">next_year</span><span class="p">.</span><span class="n">year</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">delta_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nyear</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">year</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">today</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">today_str</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}-{}-{} {}:{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">day</span><span class="p">,</span><span class="w"> </span><span class="n">month</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="p">,</span><span class="w"> </span><span class="n">hour</span><span class="p">,</span><span class="w"> </span><span class="n">minute</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">date_str</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">time_str</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">today2</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">weekday</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">tomorrow_str</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">delta_w</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">delta_y</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../For Range/" title="For Range" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                For Range
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Dict/" title="Dictionary" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Dictionary
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.c648116f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
