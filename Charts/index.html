@@ -36,7 +36,7 @@
     
     
       
-        <title>Channels - Runnable Snippets</title>
+        <title>Charts - Runnable Snippets</title>
       
     
     
@@ -83,7 +83,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#channels" tabindex="1" class="md-skip">
+      <a href="#charts" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -109,7 +109,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Channels
+                Charts
               
             </span>
           
@@ -284,12 +284,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       Concurrency
@@ -317,63 +315,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Channels
-      </label>
-    
-    <a href="./" title="Channels" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../Channels/" title="Channels" class="md-nav__link">
       Channels
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#c35" class="md-nav__link">
-    C#
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#go" class="md-nav__link">
-    Go
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rust" class="md-nav__link">
-    Rust
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -734,10 +680,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11" checked>
     
     <label class="md-nav__link" for="nav-11">
       Science
@@ -753,11 +701,49 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../Charts/" title="Charts" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Charts
+      </label>
+    
+    <a href="./" title="Charts" class="md-nav__link md-nav__link--active">
       Charts
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rust" class="md-nav__link">
+    Rust
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -871,20 +857,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#c35" class="md-nav__link">
-    C#
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#go" class="md-nav__link">
-    Go
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#rust" class="md-nav__link">
     Rust
   </a>
@@ -908,123 +880,42 @@
               
                 
                 
-                <h1 id="channels">Channels</h1>
-<h2 id="c35">C#</h2>
-<div class="codehilite"><pre><span></span>
-</pre></div>
-
-
-<h2 id="go">Go</h2>
-<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-    <span class="s">&quot;fmt&quot;</span>
-    <span class="s">&quot;io/ioutil&quot;</span>
-    <span class="s">&quot;log&quot;</span>
-    <span class="s">&quot;net/http&quot;</span>
-<span class="p">)</span>
-
-<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;\n%d&quot;</span><span class="p">,</span> <span class="nx">sumPageSizes</span><span class="p">())</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nx">sumPageSizes</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
-    <span class="nx">urls</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span>
-        <span class="s">&quot;https://wegmarken2006.github.io/snippets/&quot;</span><span class="p">,</span>
-        <span class="s">&quot;https://wegmarken2006.github.io/snippets/Cross/&quot;</span><span class="p">,</span>
-        <span class="s">&quot;https://wegmarken2006.github.io/snippets/Dict/&quot;</span><span class="p">,</span>
-        <span class="s">&quot;https://wegmarken2006.github.io/snippets/Execution%20time/&quot;</span><span class="p">,</span>
-    <span class="p">}</span>
-
-    <span class="kd">var</span> <span class="nx">ch</span> <span class="p">=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">url</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">urls</span> <span class="p">{</span>
-        <span class="k">go</span> <span class="nx">getTextLen</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">ch</span><span class="p">)</span>
-    <span class="p">}</span>
-
-    <span class="nx">total</span> <span class="o">:=</span> <span class="mi">0</span>
-    <span class="nx">respCount</span> <span class="o">:=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="p">{</span>
-        <span class="k">select</span> <span class="p">{</span>
-        <span class="k">case</span> <span class="nx">ln</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">ch</span><span class="p">:</span>
-            <span class="nx">respCount</span><span class="o">++</span>
-            <span class="nx">total</span> <span class="p">=</span> <span class="nx">total</span> <span class="o">+</span> <span class="nx">ln</span>
-            <span class="k">if</span> <span class="nx">respCount</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="nx">urls</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="nx">total</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nx">getTextLen</span><span class="p">(</span><span class="nx">url</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">ch</span> <span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">Get</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-        <span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-    <span class="p">}</span>
-    <span class="k">defer</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nx">Close</span><span class="p">()</span>
-    <span class="nx">bodyBytes</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nx">ReadAll</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
-    <span class="nx">ch</span> <span class="o">&lt;-</span> <span class="nb">len</span><span class="p">(</span><span class="nx">bodyBytes</span><span class="p">)</span>
-<span class="p">}</span>
-</pre></div>
-
-
+                <h1 id="charts">Charts</h1>
 <h2 id="rust">Rust</h2>
 <div class="codehilite"><pre><span></span><span class="c1">//[dependencies]</span>
-<span class="c1">//ureq = &quot;0.11.2&quot;</span>
-
-<span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">io</span>::<span class="n">Read</span><span class="p">;</span><span class="w"></span>
-<span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">sync</span>::<span class="n">mpsc</span><span class="p">;</span><span class="w"></span>
-<span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">sync</span>::<span class="n">mpsc</span>::<span class="p">{</span><span class="n">Receiver</span><span class="p">,</span><span class="w"> </span><span class="n">Sender</span><span class="p">};</span><span class="w"></span>
-<span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">thread</span><span class="p">;</span><span class="w"></span>
+<span class="c1">//plotters = &quot;0.2.12&quot;</span>
+<span class="k">use</span><span class="w"> </span><span class="n">plotters</span>::<span class="n">prelude</span>::<span class="o">*</span><span class="p">;</span><span class="w"></span>
 
 <span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">sum_page_sizes</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">        </span><span class="n">BitMapBackend</span>::<span class="n">new</span><span class="p">(</span><span class="s">&quot;tmp0.png&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="mi">640</span><span class="p">,</span><span class="w"> </span><span class="mi">480</span><span class="p">)).</span><span class="n">into_drawing_area</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">root</span><span class="p">.</span><span class="n">fill</span><span class="p">(</span><span class="o">&amp;</span><span class="n">WHITE</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">chart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ChartBuilder</span>::<span class="n">on</span><span class="p">(</span><span class="o">&amp;</span><span class="n">root</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">caption</span><span class="p">(</span><span class="s">&quot;y=sin2(x)&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;sans-serif&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">).</span><span class="n">into_font</span><span class="p">())</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">margin</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">x_label_area_size</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">y_label_area_size</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">build_ranged</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="k">f32</span><span class="p">..</span><span class="mi">4</span><span class="k">f32</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="k">f32</span><span class="p">..</span><span class="mi">1</span><span class="k">f32</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
 
-<span class="k">fn</span> <span class="nf">sum_page_sizes</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">urls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="s">&quot;https://wegmarken2006.github.io/snippets/&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s">&quot;https://wegmarken2006.github.io/snippets/Cross/&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s">&quot;https://wegmarken2006.github.io/snippets/Dict/&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s">&quot;https://wegmarken2006.github.io/snippets/Execution%20time/&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="p">];</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">tx</span><span class="p">,</span><span class="w"> </span><span class="n">rx</span><span class="p">)</span>: <span class="p">(</span><span class="n">Sender</span><span class="o">&lt;</span><span class="kt">usize</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Receiver</span><span class="o">&lt;</span><span class="kt">usize</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mpsc</span>::<span class="n">channel</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">children</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Vec</span>::<span class="n">new</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">urls_len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">urls</span><span class="p">.</span><span class="n">len</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">chart</span><span class="p">.</span><span class="n">configure_mesh</span><span class="p">().</span><span class="n">draw</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
 
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">urls</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">tx_chan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tx</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">x_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="mi">314</span><span class="p">..</span><span class="mi">314</span><span class="p">).</span><span class="n">step_by</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">x_list_f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x_list</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="o">|</span><span class="n">x</span><span class="o">|</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">f32</span><span class="o">/</span><span class="mf">100.0</span><span class="p">).</span><span class="n">map</span><span class="p">(</span><span class="o">|</span><span class="n">x</span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">sin</span><span class="p">()));</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//let xx = (-50..=50).map(|x| x as f32 / 50.0).map(|x| (x, x * x));</span>
 
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">thread</span>::<span class="n">spawn</span><span class="p">(</span><span class="k">move</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="n">resp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ureq</span>::<span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">).</span><span class="n">call</span><span class="p">();</span><span class="w"></span>
-<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">resp</span><span class="p">.</span><span class="n">status</span><span class="p">();</span><span class="w"></span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">500</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">new</span><span class="p">();</span><span class="w"></span>
-<span class="w">                </span><span class="n">resp</span><span class="p">.</span><span class="n">into_reader</span><span class="p">()</span><span class="w"></span>
-<span class="w">                    </span><span class="p">.</span><span class="n">read_to_string</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">buffer</span><span class="p">)</span><span class="w"></span>
-<span class="w">                    </span><span class="p">.</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;Reading error&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="n">ln</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buffer</span><span class="p">.</span><span class="n">len</span><span class="p">();</span><span class="w"></span>
-<span class="w">                </span><span class="n">tx_chan</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">ln</span><span class="p">).</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;Transmitting error&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="n">tx_chan</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;Transmitting error&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">});</span><span class="w"></span>
-<span class="w">        </span><span class="n">children</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">child</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">chart</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">draw_series</span><span class="p">(</span><span class="n">LineSeries</span>::<span class="n">new</span><span class="p">(</span><span class="n">x_list_f</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">RED</span><span class="p">))</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">unwrap</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">label</span><span class="p">(</span><span class="s">&quot;y = sin(x)&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">legend</span><span class="p">(</span><span class="o">|</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="o">|</span><span class="w"> </span><span class="n">PathElement</span>::<span class="n">new</span><span class="p">(</span><span class="n">vec</span><span class="o">!</span><span class="p">[(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)],</span><span class="w"> </span><span class="o">&amp;</span><span class="n">RED</span><span class="p">));</span><span class="w"></span>
 
-<span class="w">    </span><span class="c1">//Receive messages</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="p">..</span><span class="n">urls_len</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rx</span><span class="p">.</span><span class="n">recv</span><span class="p">().</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;Receiving error&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// Wait for the threads to complete any remaining work</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">children</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">child</span><span class="p">.</span><span class="n">join</span><span class="p">().</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;Join error&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">total</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">chart</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">configure_series_labels</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">background_style</span><span class="p">(</span><span class="o">&amp;</span><span class="n">WHITE</span><span class="p">.</span><span class="n">mix</span><span class="p">(</span><span class="mf">0.8</span><span class="p">))</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">border_style</span><span class="p">(</span><span class="o">&amp;</span><span class="n">BLACK</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">draw</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
                 
@@ -1047,7 +938,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../Async/" title="Async" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../GTK/" title="GTK" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1056,19 +947,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Async
+                GTK
               </span>
             </div>
           </a>
         
         
-          <a href="../For Enumerate/" title="For Enumerate" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../Numeric/" title="Numeric" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                For Enumerate
+                Numeric
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
