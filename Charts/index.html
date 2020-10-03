@@ -778,6 +778,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#typescript" class="md-nav__link">
+    Typescript
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -912,6 +919,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#typescript" class="md-nav__link">
+    Typescript
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -965,6 +979,47 @@
 <span class="w">        </span><span class="p">.</span><span class="n">draw</span><span class="p">()</span><span class="w"></span>
 <span class="w">        </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+
+<h2 id="typescript">Typescript</h2>
+<div class="codehilite"><pre><span></span><code><span class="c1">//npm install --save plotly.js</span>
+<span class="c1">//npm install --save @types/plotly.js-dist</span>
+<span class="c1">//browserify hello.js -o hello2.js</span>
+<span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">Plotly</span> <span class="nx">from</span> <span class="s1">&#39;plotly.js-dist&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">range</span><span class="p">(</span><span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">,</span> <span class="nx">step</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">ans</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">start</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">end</span><span class="p">;</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="nx">step</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">ans</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">ans</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">range</span><span class="p">(</span><span class="o">-</span><span class="mi">314</span><span class="p">,</span> <span class="mi">314</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">x</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">x</span> <span class="o">/</span> <span class="mi">100</span><span class="p">.));</span>
+<span class="kd">var</span> <span class="nx">trace1</span>: <span class="kt">Partial</span><span class="o">&lt;</span><span class="nx">Plotly</span><span class="p">.</span><span class="nx">PlotData</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">x</span>: <span class="kt">x</span><span class="p">,</span>
+    <span class="nx">y</span>: <span class="kt">y</span><span class="p">,</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Sine&#39;</span><span class="p">,</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">data</span>: <span class="kt">Partial</span><span class="o">&lt;</span><span class="nx">Plotly</span><span class="p">.</span><span class="nx">PlotData</span><span class="o">&gt;</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="nx">trace1</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">layout</span>: <span class="kt">Partial</span><span class="o">&lt;</span><span class="nx">Plotly</span><span class="p">.</span><span class="nx">Layout</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">yaxis</span><span class="o">:</span> <span class="p">{</span> <span class="s1">&#39;title&#39;</span><span class="o">:</span> <span class="s1">&#39;sin(x)&#39;</span> <span class="p">}</span> <span class="p">};</span>
+
+<span class="nx">Plotly</span><span class="p">.</span><span class="nx">newPlot</span><span class="p">(</span><span class="s1">&#39;myDiv&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">layout</span><span class="p">);</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="c">&lt;!-- hello2.html --&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+ <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;myDiv&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;hello2.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
                 
               
