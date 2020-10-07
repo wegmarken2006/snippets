@@ -646,6 +646,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#dart" class="md-nav__link">
+    Dart
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     Python
   </a>
@@ -913,6 +920,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#dart" class="md-nav__link">
+    Dart
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     Python
   </a>
@@ -943,6 +957,32 @@
                 
                 
                 <h1 id="serialization">Serialization</h1>
+<h2 id="dart">Dart</h2>
+<div class="codehilite"><pre><span></span><code><span class="k">import</span> <span class="s1">&#39;dart:io&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="s1">&#39;dart:convert&#39;</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="n">map</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;first&quot;</span><span class="o">:</span> <span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">],</span>
+    <span class="s2">&quot;second&quot;</span><span class="o">:</span> <span class="p">[</span><span class="m">10</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="m">30</span><span class="p">,</span> <span class="m">40</span><span class="p">]</span>
+  <span class="p">};</span>
+
+  <span class="n">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">$</span><span class="n">map</span><span class="s1">?&#39;</span><span class="p">);</span>
+
+  <span class="kd">var</span> <span class="n">fileName</span> <span class="o">=</span> <span class="s2">&quot;tmp01.txt&quot;</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="n">f</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">fileName</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="n">encodeMap</span> <span class="o">=</span> <span class="n">jsonEncode</span><span class="p">(</span><span class="n">map</span><span class="p">);</span>
+  <span class="n">f</span><span class="p">.</span><span class="n">writeAsString</span><span class="p">(</span><span class="n">encodeMap</span><span class="p">);</span>
+
+  <span class="kd">var</span> <span class="n">map2</span> <span class="o">=</span> <span class="n">Map</span><span class="p">();</span>
+  <span class="n">f</span><span class="p">.</span><span class="n">readAsString</span><span class="p">().</span><span class="n">then</span><span class="p">((</span><span class="n">str1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">map2</span> <span class="o">=</span> <span class="n">jsonDecode</span><span class="p">(</span><span class="n">str1</span><span class="p">);</span>
+    <span class="n">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">$</span><span class="n">map2</span><span class="s1">&#39;</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
 <h2 id="python">Python</h2>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">pickle</span>
 
