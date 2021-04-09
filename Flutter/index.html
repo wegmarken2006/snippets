@@ -429,6 +429,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../Globals/" title="Globals" class="md-nav__link">
+      Globals
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../List/" title="List" class="md-nav__link">
       List
     </a>
@@ -722,6 +734,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#notification" class="md-nav__link">
+    Notification
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -964,6 +983,13 @@
         <li class="md-nav__item">
   <a href="#persistence-keyvalue" class="md-nav__link">
     Persistence, Key/Value
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notification" class="md-nav__link">
+    Notification
   </a>
   
 </li>
@@ -1442,6 +1468,126 @@
         <span class="p">],</span>
       <span class="p">),</span>
     <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<h2 id="notification">Notification</h2>
+<div class="codehilite"><pre><span></span><code><span class="c1">//        &lt;uses-permission android:name=&quot;android.permission.RECEIVE_BOOT_COMPLETED&quot;/&gt;</span>
+<span class="c1">//dependencies:</span>
+<span class="c1">//  rxdart: ^0.24.0</span>
+<span class="c1">//  flutter_local_notifications: ^2.0.1</span>
+<span class="k">import</span> <span class="s1">&#39;dart:async&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="s1">&#39;package:flutter/cupertino.dart&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="s1">&#39;package:flutter/material.dart&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="s1">&#39;package:flutter_local_notifications/flutter_local_notifications.dart&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="s1">&#39;package:rxdart/subjects.dart&#39;</span><span class="p">;</span>
+
+<span class="kd">final</span> <span class="n">FlutterLocalNotificationsPlugin</span> <span class="n">flutterLocalNotificationsPlugin</span> <span class="o">=</span>
+    <span class="n">FlutterLocalNotificationsPlugin</span><span class="p">();</span>
+
+<span class="c1">/// Streams are created so that app can respond to notification-related events</span>
+<span class="c1">/// since the plugin is initialised in the `main` function</span>
+<span class="kd">final</span> <span class="n">BehaviorSubject</span><span class="o">&lt;</span><span class="n">ReceivedNotification</span><span class="o">&gt;</span> <span class="n">didReceiveLocalNotificationSubject</span> <span class="o">=</span>
+    <span class="n">BehaviorSubject</span><span class="o">&lt;</span><span class="n">ReceivedNotification</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="kd">final</span> <span class="n">BehaviorSubject</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span> <span class="n">selectNotificationSubject</span> <span class="o">=</span>
+    <span class="n">BehaviorSubject</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="kd">class</span> <span class="nc">ReceivedNotification</span> <span class="p">{</span>
+  <span class="n">ReceivedNotification</span><span class="p">({</span>
+    <span class="nd">@required</span> <span class="k">this</span><span class="p">.</span><span class="n">id</span><span class="p">,</span>
+    <span class="nd">@required</span> <span class="k">this</span><span class="p">.</span><span class="n">title</span><span class="p">,</span>
+    <span class="nd">@required</span> <span class="k">this</span><span class="p">.</span><span class="n">body</span><span class="p">,</span>
+    <span class="nd">@required</span> <span class="k">this</span><span class="p">.</span><span class="n">payload</span><span class="p">,</span>
+  <span class="p">});</span>
+
+  <span class="kd">final</span> <span class="kt">int</span> <span class="n">id</span><span class="p">;</span>
+  <span class="kd">final</span> <span class="kt">String</span> <span class="n">title</span><span class="p">;</span>
+  <span class="kd">final</span> <span class="kt">String</span> <span class="n">body</span><span class="p">;</span>
+  <span class="kd">final</span> <span class="kt">String</span> <span class="n">payload</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">main</span><span class="p">()</span> <span class="kd">async</span> <span class="p">{</span>
+  <span class="c1">// needed if you intend to initialize in the `main` function</span>
+  <span class="n">WidgetsFlutterBinding</span><span class="p">.</span><span class="n">ensureInitialized</span><span class="p">();</span>
+
+  <span class="kd">const</span> <span class="n">AndroidInitializationSettings</span> <span class="n">initializationSettingsAndroid</span> <span class="o">=</span>
+      <span class="n">AndroidInitializationSettings</span><span class="p">(</span><span class="s1">&#39;app_icon&#39;</span><span class="p">);</span>
+
+  <span class="c1">/// Note: permissions aren&#39;t requested here just to demonstrate that can be</span>
+  <span class="c1">/// done later</span>
+  <span class="kd">final</span> <span class="n">InitializationSettings</span> <span class="n">initializationSettings</span> <span class="o">=</span>
+      <span class="n">InitializationSettings</span><span class="p">(</span><span class="nl">android:</span> <span class="n">initializationSettingsAndroid</span><span class="p">);</span>
+  <span class="kd">await</span> <span class="n">flutterLocalNotificationsPlugin</span><span class="p">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">initializationSettings</span><span class="p">,</span>
+      <span class="nl">onSelectNotification:</span> <span class="p">(</span><span class="kt">String</span> <span class="n">payload</span><span class="p">)</span> <span class="kd">async</span> <span class="p">{</span>
+    <span class="n">selectNotificationSubject</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">payload</span><span class="p">);</span>
+  <span class="p">});</span>
+  <span class="n">runApp</span><span class="p">(</span>
+    <span class="n">MaterialApp</span><span class="p">(</span>
+      <span class="nl">home:</span> <span class="n">HomePage</span><span class="p">(),</span>
+    <span class="p">),</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">HomePage</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="p">{</span>
+  <span class="nd">@override</span>
+  <span class="n">_HomePageState</span> <span class="n">createState</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="n">_HomePageState</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">_HomePageState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">HomePage</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">_counter</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nd">@override</span>
+  <span class="kt">void</span> <span class="n">initState</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">.</span><span class="n">initState</span><span class="p">();</span>
+    <span class="n">_configureSelectNotificationSubject</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="kt">void</span> <span class="n">_configureSelectNotificationSubject</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">selectNotificationSubject</span><span class="p">.</span><span class="n">stream</span><span class="p">.</span><span class="n">listen</span><span class="p">((</span><span class="kt">String</span> <span class="n">payload</span><span class="p">)</span> <span class="kd">async</span> <span class="p">{</span>
+      <span class="n">setState</span><span class="p">(()</span> <span class="p">{</span>
+        <span class="n">_counter</span> <span class="o">=</span> <span class="n">_counter</span> <span class="o">+</span> <span class="m">1</span><span class="p">;</span>
+      <span class="p">});</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="nd">@override</span>
+  <span class="kt">void</span> <span class="n">dispose</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">didReceiveLocalNotificationSubject</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+    <span class="n">selectNotificationSubject</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+    <span class="k">super</span><span class="p">.</span><span class="n">dispose</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">MaterialApp</span><span class="p">(</span>
+        <span class="nl">home:</span> <span class="n">Scaffold</span><span class="p">(</span>
+          <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="p">(</span>
+            <span class="nl">title:</span> <span class="kd">const</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Plugin example app&#39;</span><span class="p">),</span>
+          <span class="p">),</span>
+          <span class="nl">body:</span> <span class="n">Center</span><span class="p">(</span>
+            <span class="nl">child:</span> <span class="n">RaisedButton</span><span class="p">(</span>
+              <span class="nl">child:</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Notify </span><span class="si">$</span><span class="n">_counter</span><span class="s1">&#39;</span><span class="p">),</span>
+              <span class="nl">onPressed:</span> <span class="p">()</span> <span class="kd">async</span> <span class="p">{</span>
+                <span class="kd">await</span> <span class="n">_showNotification</span><span class="p">();</span>
+              <span class="p">},</span>
+            <span class="p">),</span>
+          <span class="p">),</span>
+        <span class="p">),</span>
+      <span class="p">);</span>
+
+  <span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">_showNotification</span><span class="p">()</span> <span class="kd">async</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="n">AndroidNotificationDetails</span> <span class="n">androidPlatformChannelSpecifics</span> <span class="o">=</span>
+        <span class="n">AndroidNotificationDetails</span><span class="p">(</span>
+            <span class="s1">&#39;your channel id&#39;</span><span class="p">,</span> <span class="s1">&#39;your channel name&#39;</span><span class="p">,</span> <span class="s1">&#39;your channel description&#39;</span><span class="p">,</span>
+            <span class="nl">importance:</span> <span class="n">Importance</span><span class="p">.</span><span class="n">max</span><span class="p">,</span>
+            <span class="nl">priority:</span> <span class="n">Priority</span><span class="p">.</span><span class="n">high</span><span class="p">,</span>
+            <span class="nl">ticker:</span> <span class="s1">&#39;ticker&#39;</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="n">NotificationDetails</span> <span class="n">platformChannelSpecifics</span> <span class="o">=</span>
+        <span class="n">NotificationDetails</span><span class="p">(</span><span class="nl">android:</span> <span class="n">androidPlatformChannelSpecifics</span><span class="p">);</span>
+    <span class="kd">await</span> <span class="n">flutterLocalNotificationsPlugin</span><span class="p">.</span><span class="n">show</span><span class="p">(</span>
+        <span class="m">0</span><span class="p">,</span> <span class="s1">&#39;plain title&#39;</span><span class="p">,</span> <span class="s1">&#39;plain body&#39;</span><span class="p">,</span> <span class="n">platformChannelSpecifics</span><span class="p">,</span>
+        <span class="nl">payload:</span> <span class="s1">&#39;item x&#39;</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
