@@ -315,6 +315,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Share/" title="Share" class="md-nav__link">
+      Share
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -946,19 +958,27 @@
 <span class="c1">//lazy_static = &quot;1.4.0&quot;</span>
 
 <span class="k">use</span><span class="w"> </span><span class="n">lazy_static</span>::<span class="n">lazy_static</span><span class="p">;</span><span class="w"></span>
+<span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">sync</span>::<span class="n">Mutex</span><span class="p">;</span><span class="w"></span>
+
 <span class="cp">#[derive(Debug, Clone)]</span><span class="w"></span>
 <span class="k">struct</span> <span class="nc">STRUCT1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">x</span>: <span class="kt">i32</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="n">s</span>: <span class="nb">String</span><span class="p">,</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
-<span class="c1">// Global unmutable initialized safe</span>
 <span class="n">lazy_static</span><span class="o">!</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Global unmutable initialized safe</span>
 <span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">ref</span><span class="w"> </span><span class="n">GLOBAL_S</span>: <span class="nc">STRUCT1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">STRUCT1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="n">x</span>: <span class="mi">10</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="n">s</span>: <span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;GLOBAL_S&quot;</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Global mutable initialized safe</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">ref</span><span class="w"> </span><span class="n">GLOBAL_S_M</span>: <span class="nc">Mutex</span><span class="o">&lt;</span><span class="n">STRUCT1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mutex</span>::<span class="n">new</span><span class="p">(</span><span class="n">STRUCT1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">x</span>: <span class="mi">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">s</span>: <span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;GLOBAL_S_M&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
+
 <span class="c1">//Global mutable inizialized unsafe</span>
 <span class="k">static</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">GLOBAL_MUT</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[];</span><span class="w"></span>
 
@@ -967,8 +987,20 @@
 
 <span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{} {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">GLOBAL_S</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">GLOBAL_S</span><span class="p">.</span><span class="n">s</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">sm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GLOBAL_S_M</span><span class="p">.</span><span class="n">lock</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{} {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sm</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">sm</span><span class="p">.</span><span class="n">s</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">sm</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">11</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{} {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sm</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">sm</span><span class="p">.</span><span class="n">s</span><span class="p">);</span><span class="w"></span>
+
 <span class="w">    </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="n">GLOBAL_MUT</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">GLOBAL_MUT_UNINIT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">STRUCT1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">x</span>: <span class="mi">30</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">s</span>: <span class="nb">String</span>::<span class="n">from</span><span class="p">(</span><span class="s">&quot;GLOBAL_MUT_UNINIT&quot;</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="p">});</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">    </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -992,7 +1024,7 @@
 
 <span class="k">fn</span> <span class="nf">fn1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">GLOBAL_MUT</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
+<span class="w">        </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;Inside fn1 {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">GLOBAL_MUT</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">    </span><span class="k">unsafe</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
