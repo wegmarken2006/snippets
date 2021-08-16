@@ -508,6 +508,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#sing" class="md-nav__link">
+    Sing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typescript" class="md-nav__link">
     Typescript
   </a>
@@ -1050,6 +1057,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#sing" class="md-nav__link">
+    Sing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typescript" class="md-nav__link">
     Typescript
   </a>
@@ -1263,6 +1277,58 @@
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">words_v</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="n">_</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">words</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">collect</span><span class="p">();</span><span class="w"></span>
 <span class="w">    </span><span class="n">words_v</span><span class="p">.</span><span class="n">sort_by_key</span><span class="p">(</span><span class="o">|&amp;</span><span class="p">(</span><span class="n">word</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">)</span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">Reverse</span><span class="p">(</span><span class="n">count</span><span class="p">),</span><span class="w"> </span><span class="n">word</span><span class="p">));</span><span class="w"></span>
 <span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">words_v</span><span class="p">);</span><span class="w">   </span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+
+<h2 id="sing">Sing</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">requires</span><span class="w"> </span><span class="s">&quot;sio&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="n">requires</span><span class="w"> </span><span class="s">&quot;sort&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">public</span><span class="w"> </span><span class="k">fn</span> <span class="nf">singmain</span><span class="p">(</span><span class="n">argv</span><span class="w"> </span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="n">string</span><span class="p">)</span><span class="w"> </span><span class="kt">i32</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//count words</span>
+
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">word_list</span><span class="w"> </span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="n">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;glass&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;chair&quot;</span><span class="p">,</span><span class="s">&quot;glass&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;table&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;chair&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;chair&quot;</span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="n">map</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="kt">i32</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">elem</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">word_list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">var</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">words</span><span class="p">.</span><span class="n">get_safe</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//get specified value</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">words</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;chair&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">sio</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n\r</span><span class="s"> chair: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">string</span><span class="p">(</span><span class="n">value</span><span class="p">));</span><span class="w">    </span>
+
+<span class="w">    </span><span class="c1">//sort by descending value</span>
+
+<span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">sort_index</span><span class="w"> </span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="kt">i32</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">sort_keys</span><span class="w"> </span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="kt">i32</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">map_keys</span><span class="w"> </span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="n">string</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">sort</span><span class="p">.</span><span class="n">indexInit</span><span class="p">(</span><span class="n">sort_index</span><span class="p">,</span><span class="w"> </span><span class="n">words</span><span class="p">.</span><span class="n">size</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span>:<span class="nc">words</span><span class="p">.</span><span class="n">size</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">map_keys</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">words</span><span class="p">.</span><span class="n">key_at</span><span class="p">(</span><span class="n">i</span><span class="p">));</span><span class="w"></span>
+<span class="w">        </span><span class="n">sort_keys</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">words</span><span class="p">.</span><span class="n">value_at</span><span class="p">(</span><span class="n">i</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">sort</span><span class="p">.</span><span class="n">ksort_i32</span><span class="p">(</span><span class="n">sort_index</span><span class="p">,</span><span class="w"> </span><span class="n">sort_keys</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">rev_index</span><span class="w"> </span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="kt">i32</span><span class="p">;</span><span class="w">     </span><span class="c1">// reverse sort_index</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">i_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sort_index</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span>:<span class="nc">i_size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">rev_index</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">sort_index</span><span class="p">[</span><span class="n">i_size</span><span class="w"> </span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">sio</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n\r</span><span class="s">&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">rev_index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">sio</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n\r</span><span class="s">&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">map_keys</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 
