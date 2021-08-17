@@ -568,6 +568,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#sing" class="md-nav__link">
+    Sing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typescript" class="md-nav__link">
     TypeScript
   </a>
@@ -1050,6 +1057,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#sing" class="md-nav__link">
+    Sing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typescript" class="md-nav__link">
     TypeScript
   </a>
@@ -1374,6 +1388,54 @@
 
 <span class="w">    </span><span class="c1">//Property</span>
 <span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;New {} balance: {} &quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">c1</span><span class="p">.</span><span class="n">person</span><span class="p">.</span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">c1</span><span class="p">.</span><span class="n">get_balance</span><span class="p">());</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+
+<h2 id="sing">Sing</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">requires</span><span class="w"> </span><span class="s">&quot;sio&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="n">requires</span><span class="w"> </span><span class="s">&quot;mod1&quot;</span><span class="p">;</span><span class="w"></span>
+
+
+<span class="n">public</span><span class="w"> </span><span class="k">fn</span> <span class="nf">singmain</span><span class="p">(</span><span class="n">argv</span><span class="w"> </span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="n">string</span><span class="p">)</span><span class="w"> </span><span class="kt">i32</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="n">mod1</span><span class="p">.</span><span class="n">Customer</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">c1</span><span class="p">.</span><span class="n">person</span><span class="p">.</span><span class="n">first_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Mark&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">sio</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n\r</span><span class="s">&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c1</span><span class="p">.</span><span class="n">person</span><span class="p">.</span><span class="n">first_name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c1</span><span class="p">.</span><span class="n">person</span><span class="p">.</span><span class="n">second_name</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">c1</span><span class="p">.</span><span class="n">add_to_balance</span><span class="p">(</span><span class="mf">100.0</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">c1</span><span class="p">.</span><span class="n">add_to_balance</span><span class="p">(</span><span class="mf">10.0</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">sio</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n\r</span><span class="s">New Balance: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">string</span><span class="p">(</span><span class="n">c1</span><span class="p">.</span><span class="n">get_balance</span><span class="p">()));</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">//in a different file named mod1.sing:</span>
+<span class="n">public</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">Person</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">public</span>:
+    <span class="c1">//members with default</span>
+<span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">first_name</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;John&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">second_name</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Doe&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">public</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">Customer</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">public</span>:
+    <span class="nc">var</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="n">Person</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">mut</span><span class="w"> </span><span class="n">add_to_balance</span><span class="p">(</span><span class="n">sum</span><span class="w"> </span><span class="kt">f64</span><span class="p">)</span><span class="w"> </span><span class="n">void</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">get_balance</span><span class="p">()</span><span class="w"> </span><span class="kt">f64</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">private</span>:
+    <span class="nc">var</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="kt">f64</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">public</span><span class="w"> </span><span class="k">fn</span> <span class="nf">Customer</span><span class="p">.</span><span class="n">add_to_balance</span><span class="p">(</span><span class="n">sum</span><span class="w"> </span><span class="kt">f64</span><span class="p">)</span><span class="w"> </span><span class="n">void</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">this</span><span class="p">.</span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">balance</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">public</span><span class="w"> </span><span class="k">fn</span> <span class="nf">Customer</span><span class="p">.</span><span class="n">get_balance</span><span class="p">()</span><span class="w"> </span><span class="kt">f64</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">this</span><span class="p">.</span><span class="n">balance</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 
