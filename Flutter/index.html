@@ -777,6 +777,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#isolate-rss-feed-nullable-values" class="md-nav__link">
+    Isolate, RSS Feed, Nullable values
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1038,6 +1045,13 @@
         <li class="md-nav__item">
   <a href="#notification" class="md-nav__link">
     Notification
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isolate-rss-feed-nullable-values" class="md-nav__link">
+    Isolate, RSS Feed, Nullable values
   </a>
   
 </li>
@@ -1636,6 +1650,142 @@
     <span class="kd">await</span> <span class="n">flutterLocalNotificationsPlugin</span><span class="p">.</span><span class="n">show</span><span class="p">(</span>
         <span class="m">0</span><span class="p">,</span> <span class="s1">&#39;plain title&#39;</span><span class="p">,</span> <span class="s1">&#39;plain body&#39;</span><span class="p">,</span> <span class="n">platformChannelSpecifics</span><span class="p">,</span>
         <span class="nl">payload:</span> <span class="s1">&#39;item x&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<h2 id="isolate-rss-feed-nullable-values">Isolate, RSS Feed, Nullable values</h2>
+<div class="codehilite"><pre><span></span><code><span class="c1">//dependencies:</span>
+<span class="c1">//   http: ^0.13.3</span>
+<span class="c1">//   webfeed: ^0.7.0</span>
+<span class="c1">//   url_launcher: ^6.0.9</span>
+<span class="c1">//add in AndroidManifest.xml</span>
+<span class="c1">//    &lt;queries&gt;</span>
+<span class="c1">//      &lt;!-- If your app opens https URLs --&gt;</span>
+<span class="c1">//      &lt;intent&gt;</span>
+<span class="c1">//      &lt;action android:name=&quot;android.intent.action.VIEW&quot; /&gt;</span>
+<span class="c1">//      &lt;data android:scheme=&quot;https&quot; /&gt;</span>
+<span class="c1">//      &lt;/intent&gt;</span>
+<span class="c1">//    &lt;/queries&gt;</span>
+<span class="c1">//    &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;</span>
+<span class="k">import</span> <span class="s1">&#39;dart:async&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="s1">&#39;package:flutter/material.dart&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="s1">&#39;dart:isolate&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="s1">&#39;package:http/http.dart&#39;</span> <span class="k">as</span> <span class="n">http</span><span class="p">;</span>
+<span class="k">import</span> <span class="s1">&#39;package:webfeed/webfeed.dart&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="s1">&#39;package:url_launcher/url_launcher.dart&#39;</span> <span class="k">as</span> <span class="n">launch</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">runApp</span><span class="p">(</span><span class="n">MyApp</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="n">MyApp</span><span class="p">({</span><span class="n">Key</span><span class="o">?</span> <span class="n">key</span><span class="p">})</span> <span class="o">:</span> <span class="k">super</span><span class="p">(</span><span class="nl">key:</span> <span class="n">key</span><span class="p">);</span>
+
+  <span class="nd">@override</span>
+  <span class="n">_MyAppState</span> <span class="n">createState</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="n">_MyAppState</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">_MyAppState</span> <span class="kd">extends</span> <span class="n">State</span><span class="o">&lt;</span><span class="n">MyApp</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="kd">static</span> <span class="kd">const</span> <span class="kt">int</span> <span class="n">MAX_LIST_LENGTH</span> <span class="o">=</span> <span class="m">30</span><span class="p">;</span>
+  <span class="n">late</span> <span class="n">ReceivePort</span> <span class="n">_receivePort</span><span class="p">;</span>
+  <span class="n">late</span> <span class="n">Isolate</span> <span class="n">_isolate</span><span class="p">;</span>
+  <span class="n">List</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span> <span class="n">_titleLst</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="n">List</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span> <span class="n">_linkLst</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="kd">static</span> <span class="kt">bool</span> <span class="n">_running</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+  <span class="kt">void</span> <span class="n">_start</span><span class="p">()</span> <span class="kd">async</span> <span class="p">{</span>
+    <span class="n">_receivePort</span> <span class="o">=</span> <span class="n">ReceivePort</span><span class="p">();</span>
+    <span class="n">_isolate</span> <span class="o">=</span> <span class="kd">await</span> <span class="n">Isolate</span><span class="p">.</span><span class="n">spawn</span><span class="p">(</span><span class="n">_checkTimer</span><span class="p">,</span> <span class="n">_receivePort</span><span class="p">.</span><span class="n">sendPort</span><span class="p">);</span>
+    <span class="n">_running</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="n">_receivePort</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="n">_handleMessage</span><span class="p">,</span> <span class="nl">onDone:</span> <span class="p">()</span> <span class="p">{});</span>
+  <span class="p">}</span>
+
+  <span class="kt">void</span> <span class="n">_handleMessage</span><span class="p">(</span><span class="kt">dynamic</span> <span class="n">tuple</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">setState</span><span class="p">(()</span> <span class="p">{</span>
+      <span class="n">_titleLst</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">tuple</span><span class="p">[</span><span class="m">0</span><span class="p">]);</span>
+      <span class="n">_linkLst</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">tuple</span><span class="p">[</span><span class="m">1</span><span class="p">]);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">_titleLst</span><span class="p">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="n">MAX_LIST_LENGTH</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">_titleLst</span><span class="p">.</span><span class="n">removeLast</span><span class="p">();</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="kd">static</span> <span class="kt">void</span> <span class="n">_checkTimer</span><span class="p">(</span><span class="n">SendPort</span> <span class="n">sendPort</span><span class="p">)</span> <span class="kd">async</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="n">period</span> <span class="o">=</span> <span class="m">10</span><span class="p">;</span>
+    <span class="n">Timer</span><span class="p">.</span><span class="n">periodic</span><span class="p">(</span><span class="k">new</span> <span class="n">Duration</span><span class="p">(</span><span class="nl">seconds:</span> <span class="n">period</span><span class="p">),</span> <span class="p">(</span><span class="n">Timer</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="n">feedUrl</span> <span class="o">=</span> <span class="s2">&quot;https://hnrss.org/frontpage&quot;</span><span class="p">;</span>
+      <span class="n">http</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">Uri</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">feedUrl</span><span class="p">)).</span><span class="n">then</span><span class="p">((</span><span class="n">text</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="n">channel</span> <span class="o">=</span> <span class="n">RssFeed</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
+        <span class="c1">//nullable values handling in Flutter 2.6.0</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">channel</span><span class="p">.</span><span class="n">items</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+          <span class="c1">//force channel.itens non null with &#39;!&#39;</span>
+          <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="n">item</span> <span class="k">in</span> <span class="n">channel</span><span class="p">.</span><span class="n">items</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">sendPort</span><span class="p">.</span><span class="n">send</span><span class="p">([</span><span class="n">item</span><span class="p">.</span><span class="n">title</span><span class="p">,</span> <span class="n">item</span><span class="p">.</span><span class="n">link</span><span class="p">]);</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">});</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="kt">void</span> <span class="n">_stop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">setState</span><span class="p">(()</span> <span class="p">{</span>
+      <span class="n">_running</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">});</span>
+    <span class="n">_receivePort</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+    <span class="n">_isolate</span><span class="p">.</span><span class="n">kill</span><span class="p">(</span><span class="nl">priority:</span> <span class="n">Isolate</span><span class="p">.</span><span class="n">immediate</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nd">@override</span>
+  <span class="kt">void</span> <span class="n">initState</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">_start</span><span class="p">();</span>
+    <span class="k">super</span><span class="p">.</span><span class="n">initState</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="nd">@override</span>
+  <span class="kt">void</span> <span class="n">dispose</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="n">_isolate</span><span class="p">.</span><span class="n">kill</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="k">super</span><span class="p">.</span><span class="n">dispose</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="n">ListView</span> <span class="n">_listBuild</span><span class="p">(</span><span class="n">List</span> <span class="n">lst</span><span class="p">,</span> <span class="n">List</span> <span class="n">links</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">ListView</span><span class="p">.</span><span class="n">builder</span><span class="p">(</span>
+      <span class="nl">itemCount:</span> <span class="n">lst</span><span class="p">.</span><span class="n">length</span><span class="p">,</span>
+      <span class="nl">itemBuilder:</span> <span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">ListTile</span><span class="p">(</span>
+          <span class="nl">leading:</span> <span class="n">CircleAvatar</span><span class="p">(</span>
+            <span class="nl">backgroundColor:</span> <span class="n">Colors</span><span class="p">.</span><span class="n">lightGreenAccent</span><span class="p">,</span>
+            <span class="nl">child:</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">${</span><span class="n">index</span> <span class="o">+</span> <span class="m">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">),</span>
+          <span class="p">),</span>
+          <span class="nl">title:</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">${</span><span class="n">lst</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">),</span>
+          <span class="nl">onTap:</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="n">links</span><span class="p">[</span><span class="n">index</span><span class="p">]);</span>
+            <span class="n">launch</span><span class="p">.</span><span class="n">launch</span><span class="p">(</span><span class="n">links</span><span class="p">[</span><span class="n">index</span><span class="p">]);</span>
+          <span class="p">},</span>
+        <span class="p">);</span>
+      <span class="p">},</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">MaterialApp</span><span class="p">(</span>
+      <span class="nl">title:</span> <span class="s1">&#39;Welcome to Flutter&#39;</span><span class="p">,</span>
+      <span class="nl">home:</span> <span class="n">Scaffold</span><span class="p">(</span>
+        <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="p">(</span>
+          <span class="nl">title:</span> <span class="kd">const</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;HN Front Page&#39;</span><span class="p">),</span>
+        <span class="p">),</span>
+        <span class="nl">body:</span> <span class="n">_listBuild</span><span class="p">(</span><span class="n">_titleLst</span><span class="p">,</span> <span class="n">_linkLst</span><span class="p">),</span>
+        <span class="nl">floatingActionButton:</span> <span class="k">new</span> <span class="n">FloatingActionButton</span><span class="p">(</span>
+          <span class="nl">onPressed:</span> <span class="n">_running</span> <span class="o">?</span> <span class="n">_stop</span> <span class="o">:</span> <span class="n">_start</span><span class="p">,</span>
+          <span class="nl">child:</span> <span class="n">_running</span> <span class="o">?</span> <span class="k">new</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">stop</span><span class="p">)</span> <span class="o">:</span> <span class="k">new</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">play_arrow</span><span class="p">),</span>
+        <span class="p">),</span>
+      <span class="p">),</span>
+    <span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
