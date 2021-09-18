@@ -694,6 +694,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#go" class="md-nav__link">
+    Go
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rust" class="md-nav__link">
     Rust
   </a>
@@ -966,6 +973,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#go" class="md-nav__link">
+    Go
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rust" class="md-nav__link">
     Rust
   </a>
@@ -989,6 +1003,56 @@
                 
                 
                 <h1 id="toml">TOML</h1>
+<h2 id="go">Go</h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="p">.</span> <span class="s">&quot;fmt&quot;</span>
+    <span class="s">&quot;os&quot;</span>
+
+    <span class="nx">toml</span> <span class="s">&quot;github.com/pelletier/go-toml&quot;</span>
+<span class="p">)</span>
+
+<span class="c1">// all fields must be Public (Capitalized)!</span>
+<span class="kd">type</span> <span class="nx">Person</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">Name</span> <span class="kt">string</span> <span class="s">`toml:&quot;name&quot;`</span>
+    <span class="nx">Val</span>  <span class="kt">int</span>    <span class="s">`toml:&quot;val&quot;`</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">TomlConfig</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">Person</span> <span class="nx">Person</span> <span class="s">`toml:&quot;person&quot;`</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">CONF_TOML_PATH</span> <span class="p">=</span> <span class="s">&quot;conf.toml&quot;</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="nx">cfg</span> <span class="o">:=</span> <span class="nx">TomlConfig</span><span class="p">{</span><span class="nx">Person</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span> <span class="s">&quot;Joe&quot;</span><span class="p">,</span> <span class="nx">Val</span><span class="p">:</span> <span class="mi">10</span><span class="p">}}</span>
+    <span class="nx">Println</span><span class="p">(</span><span class="nx">cfg</span><span class="p">)</span>
+    <span class="nx">b</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">toml</span><span class="p">.</span><span class="nx">Marshal</span><span class="p">(</span><span class="nx">cfg</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">b</span><span class="p">))</span>
+    <span class="nx">file</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Create</span><span class="p">(</span><span class="nx">CONF_TOML_PATH</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">file</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>
+    <span class="nx">file</span><span class="p">.</span><span class="nx">Close</span><span class="p">()</span>
+
+    <span class="kd">var</span> <span class="nx">cfg2</span> <span class="nx">TomlConfig</span>
+    <span class="nx">b2</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">ReadFile</span><span class="p">(</span><span class="nx">CONF_TOML_PATH</span><span class="p">)</span>
+    <span class="nx">err</span> <span class="p">=</span> <span class="nx">toml</span><span class="p">.</span><span class="nx">Unmarshal</span><span class="p">(</span><span class="nx">b2</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">cfg2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">Println</span><span class="p">(</span><span class="nx">cfg2</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
 <h2 id="rust">Rust</h2>
 <div class="codehilite"><pre><span></span><code><span class="c1">//[dependencies]</span>
 <span class="c1">//toml = &quot;0.5.8&quot;</span>
