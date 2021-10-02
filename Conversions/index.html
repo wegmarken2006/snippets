@@ -478,6 +478,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#go" class="md-nav__link">
+    Go
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rust" class="md-nav__link">
     Rust
   </a>
@@ -966,6 +973,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#go" class="md-nav__link">
+    Go
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rust" class="md-nav__link">
     Rust
   </a>
@@ -989,6 +1003,65 @@
                 
                 
                 <h1 id="conversions">Conversions</h1>
+<h2 id="go">Go</h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;bytes&quot;</span>
+    <span class="s">&quot;encoding/binary&quot;</span>
+    <span class="p">.</span> <span class="s">&quot;fmt&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">b1</span> <span class="o">:=</span> <span class="nx">i32_to_bytes</span><span class="p">(</span><span class="mi">112</span><span class="p">)</span>
+    <span class="nx">i1</span> <span class="o">:=</span> <span class="nx">bytes_to_i32</span><span class="p">(</span><span class="nx">b1</span><span class="p">)</span>
+    <span class="nx">Println</span><span class="p">(</span><span class="nx">i1</span><span class="p">)</span>
+
+    <span class="c1">//string to bytes, bytes to string</span>
+    <span class="nx">s2</span> <span class="o">:=</span> <span class="s">&quot;113.45&quot;</span>
+    <span class="nx">b2</span> <span class="o">:=</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">s2</span><span class="p">)</span>
+    <span class="nx">s2b</span> <span class="o">:=</span> <span class="nb">string</span><span class="p">(</span><span class="nx">b2</span><span class="p">)</span>
+    <span class="nx">Println</span><span class="p">(</span><span class="nx">s2b</span><span class="p">)</span>
+
+    <span class="c1">//int to string, string to int</span>
+    <span class="nx">s3</span> <span class="o">:=</span> <span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="mi">114</span><span class="p">)</span>
+    <span class="kd">var</span> <span class="nx">i3</span> <span class="kt">int32</span>
+    <span class="nx">Sscanf</span><span class="p">(</span><span class="nx">s3</span><span class="p">,</span> <span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">i3</span><span class="p">)</span>
+    <span class="nx">Println</span><span class="p">(</span><span class="nx">i3</span><span class="p">)</span>
+
+    <span class="nx">b4</span> <span class="o">:=</span> <span class="nx">f32_to_bytes</span><span class="p">(</span><span class="mf">115.67</span><span class="p">)</span>
+    <span class="nx">f4</span> <span class="o">:=</span> <span class="nx">bytes_to_f32</span><span class="p">(</span><span class="nx">b4</span><span class="p">)</span>
+    <span class="nx">Println</span><span class="p">(</span><span class="nx">f4</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">i32_to_bytes</span><span class="p">(</span><span class="nx">num</span> <span class="kt">int32</span><span class="p">)</span> <span class="p">[]</span><span class="kt">byte</span> <span class="p">{</span>
+    <span class="nx">b1</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">bytes</span><span class="p">.</span><span class="nx">Buffer</span><span class="p">)</span>
+    <span class="nx">binary</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">b1</span><span class="p">,</span> <span class="nx">binary</span><span class="p">.</span><span class="nx">LittleEndian</span><span class="p">,</span> <span class="nb">uint32</span><span class="p">(</span><span class="nx">num</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nx">b1</span><span class="p">.</span><span class="nx">Bytes</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">bytes_to_i32</span><span class="p">(</span><span class="nx">b1</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="kt">int32</span> <span class="p">{</span>
+    <span class="nx">bb1</span> <span class="o">:=</span> <span class="nx">bytes</span><span class="p">.</span><span class="nx">NewBuffer</span><span class="p">(</span><span class="nx">b1</span><span class="p">)</span>
+    <span class="kd">var</span> <span class="nx">i1</span> <span class="kt">int32</span>
+    <span class="nx">binary</span><span class="p">.</span><span class="nx">Read</span><span class="p">(</span><span class="nx">bb1</span><span class="p">,</span> <span class="nx">binary</span><span class="p">.</span><span class="nx">LittleEndian</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">i1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nx">i1</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">f32_to_bytes</span><span class="p">(</span><span class="nx">num</span> <span class="kt">float32</span><span class="p">)</span> <span class="p">[]</span><span class="kt">byte</span> <span class="p">{</span>
+    <span class="nx">b1</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">bytes</span><span class="p">.</span><span class="nx">Buffer</span><span class="p">)</span>
+    <span class="nx">binary</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">b1</span><span class="p">,</span> <span class="nx">binary</span><span class="p">.</span><span class="nx">LittleEndian</span><span class="p">,</span> <span class="nb">float64</span><span class="p">(</span><span class="nx">num</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nx">b1</span><span class="p">.</span><span class="nx">Bytes</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">bytes_to_f32</span><span class="p">(</span><span class="nx">b1</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="kt">float32</span> <span class="p">{</span>
+    <span class="nx">bb1</span> <span class="o">:=</span> <span class="nx">bytes</span><span class="p">.</span><span class="nx">NewBuffer</span><span class="p">(</span><span class="nx">b1</span><span class="p">)</span>
+    <span class="kd">var</span> <span class="nx">f1</span> <span class="kt">float64</span>
+    <span class="nx">binary</span><span class="p">.</span><span class="nx">Read</span><span class="p">(</span><span class="nx">bb1</span><span class="p">,</span> <span class="nx">binary</span><span class="p">.</span><span class="nx">LittleEndian</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">f1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">float32</span><span class="p">(</span><span class="nx">f1</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
 <h2 id="rust">Rust</h2>
 <div class="codehilite"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="p">{</span><span class="kt">str</span><span class="p">};</span><span class="w"></span>
 
