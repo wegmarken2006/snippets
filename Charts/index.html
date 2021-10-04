@@ -844,6 +844,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#go" class="md-nav__link">
+    Go
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rust" class="md-nav__link">
     Rust
   </a>
@@ -985,6 +992,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#go" class="md-nav__link">
+    Go
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rust" class="md-nav__link">
     Rust
   </a>
@@ -1015,6 +1029,58 @@
                 
                 
                 <h1 id="charts">Charts</h1>
+<h2 id="go">Go</h2>
+<div class="codehilite"><pre><span></span><code><span class="c1">//go.mode</span>
+<span class="c1">//require github.com/go-echarts/go-echarts/v2 v2.2.4</span>
+<span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;fmt&quot;</span>
+    <span class="s">&quot;math&quot;</span>
+    <span class="s">&quot;os&quot;</span>
+
+    <span class="s">&quot;github.com/go-echarts/go-echarts/v2/charts&quot;</span>
+    <span class="s">&quot;github.com/go-echarts/go-echarts/v2/opts&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">yLineVals</span> <span class="p">[]</span><span class="nx">opts</span><span class="p">.</span><span class="nx">LineData</span>
+    <span class="kd">var</span> <span class="nx">yBarVals</span> <span class="p">[]</span><span class="nx">opts</span><span class="p">.</span><span class="nx">BarData</span>
+    <span class="kd">var</span> <span class="nx">xVals</span> <span class="p">[]</span><span class="kt">string</span>
+
+    <span class="c1">//prepare data</span>
+    <span class="k">for</span> <span class="nx">ind</span> <span class="o">:=</span> <span class="o">-</span><span class="mi">314</span><span class="p">;</span> <span class="nx">ind</span> <span class="o">&lt;=</span> <span class="mi">314</span><span class="p">;</span> <span class="nx">ind</span> <span class="o">+=</span> <span class="mi">10</span> <span class="p">{</span>
+        <span class="nx">xVals</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">xVals</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="nx">ind</span><span class="p">))</span>
+        <span class="nx">yLineVals</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">yLineVals</span><span class="p">,</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">LineData</span><span class="p">{</span><span class="nx">Value</span><span class="p">:</span> <span class="nx">math</span><span class="p">.</span><span class="nx">Sin</span><span class="p">(</span><span class="nb">float64</span><span class="p">(</span><span class="nx">ind</span><span class="p">)</span> <span class="o">/</span> <span class="mf">100.</span><span class="p">)})</span>
+        <span class="nx">yBarVals</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">yBarVals</span><span class="p">,</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">BarData</span><span class="p">{</span><span class="nx">Value</span><span class="p">:</span> <span class="nx">math</span><span class="p">.</span><span class="nx">Sin</span><span class="p">(</span><span class="nb">float64</span><span class="p">(</span><span class="nx">ind</span><span class="p">)</span> <span class="o">/</span> <span class="mf">100.</span><span class="p">)})</span>
+    <span class="p">}</span>
+
+    <span class="nx">line</span> <span class="o">:=</span> <span class="nx">charts</span><span class="p">.</span><span class="nx">NewLine</span><span class="p">()</span>
+    <span class="nx">line</span><span class="p">.</span><span class="nx">SetGlobalOptions</span><span class="p">(</span>
+        <span class="nx">charts</span><span class="p">.</span><span class="nx">WithXAxisOpts</span><span class="p">(</span><span class="nx">opts</span><span class="p">.</span><span class="nx">XAxis</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span> <span class="s">&quot;X&quot;</span><span class="p">}),</span>
+        <span class="nx">charts</span><span class="p">.</span><span class="nx">WithYAxisOpts</span><span class="p">(</span><span class="nx">opts</span><span class="p">.</span><span class="nx">YAxis</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span> <span class="s">&quot;Sin(x)&quot;</span><span class="p">}),</span>
+
+        <span class="nx">charts</span><span class="p">.</span><span class="nx">WithTitleOpts</span><span class="p">(</span><span class="nx">opts</span><span class="p">.</span><span class="nx">Title</span><span class="p">{</span>
+            <span class="nx">Title</span><span class="p">:</span>    <span class="s">&quot;Sin(x)&quot;</span><span class="p">,</span>
+            <span class="nx">Subtitle</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">}))</span>
+    <span class="nx">line</span><span class="p">.</span><span class="nx">SetXAxis</span><span class="p">(</span><span class="nx">xVals</span><span class="p">).</span><span class="nx">AddSeries</span><span class="p">(</span><span class="s">&quot;Sin(x)&quot;</span><span class="p">,</span> <span class="nx">yLineVals</span><span class="p">)</span>
+    <span class="nx">f</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Create</span><span class="p">(</span><span class="s">&quot;line.html&quot;</span><span class="p">)</span>
+    <span class="nx">line</span><span class="p">.</span><span class="nx">Render</span><span class="p">(</span><span class="nx">f</span><span class="p">)</span>
+
+    <span class="nx">bar</span> <span class="o">:=</span> <span class="nx">charts</span><span class="p">.</span><span class="nx">NewBar</span><span class="p">()</span>
+    <span class="nx">bar</span><span class="p">.</span><span class="nx">SetGlobalOptions</span><span class="p">(</span>
+        <span class="nx">charts</span><span class="p">.</span><span class="nx">WithTitleOpts</span><span class="p">(</span><span class="nx">opts</span><span class="p">.</span><span class="nx">Title</span><span class="p">{</span>
+            <span class="nx">Title</span><span class="p">:</span>    <span class="s">&quot;Sin(x)&quot;</span><span class="p">,</span>
+            <span class="nx">Subtitle</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">}))</span>
+    <span class="nx">bar</span><span class="p">.</span><span class="nx">SetXAxis</span><span class="p">(</span><span class="nx">xVals</span><span class="p">).</span><span class="nx">AddSeries</span><span class="p">(</span><span class="s">&quot;Sin(x)&quot;</span><span class="p">,</span> <span class="nx">yBarVals</span><span class="p">)</span>
+    <span class="nx">g</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Create</span><span class="p">(</span><span class="s">&quot;bar.html&quot;</span><span class="p">)</span>
+    <span class="nx">bar</span><span class="p">.</span><span class="nx">Render</span><span class="p">(</span><span class="nx">g</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
 <h2 id="rust">Rust</h2>
 <div class="codehilite"><pre><span></span><code><span class="c1">//[dependencies]</span>
 <span class="c1">//plotters = &quot;0.2.12&quot;</span>
