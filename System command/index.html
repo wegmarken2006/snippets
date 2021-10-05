@@ -1105,6 +1105,11 @@
     <span class="nx">out</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">exec</span><span class="p">.</span><span class="nx">Command</span><span class="p">(</span><span class="s">&quot;go&quot;</span><span class="p">,</span> <span class="s">&quot;version&quot;</span><span class="p">).</span><span class="nx">Output</span><span class="p">()</span>
     <span class="nx">output</span> <span class="o">:=</span> <span class="nb">string</span><span class="p">(</span><span class="nx">out</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;\n%s&quot;</span><span class="p">,</span> <span class="nx">output</span><span class="p">)</span>
+
+    <span class="c1">//windows only</span>
+    <span class="nx">out</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">exec</span><span class="p">.</span><span class="nx">Command</span><span class="p">(</span><span class="s">&quot;cmd&quot;</span><span class="p">,</span> <span class="s">&quot;/C&quot;</span><span class="p">,</span> <span class="s">&quot;dir&quot;</span><span class="p">).</span><span class="nx">Output</span><span class="p">()</span>
+    <span class="nx">output</span> <span class="p">=</span> <span class="nb">string</span><span class="p">(</span><span class="nx">out</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;\n%s&quot;</span><span class="p">,</span> <span class="nx">output</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -1128,6 +1133,14 @@
 <span class="w">        </span><span class="p">.</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;failed to execute process&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;stdout: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span>::<span class="n">from_utf8_lossy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">output</span><span class="p">.</span><span class="n">stdout</span><span class="p">));</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">//windows only</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">output2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Command</span>::<span class="n">new</span><span class="p">(</span><span class="s">&quot;cmd&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">args</span><span class="p">(</span><span class="o">&amp;</span><span class="p">[</span><span class="s">&quot;/C&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dir&quot;</span><span class="p">])</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">output</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;failed to execute process&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;stdout: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span>::<span class="n">from_utf8_lossy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">output2</span><span class="p">.</span><span class="n">stdout</span><span class="p">));</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
                 
