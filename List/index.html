@@ -564,6 +564,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#v" class="md-nav__link">
+    V
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1096,6 +1103,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#v" class="md-nav__link">
+    V
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1553,6 +1567,42 @@
 <span class="kd">var</span> <span class="nx">lst5</span> <span class="o">=</span> <span class="nx">lst4</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">x</span> <span class="o">!=</span> <span class="s2">&quot;STR00&quot;</span><span class="p">);</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">lst5</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</code></pre></div>
+
+
+<h2 id="v">V</h2>
+<div class="codehilite"><pre><span></span><code><span class="nx">fn</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//new empty list</span>
+    <span class="nx">mut</span> <span class="nx">lst1</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{}</span>
+
+    <span class="c1">//new initialized list</span>
+    <span class="nx">lst2</span> <span class="o">:=</span> <span class="p">[</span><span class="s">&quot;str20&quot;</span><span class="p">,</span> <span class="s">&quot;str21&quot;</span><span class="p">]</span>
+
+    <span class="c1">//append element</span>
+    <span class="nx">lst1</span>  <span class="o">&lt;&lt;</span> <span class="s">&quot;str10&quot;</span>
+
+    <span class="c1">//append list</span>
+    <span class="nx">lst1</span> <span class="o">&lt;&lt;</span> <span class="nx">lst2</span>
+
+    <span class="c1">//add head element</span>
+    <span class="nx">lst1</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;str00&quot;</span><span class="p">)</span>
+
+    <span class="c1">//reverse</span>
+    <span class="nx">lst1</span><span class="p">.</span><span class="nx">reverse_in_place</span><span class="p">()</span>
+
+    <span class="c1">//access elem with out of bounds check</span>
+    <span class="nx">elem</span> <span class="o">:=</span> <span class="nx">lst1</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span> <span class="nx">or</span> <span class="p">{</span><span class="s">&quot;elem not found&quot;</span><span class="p">}</span>
+    <span class="nb">println</span><span class="p">(</span><span class="err">&#39;$</span><span class="nx">elem</span><span class="err">&#39;</span><span class="p">)</span>
+
+    <span class="c1">// sublist[&quot;str21&quot;, &quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]-&gt;[&quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]</span>
+    <span class="nx">lst3</span> <span class="o">:=</span> <span class="nx">lst1</span><span class="p">[</span><span class="mf">1.</span><span class="p">.]</span>
+    <span class="nb">println</span><span class="p">(</span><span class="err">&#39;$</span><span class="nx">lst3</span><span class="err">&#39;</span><span class="p">)</span>
+
+    <span class="c1">//map and filter</span>
+    <span class="nx">lst4</span> <span class="o">:=</span> <span class="nx">lst3</span><span class="p">.</span><span class="kd">map</span><span class="p">(</span><span class="nx">it</span><span class="p">.</span><span class="nx">to_upper</span><span class="p">())</span>
+    <span class="nx">lst5</span> <span class="o">:=</span> <span class="nx">lst4</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">it</span> <span class="o">!=</span> <span class="s">&quot;STR00&quot;</span><span class="p">)</span>
+    <span class="nb">println</span><span class="p">(</span><span class="err">&#39;$</span><span class="nx">lst5</span><span class="err">&#39;</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div>
                 
               

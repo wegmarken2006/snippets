@@ -1097,19 +1097,22 @@
 <div class="codehilite"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="p">(</span>
-    <span class="s">&quot;fmt&quot;</span>
+    <span class="p">.</span> <span class="s">&quot;fmt&quot;</span>
     <span class="s">&quot;os/exec&quot;</span>
+    <span class="s">&quot;runtime&quot;</span>
 <span class="p">)</span>
 
 <span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">out</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">exec</span><span class="p">.</span><span class="nx">Command</span><span class="p">(</span><span class="s">&quot;go&quot;</span><span class="p">,</span> <span class="s">&quot;version&quot;</span><span class="p">).</span><span class="nx">Output</span><span class="p">()</span>
-    <span class="nx">output</span> <span class="o">:=</span> <span class="nb">string</span><span class="p">(</span><span class="nx">out</span><span class="p">)</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;\n%s&quot;</span><span class="p">,</span> <span class="nx">output</span><span class="p">)</span>
-
-    <span class="c1">//windows only</span>
-    <span class="nx">out</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">exec</span><span class="p">.</span><span class="nx">Command</span><span class="p">(</span><span class="s">&quot;cmd&quot;</span><span class="p">,</span> <span class="s">&quot;/C&quot;</span><span class="p">,</span> <span class="s">&quot;dir&quot;</span><span class="p">).</span><span class="nx">Output</span><span class="p">()</span>
-    <span class="nx">output</span> <span class="p">=</span> <span class="nb">string</span><span class="p">(</span><span class="nx">out</span><span class="p">)</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;\n%s&quot;</span><span class="p">,</span> <span class="nx">output</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">runtime</span><span class="p">.</span><span class="nx">GOOS</span> <span class="o">==</span> <span class="s">&quot;linux&quot;</span> <span class="p">{</span>
+        <span class="nx">out</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">exec</span><span class="p">.</span><span class="nx">Command</span><span class="p">(</span><span class="s">&quot;/bin/sh&quot;</span><span class="p">,</span> <span class="s">&quot;-c&quot;</span><span class="p">,</span> <span class="s">&quot;ls&quot;</span><span class="p">).</span><span class="nx">Output</span><span class="p">()</span>
+        <span class="nx">output</span> <span class="o">:=</span> <span class="nb">string</span><span class="p">(</span><span class="nx">out</span><span class="p">)</span>
+        <span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;\n%s&quot;</span><span class="p">,</span> <span class="nx">output</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">//windows</span>
+        <span class="nx">out</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">exec</span><span class="p">.</span><span class="nx">Command</span><span class="p">(</span><span class="s">&quot;cmd&quot;</span><span class="p">,</span> <span class="s">&quot;/C&quot;</span><span class="p">,</span> <span class="s">&quot;dir&quot;</span><span class="p">).</span><span class="nx">Output</span><span class="p">()</span>
+        <span class="nx">output</span> <span class="o">:=</span> <span class="nb">string</span><span class="p">(</span><span class="nx">out</span><span class="p">)</span>
+        <span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;\n%s&quot;</span><span class="p">,</span> <span class="nx">output</span><span class="p">)</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 

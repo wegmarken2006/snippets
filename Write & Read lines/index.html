@@ -699,6 +699,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#v" class="md-nav__link">
+    V
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1054,6 +1061,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#v" class="md-nav__link">
+    V
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1238,6 +1252,22 @@
 <span class="w">        </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">str1</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+
+<h2 id="v">V</h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nx">os</span>
+
+<span class="nx">fn</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">file_name</span> <span class="o">:=</span> <span class="s">&quot;tmp0.txt&quot;</span>
+    <span class="nx">mut</span> <span class="nx">f1</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">file_name</span><span class="p">)</span> <span class="nx">or</span> <span class="p">{</span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;cannot create $file_name&quot;</span><span class="p">)}</span>
+    <span class="nx">to_write</span> <span class="o">:=</span> <span class="p">(</span><span class="s">&quot;This is\n\na text\nfile&quot;</span><span class="p">).</span><span class="nx">bytes</span><span class="p">()</span>
+    <span class="nx">f1</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">to_write</span><span class="p">)</span> <span class="nx">or</span> <span class="p">{</span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;cannot write $file_name&quot;</span><span class="p">)}</span>
+    <span class="nx">f1</span><span class="p">.</span><span class="nb">close</span><span class="p">()</span>
+
+    <span class="nx">lines</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">read_lines</span><span class="p">(</span><span class="nx">file_name</span><span class="p">)</span> <span class="nx">or</span> <span class="p">{</span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;cannot read $file_name&quot;</span><span class="p">)}</span>
+    <span class="nb">println</span><span class="p">(</span><span class="err">&#39;$</span><span class="nx">lines</span><span class="err">&#39;</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div>
                 
               

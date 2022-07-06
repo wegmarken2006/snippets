@@ -704,6 +704,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#v" class="md-nav__link">
+    V
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1040,6 +1047,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#v" class="md-nav__link">
+    V
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1253,6 +1267,42 @@
 <span class="w">        </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">record</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+
+<h2 id="v">V</h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nx">encoding</span><span class="p">.</span><span class="nx">csv</span>
+<span class="kn">import</span> <span class="nx">os</span>
+
+<span class="nx">fn</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">records</span> <span class="o">:=</span> <span class="p">[[</span><span class="s">&quot;FirstName&quot;</span><span class="p">,</span> <span class="s">&quot;SecondName&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="s">&quot;Doe&quot;</span><span class="p">],</span> 
+        <span class="p">[</span><span class="s">&quot;Mark&quot;</span><span class="p">,</span> <span class="s">&quot;Smith&quot;</span><span class="p">]]</span>  
+
+    <span class="nx">file_name</span> <span class="o">:=</span> <span class="s">&quot;tmp0.txt&quot;</span>
+    <span class="nx">mut</span> <span class="nx">f1</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">file_name</span><span class="p">)</span> <span class="nx">or</span> <span class="p">{</span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;cannot create $file_name&quot;</span><span class="p">)}</span>
+
+    <span class="nx">mut</span> <span class="nx">writer</span> <span class="o">:=</span> <span class="nx">csv</span><span class="p">.</span><span class="nx">new_writer</span><span class="p">()</span>
+    <span class="k">for</span> <span class="nx">record</span> <span class="nx">in</span> <span class="nx">records</span> <span class="p">{</span>
+        <span class="nx">writer</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">record</span><span class="p">)</span> <span class="nx">or</span> <span class="p">{}</span>
+        <span class="nx">to_write</span> <span class="o">:=</span> <span class="nx">writer</span><span class="p">.</span><span class="nx">str</span><span class="p">()</span>
+        <span class="nx">f1</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">to_write</span><span class="p">.</span><span class="nx">bytes</span><span class="p">())</span> <span class="nx">or</span> <span class="p">{</span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;cannot write $file_name&quot;</span><span class="p">)}</span>
+    <span class="p">}</span>
+    <span class="nx">f1</span><span class="p">.</span><span class="nb">close</span><span class="p">()</span>
+
+    <span class="nx">lines</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">read_lines</span><span class="p">(</span><span class="nx">file_name</span><span class="p">)</span> <span class="nx">or</span> <span class="p">{</span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;cannot read $file_name&quot;</span><span class="p">)}</span>
+
+    <span class="k">for</span> <span class="nx">ind</span><span class="p">,</span> <span class="nx">line</span> <span class="nx">in</span> <span class="nx">lines</span> <span class="p">{</span>
+        <span class="c1">//skip header</span>
+        <span class="k">if</span> <span class="nx">ind</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+            <span class="k">continue</span>
+        <span class="p">}</span> 
+        <span class="nx">line_nl</span> <span class="o">:=</span> <span class="s">&quot;$line\n&quot;</span>
+        <span class="nx">mut</span> <span class="nx">parser</span> <span class="o">:=</span> <span class="nx">csv</span><span class="p">.</span><span class="nx">new_reader</span><span class="p">(</span><span class="nx">line_nl</span><span class="p">)</span>
+        <span class="nx">items</span> <span class="o">:=</span> <span class="nx">parser</span><span class="p">.</span><span class="nx">read</span><span class="p">()</span> <span class="nx">or</span> <span class="p">{</span> <span class="k">break</span> <span class="p">}</span>
+        <span class="nb">println</span><span class="p">(</span><span class="s">&quot;First: ${items[0]}, Second: ${items[1]}&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
 </code></pre></div>
                 
               
