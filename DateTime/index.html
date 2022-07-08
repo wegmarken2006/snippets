@@ -481,6 +481,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#v-vlang" class="md-nav__link">
+    V (vlang)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1026,6 +1033,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#v-vlang" class="md-nav__link">
+    V (vlang)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1233,6 +1247,57 @@
 <span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">delta_w</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">delta_y</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+
+<h2 id="v-vlang">V (vlang)</h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nx">time</span>
+
+<span class="nx">fn</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">today</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span>
+    <span class="nx">year</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">year</span>
+    <span class="nx">month</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">month</span>
+    <span class="nx">day</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">day</span>
+    <span class="nx">hour</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">hour</span>
+    <span class="nx">minute</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">minute</span>
+    <span class="nx">second</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">second</span>
+
+    <span class="c1">// from date to string</span>
+    <span class="nx">today_str</span> <span class="o">:=</span> <span class="s">&quot;$year-${month:02}-${day:02} ${hour:02}:${minute:02}:${second:02}&quot;</span>
+    <span class="nx">date_str</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">get_fmt_date_str</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">FormatDelimiter</span><span class="p">.</span><span class="nx">hyphen</span><span class="p">,</span>
+                <span class="nx">time</span><span class="p">.</span><span class="nx">FormatDate</span><span class="p">.</span><span class="nx">yyyymmdd</span><span class="p">)</span>
+    <span class="nx">time_str</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">get_fmt_time_str</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">FormatTime</span><span class="p">.</span><span class="nx">hhmmss24</span><span class="p">)</span>
+
+    <span class="c1">// from string to date</span>
+    <span class="nx">today2</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">today_str</span><span class="p">)</span> <span class="nx">or</span> <span class="p">{</span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;Parse error $err&quot;</span><span class="p">)}</span>
+    <span class="nx">today2_str</span> <span class="o">:=</span> <span class="nx">today2</span><span class="p">.</span><span class="nx">str</span><span class="p">()</span>
+
+    <span class="nx">weekday_str</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">weekday_str</span><span class="p">()</span>
+
+    <span class="nx">tomorrow</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">add_days</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nx">tomorrow_str</span> <span class="o">:=</span> <span class="nx">tomorrow</span><span class="p">.</span><span class="nx">str</span><span class="p">()</span>
+
+    <span class="c1">// difference between dates</span>
+    <span class="nx">next_week</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">add_days</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+    <span class="nx">delta_w</span> <span class="o">:=</span> <span class="nx">next_week</span> <span class="o">-</span> <span class="nx">today</span>
+    <span class="nx">delta_d</span> <span class="o">:=</span> <span class="nx">delta_w</span><span class="p">.</span><span class="nx">hours</span><span class="p">()</span> <span class="o">/</span> <span class="mf">24.0</span>
+    <span class="nx">mut</span> <span class="nx">days_per_year</span> <span class="o">:=</span> <span class="mi">365</span>
+    <span class="k">if</span> <span class="nx">time</span><span class="p">.</span><span class="nx">is_leap_year</span><span class="p">(</span><span class="nx">year</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">days_per_year</span> <span class="p">=</span> <span class="mi">366</span>
+    <span class="p">}</span>
+    <span class="nx">next_year</span> <span class="o">:=</span> <span class="nx">today</span><span class="p">.</span><span class="nx">add_days</span><span class="p">(</span><span class="nx">days_per_year</span><span class="p">)</span>
+    <span class="nx">n_year</span> <span class="o">:=</span> <span class="nx">next_year</span><span class="p">.</span><span class="nx">year</span>
+    <span class="nx">delta_y</span> <span class="o">:=</span> <span class="nx">n_year</span> <span class="o">-</span> <span class="nx">year</span>
+
+    <span class="nb">println</span><span class="p">(</span><span class="nx">today_str</span><span class="p">)</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">date_str</span><span class="p">)</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">time_str</span><span class="p">)</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">today2_str</span><span class="p">)</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">weekday_str</span><span class="p">)</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">tomorrow_str</span><span class="p">)</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">delta_d</span><span class="p">)</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">delta_y</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div>
                 
               

@@ -521,6 +521,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#v-vlang" class="md-nav__link">
+    V (vlang)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1082,6 +1089,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#v-vlang" class="md-nav__link">
+    V (vlang)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1362,6 +1376,40 @@
     <span class="p">{</span><span class="k">return</span> <span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span> <span class="o">?</span>  <span class="o">-</span><span class="nx">1</span> : <span class="kt">1</span><span class="p">)}));</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sorted</span><span class="p">);</span>
+</code></pre></div>
+
+
+<h2 id="v-vlang">V (vlang)</h2>
+<div class="codehilite"><pre><span></span><code><span class="nx">fn</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//count words</span>
+
+    <span class="nx">word_list</span> <span class="o">:=</span> <span class="p">[</span><span class="s">&quot;glass&quot;</span><span class="p">,</span> <span class="s">&quot;table&quot;</span><span class="p">,</span> <span class="s">&quot;chair&quot;</span><span class="p">,</span> <span class="s">&quot;chair&quot;</span><span class="p">]</span>
+    <span class="nx">mut</span> <span class="nx">words</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{}</span>
+
+    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">item</span> <span class="nx">in</span>  <span class="nx">word_list</span> <span class="p">{</span>
+        <span class="nx">words</span><span class="p">[</span><span class="nx">item</span><span class="p">]</span><span class="o">++</span>
+    <span class="p">}</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;\n$words&quot;</span><span class="p">)</span>
+
+    <span class="c1">//sort by descending value</span>
+    <span class="nx">map_sorted</span> <span class="o">:=</span>  <span class="nx">map_sort</span><span class="p">(</span><span class="nx">words</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s">&quot;\n$map_sorted&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nx">fn</span> <span class="nx">map_sort</span><span class="p">(</span><span class="nx">map_in</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">)</span> <span class="p">[]</span><span class="nx">KeyVal</span> <span class="p">{</span>
+    <span class="c1">//map to array</span>
+    <span class="nx">mut</span> <span class="nx">map_s</span> <span class="o">:=</span> <span class="p">[]</span><span class="nx">KeyVal</span><span class="p">{}</span>
+    <span class="k">for</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">v</span> <span class="nx">in</span>  <span class="nx">map_in</span> <span class="p">{</span>
+        <span class="nx">map_s</span> <span class="o">&lt;&lt;</span> <span class="nx">KeyVal</span><span class="p">{</span><span class="nx">k</span><span class="p">,</span> <span class="nx">v</span><span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nx">map_s</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">val</span> <span class="p">&gt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">val</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nx">map_s</span>
+<span class="p">}</span>
+
+<span class="kd">struct</span> <span class="nx">KeyVal</span> <span class="p">{</span>
+    <span class="nx">key</span> <span class="kt">string</span>
+    <span class="nx">val</span> <span class="kt">int</span>
+<span class="p">}</span>
 </code></pre></div>
                 
               
