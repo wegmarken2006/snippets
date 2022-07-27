@@ -523,6 +523,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#julia" class="md-nav__link">
+    Julia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#kotlin" class="md-nav__link">
     Kotlin
   </a>
@@ -1062,6 +1069,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#julia" class="md-nav__link">
+    Julia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#kotlin" class="md-nav__link">
     Kotlin
   </a>
@@ -1296,6 +1310,45 @@
 <span class="kd">func</span> <span class="nx">recoverList</span><span class="p">()</span> <span class="p">{</span>
     <span class="nb">recover</span><span class="p">()</span>
 <span class="p">}</span>
+</code></pre></div>
+
+
+<h2 id="julia">Julia</h2>
+<div class="codehilite"><pre><span></span><code><span class="c"># new empty list</span>
+<span class="n">lst1</span> <span class="o">=</span> <span class="n">String</span><span class="p">[]</span>
+
+<span class="c"># new initialized list</span>
+<span class="n">lst2</span> <span class="o">=</span> <span class="n">String</span><span class="p">[</span><span class="s">&quot;str20&quot;</span><span class="p">,</span> <span class="s">&quot;str21&quot;</span><span class="p">]</span>
+
+<span class="c"># apppend element</span>
+<span class="n">push!</span><span class="p">(</span><span class="n">lst1</span><span class="p">,</span> <span class="s">&quot;str10&quot;</span><span class="p">)</span>
+
+<span class="c"># append list</span>
+<span class="n">append!</span><span class="p">(</span><span class="n">lst1</span><span class="p">,</span> <span class="n">lst2</span><span class="p">)</span>
+
+<span class="c"># add head element</span>
+<span class="n">pushfirst!</span><span class="p">(</span><span class="n">lst1</span><span class="p">,</span> <span class="s">&quot;str00&quot;</span><span class="p">)</span>
+
+<span class="c"># reverse</span>
+<span class="n">lst1</span> <span class="o">=</span> <span class="n">reverse</span><span class="p">(</span><span class="n">lst1</span><span class="p">)</span>
+
+<span class="c"># trap out of bounds access</span>
+<span class="kd">local</span> <span class="n">elem</span> <span class="o">=</span> <span class="n">String</span>
+<span class="k">try</span>
+    <span class="n">elem</span> <span class="o">=</span> <span class="n">lst1</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span>
+<span class="k">catch</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">&quot;Out of bounds&quot;</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="c"># sublist[&quot;str21&quot;, &quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]-&gt;[&quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]</span>
+<span class="c"># list length</span>
+<span class="n">lst3</span> <span class="o">=</span> <span class="n">lst1</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">lst1</span><span class="p">)]</span>
+<span class="n">println</span><span class="p">(</span><span class="n">lst3</span><span class="p">)</span>
+
+<span class="c"># map and filter</span>
+<span class="n">lst4</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">uppercase</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">lst1</span><span class="p">)</span>
+<span class="n">lst5</span> <span class="o">=</span> <span class="n">filter</span><span class="p">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="o">!=</span> <span class="s">&quot;STR00&quot;</span><span class="p">,</span> <span class="n">lst4</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">lst5</span><span class="p">)</span>
 </code></pre></div>
 
 

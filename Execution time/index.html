@@ -586,6 +586,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#julia" class="md-nav__link">
+    Julia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#nim" class="md-nav__link">
     Nim
   </a>
@@ -1053,6 +1060,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#julia" class="md-nav__link">
+    Julia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#nim" class="md-nav__link">
     Nim
   </a>
@@ -1246,6 +1260,42 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="nx">divisors</span>
 <span class="p">}</span>
+</code></pre></div>
+
+
+<h2 id="julia">Julia</h2>
+<div class="codehilite"><pre><span></span><code><span class="c">#import Pkg; Pkg.add(&quot;BenchmarkTools&quot;)</span>
+<span class="k">using</span> <span class="n">BenchmarkTools</span>
+
+<span class="k">function</span> <span class="n">find_proper_divisor</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">divisors</span> <span class="o">=</span> <span class="kt">Int64</span><span class="p">[]</span>
+    <span class="n">endloop</span> <span class="o">=</span> <span class="n">n</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">endloop</span>
+        <span class="k">if</span> <span class="n">n</span><span class="o">%</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> 
+            <span class="n">append!</span><span class="p">(</span><span class="n">divisors</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+        <span class="k">end</span>            
+    <span class="k">end</span>
+    <span class="k">return</span> <span class="n">divisors</span>
+<span class="k">end</span>
+
+<span class="k">function</span> <span class="n">classify_perfect</span><span class="p">(</span><span class="n">nnum</span><span class="p">)</span>
+    <span class="n">perfects</span> <span class="o">=</span> <span class="kt">Int64</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="kp">in</span> <span class="mi">2</span><span class="o">:</span><span class="n">nnum</span> 
+        <span class="n">divisors</span> <span class="o">=</span> <span class="n">find_proper_divisor</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">lastindex</span><span class="p">(</span><span class="n">divisors</span><span class="p">)</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">divisors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">end</span>
+
+        <span class="k">if</span> <span class="n">sum</span> <span class="o">==</span> <span class="n">n</span> 
+            <span class="n">append!</span><span class="p">(</span><span class="n">perfects</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
+    <span class="k">return</span> <span class="n">perfects</span>
+<span class="k">end</span>
+
+<span class="nd">@btime</span> <span class="n">perfects</span> <span class="o">=</span> <span class="n">classify_perfect</span><span class="p">(</span><span class="mi">20001</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">perfects</span><span class="p">)</span>
 </code></pre></div>
 
 
@@ -1444,22 +1494,25 @@
 
 
 <h2 id="v-vlang">V (vlang)</h2>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nx">time</span>
+<div class="codehilite"><pre><span></span><code><span class="c1">// note: int seems to be a i32 also on a 64bit machine</span>
+<span class="c1">// so used i64 instead of int</span>
+<span class="kn">import</span> <span class="nx">time</span>
 
-<span class="nx">fn</span> <span class="nx">main</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nx">start</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">ticks</span><span class="p">()</span>
+<span class="nx">fn</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">stopwatch</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">new_stopwatch</span><span class="p">()</span> <span class="c1">//START MEASURE</span>
     <span class="nx">perfects</span> <span class="o">:=</span> <span class="nx">classify_perfect</span><span class="p">(</span><span class="mi">20001</span><span class="p">)</span>
-    <span class="nx">finish</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">ticks</span><span class="p">()</span>
-    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;$perfects&quot;</span><span class="p">)</span>
-    <span class="nb">println</span><span class="p">(</span><span class="err">&#39;</span><span class="nx">Execution</span> <span class="nx">time</span> <span class="err">$</span><span class="p">{</span><span class="nx">finish</span> <span class="o">-</span> <span class="nx">start</span><span class="p">}</span> <span class="nx">ms</span><span class="err">&#39;</span><span class="p">)</span>
+    <span class="nx">duration</span> <span class="o">:=</span> <span class="nx">stopwatch</span><span class="p">.</span><span class="nx">elapsed</span><span class="p">()</span> <span class="c1">//END MEASURE</span>
+
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\n$perfects&quot;</span><span class="p">)</span>
+    <span class="nb">println</span><span class="p">(</span><span class="s">&quot;\nElapsed: $duration&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="nx">fn</span> <span class="nx">classify_perfect</span><span class="p">(</span><span class="nx">nnum</span> <span class="kt">int</span><span class="p">)</span> <span class="p">[]</span><span class="kt">int</span> <span class="p">{</span>
-    <span class="nx">mut</span> <span class="nx">perfects</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{}</span>
 
+<span class="nx">fn</span> <span class="nx">classify_perfect</span><span class="p">(</span><span class="nx">nnum</span> <span class="nx">i64</span><span class="p">)</span> <span class="p">[]</span><span class="nx">i64</span> <span class="p">{</span>
+    <span class="nx">mut</span> <span class="nx">perfects</span> <span class="o">:=</span> <span class="p">[]</span><span class="nx">i64</span><span class="p">{}</span>
     <span class="k">for</span> <span class="nx">n</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">n</span> <span class="p">&lt;</span> <span class="nx">nnum</span><span class="p">;</span> <span class="nx">n</span><span class="o">++</span> <span class="p">{</span>
-        <span class="nx">divisors</span> <span class="o">:=</span> <span class="nx">find_proper_divisor</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>
-        <span class="nx">mut</span> <span class="nx">sum</span> <span class="o">:=</span> <span class="mi">0</span>
+        <span class="nx">mut</span> <span class="nx">divisors</span> <span class="o">:=</span> <span class="nx">find_proper_divisor</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>
+        <span class="nx">mut</span> <span class="nx">sum</span> <span class="o">:=</span> <span class="nx">i64</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
         <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">divisors</span><span class="p">.</span><span class="nx">len</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
             <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">divisors</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
         <span class="p">}</span>
@@ -1471,9 +1524,9 @@
     <span class="k">return</span> <span class="nx">perfects</span>
 <span class="p">}</span>
 
-<span class="nx">fn</span> <span class="nx">find_proper_divisor</span><span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">)</span> <span class="p">[]</span><span class="kt">int</span> <span class="p">{</span>
-    <span class="nx">mut</span> <span class="nx">divisors</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{}</span>
-    <span class="nx">endloop</span> <span class="o">:=</span> <span class="nb">int</span><span class="p">(</span><span class="nx">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="nx">fn</span> <span class="nx">find_proper_divisor</span><span class="p">(</span><span class="nx">n</span> <span class="nx">i64</span><span class="p">)</span> <span class="p">[]</span><span class="nx">i64</span> <span class="p">{</span>
+    <span class="nx">mut</span> <span class="nx">divisors</span> <span class="o">:=</span> <span class="p">[]</span><span class="nx">i64</span><span class="p">{}</span>
+    <span class="nx">endloop</span> <span class="o">:=</span> <span class="nx">i64</span><span class="p">(</span><span class="nx">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">endloop</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
         <span class="k">if</span> <span class="nx">n</span><span class="o">%</span><span class="nx">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
             <span class="nx">divisors</span> <span class="o">&lt;&lt;</span> <span class="nx">i</span>
