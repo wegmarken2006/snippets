@@ -571,6 +571,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#julia" class="md-nav__link">
+    Julia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#nim" class="md-nav__link">
     Nim
   </a>
@@ -1055,6 +1062,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#julia" class="md-nav__link">
+    Julia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#nim" class="md-nav__link">
     Nim
   </a>
@@ -1268,6 +1282,38 @@
     <span class="nx">cType</span><span class="p">(</span><span class="nx">p1</span><span class="p">)</span>
     <span class="nx">cType</span><span class="p">(</span><span class="nx">c1</span><span class="p">)</span>
 <span class="p">}</span>
+</code></pre></div>
+
+
+<h2 id="julia">Julia</h2>
+<div class="codehilite"><pre><span></span><code><span class="k">using</span> <span class="n">Printf</span>
+
+<span class="k">abstract</span> <span class="k">type</span> <span class="n">CompType</span> <span class="k">end</span>
+
+<span class="k">struct</span> <span class="n">Person</span> <span class="o">&lt;:</span> <span class="n">CompType</span>
+    <span class="n">firstname</span><span class="o">::</span><span class="n">String</span>
+    <span class="n">secondName</span><span class="o">::</span><span class="n">String</span>
+<span class="k">end</span>
+
+<span class="k">struct</span> <span class="n">CInt</span> <span class="o">&lt;:</span> <span class="n">CompType</span>
+    <span class="n">value</span><span class="o">::</span><span class="kt">Int</span>
+<span class="k">end</span>
+
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="s">&quot;Doe&quot;</span><span class="p">)</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="n">CInt</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="k">function</span> <span class="n">cType</span><span class="p">(</span><span class="n">c</span><span class="o">::</span><span class="n">CompType</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">typeof</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">==</span> <span class="n">Person</span>
+        <span class="nd">@printf</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Person </span><span class="si">%s</span><span class="s">&quot;</span> <span class="n">c</span><span class="o">.</span><span class="n">firstname</span>
+    <span class="k">elseif</span> <span class="n">typeof</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">==</span> <span class="n">CInt</span>
+        <span class="nd">@printf</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Number </span><span class="si">%d</span><span class="s">&quot;</span> <span class="n">c</span><span class="o">.</span><span class="n">value</span>
+    <span class="k">end</span> 
+
+<span class="k">end</span>
+
+<span class="n">cType</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+<span class="n">cType</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
 </code></pre></div>
 
 

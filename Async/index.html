@@ -348,6 +348,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#julia" class="md-nav__link">
+    Julia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#nim" class="md-nav__link">
     Nim
   </a>
@@ -1020,6 +1027,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#julia" class="md-nav__link">
+    Julia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#nim" class="md-nav__link">
     Nim
   </a>
@@ -1128,6 +1142,33 @@
   <span class="p">}</span>
   <span class="n">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">$</span><span class="n">total</span><span class="s2">&quot;</span><span class="p">);</span>
 <span class="p">}</span>
+</code></pre></div>
+
+
+<h2 id="julia">Julia</h2>
+<div class="codehilite"><pre><span></span><code><span class="c">#import Pkg; Pkg.add(&quot;HTTP&quot;)</span>
+ <span class="k">using</span> <span class="n">HTTP</span>
+ <span class="k">using</span> <span class="n">Printf</span>
+
+ <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">&quot;https://wegmarken2006.github.io/snippets/&quot;</span><span class="p">,</span>
+    <span class="s">&quot;https://wegmarken2006.github.io/snippets/Cross/&quot;</span><span class="p">,</span>
+    <span class="s">&quot;https://wegmarken2006.github.io/snippets/Dict/&quot;</span><span class="p">,</span>
+    <span class="s">&quot;https://wegmarken2006.github.io/snippets/Execution%20time/&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="k">mutable</span> <span class="k">struct</span> <span class="n">Atomic</span><span class="p">{</span><span class="kt">Int64</span><span class="p">};</span> <span class="nd">@atomic</span> <span class="n">x</span><span class="o">::</span><span class="kt">Int64</span><span class="p">;</span> <span class="k">end</span>
+
+<span class="n">tot</span> <span class="o">=</span> <span class="n">Atomic</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="nd">@sync</span> <span class="k">for</span> <span class="n">url</span> <span class="kp">in</span> <span class="n">urls</span>
+    <span class="nd">@async</span> <span class="k">begin</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">HTTP</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>        
+        <span class="nd">@atomicreplace</span> <span class="n">tot</span><span class="o">.</span><span class="n">x</span>  <span class="p">(</span><span class="nd">@atomic</span> <span class="n">tot</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">length</span><span class="p">(</span><span class="n">String</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">body</span><span class="p">)))</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="nd">@printf</span> <span class="s">&quot;Size: </span><span class="si">%s</span><span class="se">\n</span><span class="s">&quot;</span> <span class="nd">@atomic</span> <span class="n">tot</span><span class="o">.</span><span class="n">x</span>
 </code></pre></div>
 
 

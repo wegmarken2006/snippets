@@ -851,6 +851,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#julia" class="md-nav__link">
+    Julia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rust" class="md-nav__link">
     Rust
   </a>
@@ -999,6 +1006,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#julia" class="md-nav__link">
+    Julia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rust" class="md-nav__link">
     Rust
   </a>
@@ -1078,6 +1092,24 @@
     <span class="nx">g</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Create</span><span class="p">(</span><span class="s">&quot;bar.html&quot;</span><span class="p">)</span>
     <span class="nx">bar</span><span class="p">.</span><span class="nx">Render</span><span class="p">(</span><span class="nx">g</span><span class="p">)</span>
 <span class="p">}</span>
+</code></pre></div>
+
+
+<h2 id="julia">Julia</h2>
+<div class="codehilite"><pre><span></span><code><span class="c">#import Pkg; Pkg.add(&quot;Plots&quot;)</span>
+<span class="k">using</span> <span class="n">Plots</span>
+
+<span class="n">xi</span> <span class="o">=</span> <span class="n">range</span><span class="p">(</span><span class="o">-</span><span class="mi">314</span><span class="p">,</span><span class="mi">314</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="kt">Float64</span><span class="p">[]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="kt">Float64</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">ind</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">lastindex</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
+    <span class="n">xf</span> <span class="o">=</span> <span class="n">xi</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span><span class="o">/</span><span class="mf">100.0</span>
+    <span class="n">push!</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xf</span><span class="p">)</span>
+    <span class="n">push!</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">sin</span><span class="p">(</span><span class="n">xf</span><span class="p">))</span>
+<span class="k">end</span>
+
+<span class="n">ylabel!</span><span class="p">(</span><span class="s">&quot;y = sin(x)&quot;</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;y=sin(x)&quot;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&quot;y = sin(x)&quot;</span><span class="p">)</span>
 </code></pre></div>
 
 
