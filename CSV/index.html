@@ -684,6 +684,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#julia" class="md-nav__link">
+    Julia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     Python
   </a>
@@ -898,6 +905,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../Dataframe/" title="Dataframe" class="md-nav__link">
+      Dataframe
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../Numeric/" title="Numeric" class="md-nav__link">
       Numeric
     </a>
@@ -1027,6 +1046,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#julia" class="md-nav__link">
+    Julia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     Python
   </a>
@@ -1150,6 +1176,22 @@
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;First: %s, Second: %s\n&quot;</span><span class="p">,</span> <span class="nx">record</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">record</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
     <span class="p">}</span>
 <span class="p">}</span>
+</code></pre></div>
+
+
+<h2 id="julia">Julia</h2>
+<div class="codehilite"><pre><span></span><code><span class="c">#import Pkg; Pkg.add(&quot;CSV&quot;); Pkg.add(&quot;DataFrames&quot;)</span>
+<span class="k">using</span> <span class="n">CSV</span><span class="p">,</span> <span class="n">DataFrames</span>
+
+<span class="n">filename</span> <span class="o">=</span> <span class="s">&quot;tmp001.csv&quot;</span>
+<span class="n">touch</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">FirstName</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="s">&quot;Mark&quot;</span><span class="p">],</span> <span class="n">SecondName</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;Doe&quot;</span><span class="p">,</span> <span class="s">&quot;Smith&quot;</span><span class="p">])</span>
+<span class="n">CSV</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+
+<span class="n">csv_reader</span> <span class="o">=</span> <span class="n">CSV</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="kp">in</span> <span class="n">csv_reader</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">&quot;First: </span><span class="si">$</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">FirstName</span><span class="p">)</span><span class="s">, Second: </span><span class="si">$</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">SecondName</span><span class="p">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="k">end</span>
 </code></pre></div>
 
 

@@ -819,6 +819,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../Dataframe/" title="Dataframe" class="md-nav__link">
+      Dataframe
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -865,6 +877,13 @@
         <li class="md-nav__item">
   <a href="#go" class="md-nav__link">
     Go
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#julia" class="md-nav__link">
+    Julia
   </a>
   
 </li>
@@ -1029,6 +1048,13 @@
         <li class="md-nav__item">
   <a href="#go" class="md-nav__link">
     Go
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#julia" class="md-nav__link">
+    Julia
   </a>
   
 </li>
@@ -1205,6 +1231,49 @@
     <span class="p">}</span>
     <span class="k">return</span> <span class="nx">max</span>
 <span class="p">}</span>
+</code></pre></div>
+
+
+<h2 id="julia">Julia</h2>
+<div class="codehilite"><pre><span></span><code><span class="k">using</span> <span class="n">Statistics</span>
+<span class="k">using</span> <span class="n">LinearAlgebra</span>
+<span class="k">using</span> <span class="n">Dates</span>
+
+<span class="n">tstart</span> <span class="o">=</span> <span class="n">Dates</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span> <span class="mf">2.</span> <span class="mf">3.</span><span class="p">;</span><span class="mf">3.</span> <span class="mf">4.</span> <span class="mf">5.</span><span class="p">;</span><span class="mf">0.</span> <span class="mf">5.</span> <span class="mf">6.</span><span class="p">]</span>
+
+<span class="c"># mean by columns</span>
+<span class="n">am0</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c"># std dev by columns</span>
+<span class="n">as0</span> <span class="o">=</span> <span class="n">std</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">corrected</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c"># max by columns</span>
+<span class="n">amax0</span> <span class="o">=</span> <span class="n">maximum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">at</span> <span class="o">=</span> <span class="n">transpose</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="c"># matrix multiplication</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">at</span>
+
+<span class="c">#determinant</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">det</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="c">#inverse</span>
+<span class="k">try</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">catch</span>    
+<span class="k">end</span>
+<span class="n">tend</span> <span class="o">=</span> <span class="n">Dates</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="n">println</span><span class="p">(</span><span class="n">am0</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">as0</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">amax0</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">at</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>    
+<span class="n">println</span><span class="p">(</span><span class="n">tend</span><span class="o">-</span><span class="n">tstart</span><span class="p">)</span>
 </code></pre></div>
 
 
@@ -1435,7 +1504,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../Charts/" title="Charts" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../Dataframe/" title="Dataframe" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
             </div>
@@ -1444,7 +1513,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Charts
+                Dataframe
               </div>
             </div>
           </a>

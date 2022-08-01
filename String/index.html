@@ -912,6 +912,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../Dataframe/" title="Dataframe" class="md-nav__link">
+      Dataframe
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../Numeric/" title="Numeric" class="md-nav__link">
       Numeric
     </a>
@@ -1232,8 +1244,7 @@
 <span class="n">t</span> <span class="o">=</span> <span class="n">Dates</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
 
 <span class="c"># string interpolation</span>
-<span class="n">str1</span> <span class="o">=</span> <span class="nd">@sprintf</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s"> age is </span><span class="si">%d</span><span class="s">, weekday is </span><span class="si">%s</span><span class="s">, </span><span class="si">%d</span><span class="s">:</span><span class="si">%d</span><span class="se">\n</span><span class="s">&quot;</span> <span class="n">name</span> <span class="n">age</span> <span class="n">Dates</span><span class="o">.</span><span class="n">dayname</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="n">Dates</span><span class="o">.</span><span class="n">hour</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="n">Dates</span><span class="o">.</span><span class="n">minute</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="si">$</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="s"> age is </span><span class="si">$</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="s">, weekday is </span><span class="si">$</span><span class="p">(</span><span class="n">Dates</span><span class="o">.</span><span class="n">dayname</span><span class="p">(</span><span class="n">t</span><span class="p">))</span><span class="s">, </span><span class="si">$</span><span class="p">(</span><span class="n">Dates</span><span class="o">.</span><span class="n">hour</span><span class="p">(</span><span class="n">t</span><span class="p">))</span><span class="s">:</span><span class="si">$</span><span class="p">(</span><span class="n">Dates</span><span class="o">.</span><span class="n">minute</span><span class="p">(</span><span class="n">t</span><span class="p">))</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
 
 <span class="n">str2</span> <span class="o">=</span> <span class="nd">@sprintf</span> <span class="s">&quot;four decimals </span><span class="si">%.4f</span><span class="s">, hex for </span><span class="si">%d</span><span class="s">: 0x</span><span class="si">%x</span><span class="s"> </span><span class="se">\n</span><span class="s">&quot;</span> <span class="mf">1.23456</span> <span class="mi">16</span> <span class="mi">16</span>
 <span class="n">println</span><span class="p">(</span><span class="n">str2</span><span class="p">)</span>
