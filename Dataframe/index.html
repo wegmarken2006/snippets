@@ -1111,7 +1111,24 @@
 
 
 <h2 id="python">Python</h2>
-<div class="codehilite"><pre><span></span><code>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+
+<span class="n">dataname</span> <span class="o">=</span> <span class="s2">&quot;iris.data&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data&quot;</span>
+
+<span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">dataname</span><span class="p">)</span>
+
+<span class="n">col_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Sepal_Length&#39;</span><span class="p">,</span><span class="s1">&#39;Sepal_Width&#39;</span><span class="p">,</span><span class="s1">&#39;Petal_Length&#39;</span><span class="p">,</span><span class="s1">&#39;Petal_Width&#39;</span><span class="p">,</span><span class="s1">&#39;Class&#39;</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span>  <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dataname</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">col_names</span><span class="p">)</span>
+
+<span class="c1"># select rows</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Sepal_Length&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">5.4</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Petal_Width&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mf">0.2</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+
+<span class="c1"># select columns</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">df1</span><span class="p">[[</span><span class="s1">&#39;Sepal_Length&#39;</span><span class="p">,</span><span class="s1">&#39;Petal_Width&#39;</span><span class="p">,</span><span class="s1">&#39;Class&#39;</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
 </code></pre></div>
                 
               
