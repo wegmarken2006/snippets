@@ -1175,6 +1175,68 @@
 </code></pre></div>
 
 
+<div class="codehilite"><pre><span></span><code><span class="c1">//channel receiver shared between threads</span>
+<span class="c1">//using std::thread::scope and crossbeam_channel</span>
+<span class="c1">//[dependencies]</span>
+<span class="c1">//ureq = &quot;2.5.0&quot;</span>
+<span class="c1">//crossbeam-channel = &quot;0.5.6&quot;</span>
+
+<span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">io</span>::<span class="n">Read</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span>::<span class="n">thread</span>::<span class="n">scope</span><span class="p">(</span><span class="o">|</span><span class="n">s</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">urls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="w"></span>
+<span class="w">            </span><span class="s">&quot;https://wegmarken2006.github.io/snippets/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s">&quot;https://wegmarken2006.github.io/snippets/Cross/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s">&quot;https://wegmarken2006.github.io/snippets/Dict/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s">&quot;https://wegmarken2006.github.io/snippets/Execution%20time/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">tx</span><span class="p">,</span><span class="w"> </span><span class="n">rx</span><span class="p">)</span><span class="o">=</span><span class="w"> </span><span class="n">crossbeam_channel</span>::<span class="n">unbounded</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">children</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Vec</span>::<span class="n">new</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">urls_len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">urls</span><span class="p">.</span><span class="n">len</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">urls</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="n">tx_chan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tx</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">spawn</span><span class="p">(</span><span class="k">move</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="n">r_resp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ureq</span>::<span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">).</span><span class="n">call</span><span class="p">();</span><span class="w"></span>
+<span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="n">resp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r_resp</span><span class="p">.</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;Error url&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">resp</span><span class="p">.</span><span class="n">status</span><span class="p">();</span><span class="w"></span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">500</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">new</span><span class="p">();</span><span class="w"></span>
+<span class="w">                    </span><span class="n">resp</span><span class="p">.</span><span class="n">into_reader</span><span class="p">()</span><span class="w"></span>
+<span class="w">                        </span><span class="p">.</span><span class="n">read_to_string</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">buffer</span><span class="p">)</span><span class="w"></span>
+<span class="w">                        </span><span class="p">.</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;Reading error&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">                    </span><span class="kd">let</span><span class="w"> </span><span class="n">ln</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buffer</span><span class="p">.</span><span class="n">len</span><span class="p">();</span><span class="w"></span>
+<span class="w">                    </span><span class="n">tx_chan</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">ln</span><span class="p">).</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;Transmitting error&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="n">tx_chan</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;Transmitting error&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">});</span><span class="w"></span>
+<span class="w">            </span><span class="n">children</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">child</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1">//Receive messages</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">receiver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">spawn</span><span class="p">(</span><span class="k">move</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="p">..</span><span class="n">urls_len</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rx</span><span class="p">.</span><span class="n">recv</span><span class="p">().</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;Receiving error&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="n">sum</span><span class="w"></span>
+<span class="w">        </span><span class="p">});</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1">// Wait for the threads to complete any remaining work</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">children</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">child</span><span class="p">.</span><span class="n">join</span><span class="p">().</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;Join error&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">receiver</span><span class="p">.</span><span class="n">join</span><span class="p">().</span><span class="n">expect</span><span class="p">(</span><span class="s">&quot;Join error&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">total</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+
 <h2 id="v-vlang">V (vlang)</h2>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nx">net</span><span class="p">.</span><span class="nx">http</span>
 
