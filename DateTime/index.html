@@ -468,6 +468,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#julia" class="md-nav__link">
+    Julia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     Python
   </a>
@@ -1032,6 +1039,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#julia" class="md-nav__link">
+    Julia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     Python
   </a>
@@ -1167,6 +1181,50 @@
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%v\n&quot;</span><span class="p">,</span> <span class="nx">deltaW</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%v\n&quot;</span><span class="p">,</span> <span class="nx">deltaY</span><span class="p">)</span>
 <span class="p">}</span>
+</code></pre></div>
+
+
+<h2 id="julia">Julia</h2>
+<div class="codehilite"><pre><span></span><code><span class="k">using</span> <span class="n">Dates</span>
+
+<span class="n">today</span> <span class="o">=</span> <span class="n">Dates</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">year</span> <span class="o">=</span> <span class="n">Dates</span><span class="o">.</span><span class="n">year</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
+<span class="n">month</span> <span class="o">=</span> <span class="n">Dates</span><span class="o">.</span><span class="n">month</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
+<span class="n">day</span> <span class="o">=</span> <span class="n">Dates</span><span class="o">.</span><span class="n">day</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
+<span class="n">hour</span> <span class="o">=</span> <span class="n">Dates</span><span class="o">.</span><span class="n">hour</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
+<span class="n">minute</span> <span class="o">=</span> <span class="n">Dates</span><span class="o">.</span><span class="n">minute</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
+<span class="n">second</span> <span class="o">=</span> <span class="n">Dates</span><span class="o">.</span><span class="n">second</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
+
+<span class="c"># from date to string</span>
+<span class="n">today_str</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">$</span><span class="p">(</span><span class="n">year</span><span class="p">)</span><span class="s">-</span><span class="si">$</span><span class="p">(</span><span class="n">month</span><span class="p">)</span><span class="s">-</span><span class="si">$</span><span class="p">(</span><span class="n">day</span><span class="p">)</span><span class="s">**</span><span class="si">$</span><span class="p">(</span><span class="n">hour</span><span class="p">)</span><span class="s">:</span><span class="si">$</span><span class="p">(</span><span class="n">minute</span><span class="p">)</span><span class="s">:</span><span class="si">$</span><span class="p">(</span><span class="n">second</span><span class="p">)</span><span class="s">&quot;</span>
+<span class="n">date_str</span> <span class="o">=</span> <span class="n">Dates</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">today</span><span class="p">,</span><span class="s">&quot;yyyy-mm-dd&quot;</span><span class="p">)</span>
+<span class="n">time_str</span> <span class="o">=</span> <span class="n">Dates</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">today</span><span class="p">,</span><span class="s">&quot;H:M:S&quot;</span><span class="p">)</span>
+
+<span class="c"># from string to date</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">Dates</span><span class="o">.</span><span class="n">dateformat</span><span class="s">&quot;y-m-d**H:M:S&quot;</span>
+<span class="n">str</span> <span class="o">=</span> <span class="s">&quot;2020-05-01**13:32:02&quot;</span>
+<span class="n">today2</span> <span class="o">=</span> <span class="n">Dates</span><span class="o">.</span><span class="kt">DateTime</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+
+<span class="c"># weekday</span>
+<span class="n">weekday</span> <span class="o">=</span> <span class="n">Dates</span><span class="o">.</span><span class="n">dayname</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
+
+<span class="n">tomorrow</span> <span class="o">=</span> <span class="n">today</span> <span class="o">+</span> <span class="n">Dates</span><span class="o">.</span><span class="n">Day</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c"># difference between dates</span>
+<span class="n">next_week</span> <span class="o">=</span> <span class="n">today</span> <span class="o">+</span> <span class="n">Dates</span><span class="o">.</span><span class="n">Day</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">delta_w</span> <span class="o">=</span> <span class="n">Dates</span><span class="o">.</span><span class="kt">Date</span><span class="p">(</span><span class="n">next_week</span><span class="p">)</span> <span class="o">-</span> <span class="n">Dates</span><span class="o">.</span><span class="kt">Date</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
+<span class="n">next_year</span> <span class="o">=</span> <span class="n">today</span> <span class="o">+</span> <span class="n">Dates</span><span class="o">.</span><span class="n">Year</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">delta_y</span> <span class="o">=</span> <span class="n">Dates</span><span class="o">.</span><span class="kt">Date</span><span class="p">(</span><span class="n">next_year</span><span class="p">)</span> <span class="o">-</span> <span class="n">Dates</span><span class="o">.</span><span class="kt">Date</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
+
+<span class="n">println</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">today_str</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">date_str</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">time_str</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">today2</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">weekday</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">tomorrow</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">delta_w</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="n">delta_y</span><span class="p">)</span>
 </code></pre></div>
 
 
