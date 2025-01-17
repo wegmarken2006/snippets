@@ -1,6 +1,4 @@
 
-
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
@@ -10,8 +8,15 @@
       
       
       
-      <link rel="shortcut icon" href="../images/database.svg">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.3">
+      
+        <link rel="prev" href="../List/">
+      
+      
+        <link rel="next" href="../Structure%20or%20Class/">
+      
+      
+      <link rel="icon" href="../images/database.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
     
     
       
@@ -19,28 +24,35 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.62d34fff.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/palette.c8acc6db.min.css">
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
+      
+
+
+    
+    
+      
+    
+    
       
         
         
-        <meta name="theme-color" content="#cddc39">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/a11y-light.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
-      
+
     
-    
-    
-    
-      
     
     
   </head>
@@ -48,8 +60,12 @@
   
     
     
-    <body dir="ltr" data-md-color-primary="lime" data-md-color-accent="lime">
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="lime" data-md-color-accent="lime">
   
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -65,56 +81,76 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href=".." title="Runnable Snippets" class="md-header-nav__button md-logo" aria-label="Runnable Snippets">
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Runnable Snippets" class="md-header__button md-logo" aria-label="Runnable Snippets" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,3C7.58,3 4,4.79 4,7C4,9.21 7.58,11 12,11C16.42,11 20,9.21 20,7C20,4.79 16.42,3 12,3M4,9V12C4,14.21 7.58,16 12,16C16.42,16 20,14.21 20,12V9C20,11.21 16.42,13 12,13C7.58,13 4,11.21 4,9M4,14V17C4,19.21 7.58,21 12,21C16.42,21 20,19.21 20,17V14C20,16.21 16.42,18 12,18C7.58,18 4,16.21 4,14Z" /></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4M4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4m0 5v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4"/></svg>
 
     </a>
-    <label class="md-header-nav__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
-    </label>
-    <div class="md-header-nav__title" data-md-component="header-title">
+    <label class="md-header__button md-icon" for="__drawer">
       
-        <div class="md-header-nav__ellipsis">
-          <span class="md-header-nav__topic md-ellipsis">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
             Runnable Snippets
           </span>
-          <span class="md-header-nav__topic md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
               String
             
           </span>
         </div>
-      
+      </div>
     </div>
     
-      <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
-      </label>
       
-<div class="md-search" data-md-component="search" role="dialog">
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -123,28 +159,34 @@
     
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
+      
         
-      
-      
+          
         
       
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
           
             
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Runnable Snippets" class="md-nav__button md-logo" aria-label="Runnable Snippets">
+    <a href=".." title="Runnable Snippets" class="md-nav__button md-logo" aria-label="Runnable Snippets" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,3C7.58,3 4,4.79 4,7C4,9.21 7.58,11 12,11C16.42,11 20,9.21 20,7C20,4.79 16.42,3 12,3M4,9V12C4,14.21 7.58,16 12,16C16.42,16 20,14.21 20,12V9C20,11.21 16.42,13 12,13C7.58,13 4,11.21 4,9M4,14V17C4,19.21 7.58,21 12,21C16.42,21 20,19.21 20,17V14C20,16.21 16.42,18 12,18C7.58,18 4,16.21 4,14Z" /></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4M4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4m0 5v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4"/></svg>
 
     </a>
     Runnable Snippets
@@ -154,417 +196,643 @@
     
       
       
-      
-
-
-  <li class="md-nav__item">
-    <a href=".." title="Home" class="md-nav__link">
-      Home
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
-    
-    <label class="md-nav__link" for="nav-2">
-      Tools, Tips, Tricks
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Tools, Tips, Tricks" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
-        Tools, Tips, Tricks
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Playground%20links/" title="Playground links" class="md-nav__link">
-      Playground links
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Scaffold%20with%20CLI/" title="Scaffold with CLI" class="md-nav__link">
-      Scaffold with CLI
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Packages/" title="Packages" class="md-nav__link">
-      Packages
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Installation%20hints/" title="Installation hints" class="md-nav__link">
-      Installation hints
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Cross/" title="Cross Compilation" class="md-nav__link">
-      Cross Compilation
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Android/" title="Android" class="md-nav__link">
-      Android
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
-    
-    <label class="md-nav__link" for="nav-3">
-      Concurrency
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Concurrency" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
-        Concurrency
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Async/" title="Async" class="md-nav__link">
-      Async
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Channels/" title="Channels" class="md-nav__link">
-      Channels
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Share/" title="Share" class="md-nav__link">
-      Share
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
-    
-    <label class="md-nav__link" for="nav-4">
-      Constructs
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Constructs" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
-        Constructs
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../For%20Enumerate/" title="For Enumerate" class="md-nav__link">
-      For Enumerate
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../For%20Range/" title="For Range" class="md-nav__link">
-      For Range
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
   
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
-    
-    <label class="md-nav__link" for="nav-5">
-      Data types
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Data types" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
-        Data types
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../DateTime/" title="Date & Time" class="md-nav__link">
-      Date & Time
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Dict/" title="Dictionary" class="md-nav__link">
-      Dictionary
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Conversions/" title="Conversions" class="md-nav__link">
-      Conversions
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Globals/" title="Globals" class="md-nav__link">
-      Globals
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../List/" title="List" class="md-nav__link">
-      List
-    </a>
-  </li>
-
-        
-          
-          
-          
-
+      </a>
+    </li>
   
 
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tools, Tips, Tricks
+  </span>
+  
 
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tools, Tips, Tricks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Playground%20links/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Playground links
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scaffold%20with%20CLI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scaffold with CLI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Packages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Packages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installation%20hints/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation hints
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Cross/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cross Compilation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
     
       
+      
+  
+  
+  
+  
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        String
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
-        </span>
-      </label>
     
-    <a href="./" title="String" class="md-nav__link md-nav__link--active">
-      String
-    </a>
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Concurrency
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Concurrency
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Async/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Async
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Channels/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Channels
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Share/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Share
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
     
       
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Constructs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Constructs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../For%20Enumerate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    For Enumerate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../For%20Range/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    For Range
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data types
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Data types
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DateTime/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Date &amp; Time
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dict/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dictionary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Conversions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conversions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Globals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Globals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../List/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    String
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    String
+  </span>
+  
+
+      </a>
+      
+        
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
   
   
     <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#c" class="md-nav__link">
-    C#
+    <span class="md-ellipsis">
+      C#
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#dart" class="md-nav__link">
-    Dart
+    <span class="md-ellipsis">
+      Dart
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#go" class="md-nav__link">
-    Go
+    <span class="md-ellipsis">
+      Go
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#julia" class="md-nav__link">
-    Julia
+    <span class="md-ellipsis">
+      Julia
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#nim" class="md-nav__link">
-    Nim
+    <span class="md-ellipsis">
+      Nim
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
-    Python
+    <span class="md-ellipsis">
+      Python
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#rust" class="md-nav__link">
-    Rust
+    <span class="md-ellipsis">
+      Rust
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#typescript" class="md-nav__link">
-    TypeScript
+    <span class="md-ellipsis">
+      TypeScript
+    </span>
   </a>
   
 </li>
@@ -572,457 +840,729 @@
     </ul>
   
 </nav>
-    
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Structure%20or%20Class/" title="Structure or Class" class="md-nav__link">
-      Structure or Class
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Tuples/" title="Tuples" class="md-nav__link">
-      Tuples
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Union/" title="Union" class="md-nav__link">
-      Union
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
       
-      
-      
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../Execution%20time/" title="Execution time" class="md-nav__link">
-      Execution time
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
-    
-    <label class="md-nav__link" for="nav-7">
-      FFI
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="FFI" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
-        FFI
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Structure%20or%20Class/" class="md-nav__link">
         
+  
+  <span class="md-ellipsis">
+    Structure or Class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tuples/" class="md-nav__link">
         
-          
-          
-          
+  
+  <span class="md-ellipsis">
+    Tuples
+  </span>
+  
 
+      </a>
+    </li>
+  
 
-  <li class="md-nav__item">
-    <a href="../C%20Callable/" title="C Callable" class="md-nav__link">
-      C Callable
-    </a>
-  </li>
-
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Union/" class="md-nav__link">
         
-          
-          
-          
+  
+  <span class="md-ellipsis">
+    Union
+  </span>
+  
 
+      </a>
+    </li>
+  
 
-  <li class="md-nav__item">
-    <a href="../C%20Call/" title="C Call" class="md-nav__link">
-      C Call
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
 
     
       
       
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
-    
-    <label class="md-nav__link" for="nav-8">
-      File
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="File" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
-        File
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Execution%20time/" class="md-nav__link">
         
-        
-          
-          
-          
+  
+  <span class="md-ellipsis">
+    Execution time
+  </span>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../Write%20%26%20Read%20lines/" title="Write & Read Lines" class="md-nav__link">
-      Write & Read Lines
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../CSV/" title="CSV" class="md-nav__link">
-      CSV
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Serialization/" title="Serialization" class="md-nav__link">
-      Serialization
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../TOML/" title="TOML" class="md-nav__link">
-      TOML
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../File%20Walk/" title="File Walk" class="md-nav__link">
-      File Walk
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+      </a>
+    </li>
+  
 
     
       
       
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
-    
-    <label class="md-nav__link" for="nav-9">
-      Frameworks
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Frameworks" data-md-level="1">
-      <label class="md-nav__title" for="nav-9">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
-        Frameworks
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
         
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Flutter/" title="Flutter" class="md-nav__link">
-      Flutter
-    </a>
-  </li>
-
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
-      </ul>
-    </nav>
-  </li>
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    FFI
+  </span>
+  
 
-    
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            FFI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C%20Callable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C Callable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C%20Call/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C Call
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
-    
-    <label class="md-nav__link" for="nav-10">
-      GUI
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="GUI" data-md-level="1">
-      <label class="md-nav__title" for="nav-10">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
-        GUI
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Fltk/" title="Fltk" class="md-nav__link">
-      Fltk
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Fyne/" title="Fyne" class="md-nav__link">
-      Fyne
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../GTK/" title="GTK" class="md-nav__link">
-      GTK
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+    </li>
+  
 
     
       
       
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
     
-    <label class="md-nav__link" for="nav-11">
-      Science
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Science" data-md-level="1">
-      <label class="md-nav__title" for="nav-11">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
-        Science
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Charts/" title="Charts" class="md-nav__link">
-      Charts
-    </a>
-  </li>
-
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
-          
-          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    File
+  </span>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../Dataframe/" title="Dataframe" class="md-nav__link">
-      Dataframe
-    </a>
-  </li>
-
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Numeric/" title="Numeric" class="md-nav__link">
-      Numeric
-    </a>
-  </li>
-
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            File
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Write%20%26%20Read%20lines/" class="md-nav__link">
         
-          
-          
-          
+  
+  <span class="md-ellipsis">
+    Write &amp; Read Lines
+  </span>
+  
 
+      </a>
+    </li>
+  
 
-  <li class="md-nav__item">
-    <a href="../Excel%20Read/" title="Excel Read" class="md-nav__link">
-      Excel Read
-    </a>
-  </li>
-
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CSV/" class="md-nav__link">
         
-      </ul>
-    </nav>
-  </li>
+  
+  <span class="md-ellipsis">
+    CSV
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Serialization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Serialization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOML/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TOML
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../File%20Walk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File Walk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
 
     
       
       
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
       
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Frameworks
+  </span>
+  
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Frameworks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flutter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flutter
+  </span>
+  
 
-  <li class="md-nav__item">
-    <a href="../System%20command/" title="System command" class="md-nav__link">
-      System command
-    </a>
-  </li>
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
 
     
       
       
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
       
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    GUI
+  </span>
+  
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            GUI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fltk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fltk
+  </span>
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fyne/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fyne
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GTK/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GTK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+      
+      
+  
+  
+  
+  
     
-    <label class="md-nav__link" for="nav-13">
-      Video
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Video" data-md-level="1">
-      <label class="md-nav__title" for="nav-13">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
-        Video
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../VideoCapture/" title="Video Capture" class="md-nav__link">
-      Video Capture
-    </a>
-  </li>
-
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
         
           
-          
-          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Science
+  </span>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../FaceDetect/" title="Face Detection" class="md-nav__link">
-      Face Detection
-    </a>
-  </li>
-
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
-      </ul>
-    </nav>
-  </li>
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Science
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Charts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Charts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dataframe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dataframe
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Numeric/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Numeric
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Excel%20Read/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Excel Read
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../System%20command/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    System command
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Video
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Video
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VideoCapture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Video Capture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FaceDetect/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Face Detection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
 
     
   </ul>
@@ -1032,76 +1572,93 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
   
   
     <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#c" class="md-nav__link">
-    C#
+    <span class="md-ellipsis">
+      C#
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#dart" class="md-nav__link">
-    Dart
+    <span class="md-ellipsis">
+      Dart
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#go" class="md-nav__link">
-    Go
+    <span class="md-ellipsis">
+      Go
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#julia" class="md-nav__link">
-    Julia
+    <span class="md-ellipsis">
+      Julia
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#nim" class="md-nav__link">
-    Nim
+    <span class="md-ellipsis">
+      Nim
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
-    Python
+    <span class="md-ellipsis">
+      Python
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#rust" class="md-nav__link">
-    Rust
+    <span class="md-ellipsis">
+      Rust
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#typescript" class="md-nav__link">
-    TypeScript
+    <span class="md-ellipsis">
+      TypeScript
+    </span>
   </a>
   
 </li>
@@ -1114,390 +1671,363 @@
               </div>
             
           
-          <div class="md-content">
-            <article class="md-content__inner md-typeset">
-              
-                
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
                   
-                
-                
-                <h1 id="string">String</h1>
+
+
+<h1 id="string">String</h1>
 <h2 id="c">C#</h2>
-<div class="codehilite"><pre><span></span><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<pre><code class="language-c#">
+using System;
 
-<span class="k">class</span> <span class="nc">Program</span>
-<span class="p">{</span>
-    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="kt">var</span> <span class="n">name</span> <span class="p">=</span> <span class="s">&quot;John&quot;</span><span class="p">;</span>
-        <span class="kt">var</span> <span class="n">age</span> <span class="p">=</span> <span class="m">21</span><span class="p">;</span>
-        <span class="kt">var</span> <span class="n">date</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">;</span>
+class Program
+{
+    static void Main(string[] args)
+    {
+        var name = &quot;John&quot;;
+        var age = 21;
+        var date = DateTime.Now;
 
-        <span class="c1">// String interpolation:</span>
-        <span class="kt">var</span> <span class="n">str1</span> <span class="p">=</span> <span class="err">$</span><span class="s">&quot;{name} age is {age}, today is {date.DayOfWeek}, {date:HH:mm} now.&quot;</span><span class="p">;</span>
-        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">str1</span><span class="p">);</span>
+        // String interpolation:
+        var str1 = $&quot;{name} age is {age}, today is {date.DayOfWeek}, {date:HH:mm} now.&quot;;
+        Console.WriteLine(str1);
 
-        <span class="c1">// String formatting:</span>
-        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;{0} age is {1}, today is {2}, {3:HH:mm} now.&quot;</span><span class="p">,</span>
-            <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">date</span><span class="p">.</span><span class="n">DayOfWeek</span><span class="p">,</span> <span class="n">date</span><span class="p">);</span>
+        // String formatting:
+        Console.WriteLine(&quot;{0} age is {1}, today is {2}, {3:HH:mm} now.&quot;,
+            name, age, date.DayOfWeek, date);
 
-        <span class="c1">// float, hexadecimal</span>
-        <span class="kt">var</span> <span class="n">str2</span> <span class="p">=</span> <span class="n">String</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;four decimals: {0:0.0000}, hex for {1}: 0x{2:X}&quot;</span><span class="p">,</span> <span class="m">0.123456</span><span class="p">,</span> <span class="m">16</span><span class="p">,</span> <span class="m">16</span><span class="p">);</span>
-        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">str2</span><span class="p">);</span>
+        // float, hexadecimal
+        var str2 = String.Format(&quot;four decimals: {0:0.0000}, hex for {1}: 0x{2:X}&quot;, 0.123456, 16, 16);
+        Console.WriteLine(str2);
 
-        <span class="c1">// Parse numbers in string</span>
-        <span class="kt">var</span> <span class="n">elems</span> <span class="p">=</span> <span class="n">str2</span><span class="p">.</span><span class="n">Split</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">);</span>
-        <span class="kt">char</span><span class="p">[]</span> <span class="n">toTrim</span> <span class="p">=</span> <span class="p">{</span> <span class="sc">&#39;:&#39;</span><span class="p">,</span> <span class="sc">&#39;,&#39;</span> <span class="p">};</span>
+        // Parse numbers in string
+        var elems = str2.Split(&quot; &quot;);
+        char[] toTrim = { ':', ',' };
 
-        <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">item</span> <span class="k">in</span> <span class="n">elems</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">try</span>
-            <span class="p">{</span>
-                <span class="kt">var</span> <span class="n">num</span> <span class="p">=</span> <span class="n">Double</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">item</span><span class="p">.</span><span class="n">Trim</span><span class="p">(</span><span class="n">toTrim</span><span class="p">));</span>
-                <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Found float {0} in \&quot;{1}\&quot;&quot;</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">item</span><span class="p">);</span>
-            <span class="p">}</span>
-            <span class="k">catch</span> <span class="p">(</span><span class="n">FormatException</span> <span class="n">e</span><span class="p">)</span>
-            <span class="p">{</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
-
+        foreach (var item in elems)
+        {
+            try
+            {
+                var num = Double.Parse(item.Trim(toTrim));
+                Console.WriteLine(&quot;Found float {0} in \&quot;{1}\&quot;&quot;, num, item);
+            }
+            catch (FormatException e)
+            {
+            }
+        }
+    }
+}
+</code></pre>
 <h2 id="dart">Dart</h2>
-<div class="codehilite"><pre><span></span><code><span class="c1">// dependencies:</span>
-<span class="c1">//  sprintf: ^4.0.2</span>
+<pre><code class="language-dart">
+// dependencies:
+//  sprintf: ^4.0.2
 
-<span class="k">import</span> <span class="s1">&#39;package:sprintf/sprintf.dart&#39;</span><span class="p">;</span>
+import 'package:sprintf/sprintf.dart';
 
-<span class="n">main</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span> <span class="n">arguments</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;John&quot;</span><span class="p">;</span>
-  <span class="kd">var</span> <span class="n">age</span> <span class="o">=</span> <span class="m">21</span><span class="p">;</span>
-  <span class="kd">var</span> <span class="n">date</span> <span class="o">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">now</span><span class="p">();</span>
-  <span class="kd">var</span> <span class="n">day</span> <span class="o">=</span> <span class="n">date</span><span class="p">.</span><span class="n">weekday</span><span class="p">;</span>
+main(List&lt;String&gt; arguments) {
+  var name = &quot;John&quot;;
+  var age = 21;
+  var date = DateTime.now();
+  var day = date.weekday;
 
-  <span class="c1">// String interpolation</span>
-  <span class="kd">var</span> <span class="n">str1</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">$</span><span class="n">name</span><span class="s2"> age is </span><span class="si">$</span><span class="n">age</span><span class="s2">, weekday is </span><span class="si">$</span><span class="n">day</span><span class="s2">, </span><span class="si">${</span><span class="n">date</span><span class="p">.</span><span class="n">hour</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="n">date</span><span class="p">.</span><span class="n">minute</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span>
-  <span class="n">print</span><span class="p">(</span><span class="n">str1</span><span class="p">);</span>
+  // String interpolation
+  var str1 = &quot;$name age is $age, weekday is $day, ${date.hour}:${date.minute}&quot;;
+  print(str1);
 
-  <span class="c1">// String formatting float hex</span>
-  <span class="kd">var</span> <span class="n">str2</span> <span class="o">=</span> <span class="n">sprintf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">four decimals: %.4f, hex for %d: 0x%x&quot;</span><span class="p">,</span> <span class="p">[</span><span class="m">0.123456</span><span class="p">,</span> <span class="m">16</span><span class="p">,</span> <span class="m">16</span><span class="p">]);</span>
-  <span class="n">print</span><span class="p">(</span><span class="n">str2</span><span class="p">);</span>
+  // String formatting float hex
+  var str2 = sprintf(&quot;\nfour decimals: %.4f, hex for %d: 0x%x&quot;, [0.123456, 16, 16]);
+  print(str2);
 
-  <span class="c1">// Parse number in string</span>
+  // Parse number in string
 
-  <span class="c1">// Eliminate &#39;,&#39;, &#39;:&#39;</span>
-  <span class="n">str2</span> <span class="o">=</span> <span class="n">str2</span><span class="p">.</span><span class="n">replaceAll</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
-  <span class="n">str2</span> <span class="o">=</span> <span class="n">str2</span><span class="p">.</span><span class="n">replaceAll</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+  // Eliminate ',', ':'
+  str2 = str2.replaceAll(',', '');
+  str2 = str2.replaceAll(':', '');
 
-  <span class="kd">var</span> <span class="n">elems</span> <span class="o">=</span> <span class="n">str2</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">);</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="n">item</span> <span class="k">in</span> <span class="n">elems</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">try</span> <span class="p">{</span>
-      <span class="kd">var</span> <span class="kt">num</span> <span class="o">=</span> <span class="kt">double</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
-      <span class="n">print</span><span class="p">(</span><span class="s2">&quot; Found float </span><span class="si">$</span><span class="n">num</span><span class="s2"> in </span><span class="se">\&quot;</span><span class="si">$</span><span class="n">item</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">}</span>    
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
-
+  var elems = str2.split(&quot; &quot;);
+  for (var item in elems) {
+    try {
+      var num = double.parse(item);
+      print(&quot; Found float $num in \&quot;$item\&quot;&quot;);
+    } catch (e) {
+    }    
+  }
+}
+</code></pre>
 <h2 id="go">Go</h2>
-<div class="codehilite"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
+<pre><code class="language-go">package main
 
-<span class="kn">import</span> <span class="p">(</span>
-    <span class="s">&quot;fmt&quot;</span>
-    <span class="s">&quot;strings&quot;</span>
-    <span class="s">&quot;time&quot;</span>
-<span class="p">)</span>
+import (
+    &quot;fmt&quot;
+    &quot;strings&quot;
+    &quot;time&quot;
+)
 
-<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">name</span> <span class="o">:=</span> <span class="s">&quot;John&quot;</span>
-    <span class="nx">age</span> <span class="o">:=</span> <span class="mi">21</span>
-    <span class="nx">date</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Now</span><span class="p">()</span>
+func main() {
+    name := &quot;John&quot;
+    age := 21
+    date := time.Now()
 
-    <span class="c1">// String interpolation</span>
-    <span class="nx">str1</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;%s age is %d, weekday is %s, %d:%d\n&quot;</span><span class="p">,</span>
-        <span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">,</span> <span class="nx">date</span><span class="p">.</span><span class="nx">Weekday</span><span class="p">(),</span> <span class="nx">date</span><span class="p">.</span><span class="nx">Hour</span><span class="p">(),</span> <span class="nx">date</span><span class="p">.</span><span class="nx">Minute</span><span class="p">())</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="nx">str1</span><span class="p">)</span>
+    // String interpolation
+    str1 := fmt.Sprintf(&quot;%s age is %d, weekday is %s, %d:%d\n&quot;,
+        name, age, date.Weekday(), date.Hour(), date.Minute())
+    fmt.Print(str1)
 
-    <span class="nx">str2</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;four decimals %.4f, hex for %d: 0x%x \n&quot;</span><span class="p">,</span> <span class="mf">1.23456</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="nx">str2</span><span class="p">)</span>
+    str2 := fmt.Sprintf(&quot;four decimals %.4f, hex for %d: 0x%x \n&quot;, 1.23456, 16, 16)
+    fmt.Print(str2)
 
-    <span class="c1">//extract nth character</span>
-    <span class="nx">chn2</span> <span class="o">:=</span> <span class="nx">str2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;char: %c\n&quot;</span><span class="p">,</span> <span class="nx">chn2</span><span class="p">)</span>
+    //extract nth character
+    chn2 := str2[2]
+    fmt.Printf(&quot;char: %c\n&quot;, chn2)
 
-    <span class="c1">//substring</span>
-    <span class="nx">subs</span> <span class="o">:=</span> <span class="nx">str2</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;subs: &quot;</span><span class="p">,</span> <span class="nx">subs</span><span class="p">)</span>
+    //substring
+    subs := str2[0:3]
+    fmt.Println(&quot;subs: &quot;, subs)
 
-    <span class="nx">elems</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">Split</span><span class="p">(</span><span class="nx">str2</span><span class="p">,</span> <span class="s">&quot; &quot;</span><span class="p">)</span>
-    <span class="kd">var</span> <span class="nx">num</span> <span class="kt">float64</span>
-    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">item</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">elems</span> <span class="p">{</span>
-        <span class="nx">item</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">Trim</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="s">&quot;,:&quot;</span><span class="p">)</span>
-        <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Sscanf</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="s">&quot;%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">num</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nx">err</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
-            <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;Found float %f in \&quot;%s\&quot;\n&quot;</span><span class="p">,</span> <span class="nx">num</span><span class="p">,</span> <span class="nx">item</span><span class="p">)</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
-
+    elems := strings.Split(str2, &quot; &quot;)
+    var num float64
+    for _, item := range elems {
+        item = strings.Trim(item, &quot;,:&quot;)
+        _, err := fmt.Sscanf(item, &quot;%f&quot;, &amp;num)
+        if err == nil {
+            fmt.Printf(&quot;Found float %f in \&quot;%s\&quot;\n&quot;, num, item)
+        }
+    }
+}
+</code></pre>
 <h2 id="julia">Julia</h2>
-<div class="codehilite"><pre><span></span><code><span class="k">using</span> <span class="n">Printf</span>
-<span class="k">using</span> <span class="n">Dates</span>
+<pre><code class="language-julia">using Printf
+using Dates
 
-<span class="n">name</span> <span class="o">=</span> <span class="s">&quot;john&quot;</span>
-<span class="n">age</span> <span class="o">=</span> <span class="mi">21</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">Dates</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+name = &quot;john&quot;
+age = 21
+t = Dates.now()
 
-<span class="c"># string interpolation</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="si">$</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="s"> age is </span><span class="si">$</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="s">, weekday is </span><span class="si">$</span><span class="p">(</span><span class="n">Dates</span><span class="o">.</span><span class="n">dayname</span><span class="p">(</span><span class="n">t</span><span class="p">))</span><span class="s">, </span><span class="si">$</span><span class="p">(</span><span class="n">Dates</span><span class="o">.</span><span class="n">hour</span><span class="p">(</span><span class="n">t</span><span class="p">))</span><span class="s">:</span><span class="si">$</span><span class="p">(</span><span class="n">Dates</span><span class="o">.</span><span class="n">minute</span><span class="p">(</span><span class="n">t</span><span class="p">))</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+# string interpolation
+println(&quot;$(name) age is $(age), weekday is $(Dates.dayname(t)), $(Dates.hour(t)):$(Dates.minute(t))\n&quot;)
 
-<span class="n">str2</span> <span class="o">=</span> <span class="nd">@sprintf</span> <span class="s">&quot;four decimals </span><span class="si">%.4f</span><span class="s">, hex for </span><span class="si">%d</span><span class="s">: 0x</span><span class="si">%x</span><span class="s"> </span><span class="se">\n</span><span class="s">&quot;</span> <span class="mf">1.23456</span> <span class="mi">16</span> <span class="mi">16</span>
-<span class="n">println</span><span class="p">(</span><span class="n">str2</span><span class="p">)</span>
+str2 = @sprintf &quot;four decimals %.4f, hex for %d: 0x%x \n&quot; 1.23456 16 16
+println(str2)
 
-<span class="c"># extract nth character</span>
-<span class="n">chn2</span> <span class="o">=</span> <span class="n">str2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="nd">@printf</span> <span class="s">&quot;char: </span><span class="si">%c</span><span class="se">\n</span><span class="s">&quot;</span> <span class="n">chn2</span>
+# extract nth character
+chn2 = str2[2]
+@printf &quot;char: %c\n&quot; chn2
 
-<span class="c"># substring</span>
-<span class="n">subs</span> <span class="o">=</span> <span class="n">str2</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">2</span><span class="p">]</span>
-<span class="nd">@printf</span> <span class="s">&quot;subs </span><span class="si">%s</span><span class="se">\n</span><span class="s">&quot;</span> <span class="n">subs</span>
+# substring
+subs = str2[1:2]
+@printf &quot;subs %s\n&quot; subs
 
-<span class="n">elems</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">str2</span><span class="p">,</span><span class="s">&quot; &quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">el</span> <span class="kp">in</span> <span class="n">elems</span>
-    <span class="n">el</span> <span class="o">=</span> <span class="n">strip</span><span class="p">(</span><span class="n">el</span><span class="p">,</span> <span class="p">[</span><span class="sc">&#39;,&#39;</span><span class="p">,</span> <span class="sc">&#39;:&#39;</span><span class="p">])</span>   
-    <span class="k">try</span>
-        <span class="n">num</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="kt">Float64</span><span class="p">,</span> <span class="n">el</span><span class="p">)</span>
-        <span class="nd">@printf</span> <span class="s">&quot;found float </span><span class="si">%s</span><span class="s"> in </span><span class="se">\&quot;</span><span class="si">%s</span><span class="se">\&quot;\n</span><span class="s">&quot;</span> <span class="n">num</span> <span class="n">el</span>      
-    <span class="k">catch</span>
-    <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div>
-
-
+elems = split(str2,&quot; &quot;)
+for el in elems
+    el = strip(el, [',', ':'])   
+    try
+        num = parse(Float64, el)
+        @printf &quot;found float %s in \&quot;%s\&quot;\n&quot; num el      
+    catch
+    end
+end
+</code></pre>
 <h2 id="nim">Nim</h2>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="n">strformat</span>
-<span class="kn">import</span> <span class="n">times</span>
-<span class="kn">import</span> <span class="n">strutils</span>
-<span class="kn">import</span> <span class="n">sequtils</span>
+<pre><code class="language-nim">import strformat
+import times
+import strutils
+import sequtils
 
-<span class="k">let</span>  <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;John&quot;</span><span class="p">;</span>
-<span class="k">let</span>  <span class="n">age</span> <span class="o">=</span> <span class="mi">21</span><span class="p">;</span>
-<span class="k">let</span>  <span class="n">date</span> <span class="o">=</span> <span class="n">now</span><span class="p">()</span>
+let  name = &quot;John&quot;;
+let  age = 21;
+let  date = now()
 
-<span class="c"># String interpolation</span>
-<span class="k">let</span>  <span class="n">str1</span> <span class="o">=</span> <span class="o">&amp;</span><span class="s">&quot;{name} age is {age}, weekday is {date.weekday}, {date.hour}:{date.minute}&quot;</span>
-<span class="n">echo</span> <span class="n">str1</span>
+# String interpolation
+let  str1 = &amp;&quot;{name} age is {age}, weekday is {date.weekday}, {date.hour}:{date.minute}&quot;
+echo str1
 
-<span class="c"># String formatting</span>
-<span class="k">let</span> <span class="n">str2</span> <span class="o">=</span> <span class="o">&amp;</span><span class="s">&quot;four decimals: {0.123456:2.4f}, hex for {16}: 0x{16:X}&quot;</span>
-<span class="n">echo</span> <span class="n">str2</span>
+# String formatting
+let str2 = &amp;&quot;four decimals: {0.123456:2.4f}, hex for {16}: 0x{16:X}&quot;
+echo str2
 
-<span class="kd">var</span> <span class="n">elems</span> <span class="o">=</span> <span class="n">str2</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">)</span>
+var elems = str2.split(&quot; &quot;)
 
-<span class="c"># Eliminate &#39;,&#39;, &#39;:&#39;</span>
-<span class="n">elems</span> <span class="o">=</span>  <span class="n">map</span><span class="p">(</span><span class="n">elems</span><span class="p">,</span> <span class="k">proc</span> <span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="kt">string</span><span class="p">):</span> <span class="kt">string</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">))</span>
-<span class="n">elems</span> <span class="o">=</span>  <span class="n">map</span><span class="p">(</span><span class="n">elems</span><span class="p">,</span> <span class="k">proc</span> <span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="kt">string</span><span class="p">):</span> <span class="kt">string</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;:&quot;</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">))</span>
+# Eliminate ',', ':'
+elems =  map(elems, proc (x: string): string = x.replace(&quot;,&quot;,&quot;&quot;))
+elems =  map(elems, proc (x: string): string = x.replace(&quot;:&quot;,&quot;&quot;))
 
-<span class="c"># Parse string for numbers</span>
-<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">elems</span><span class="p">:</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">let</span> <span class="n">num</span> <span class="o">=</span> <span class="n">parseFloat</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-        <span class="n">echo</span> <span class="o">&amp;</span><span class="s">&quot;Found float {num} in </span><span class="se">\&quot;</span><span class="s">{item}</span><span class="se">\&quot;</span><span class="s">&quot;</span>
-    <span class="k">except</span><span class="p">:</span>
-        <span class="k">discard</span>
-</code></pre></div>
-
-
+# Parse string for numbers
+for item in elems:
+    try:
+        let num = parseFloat(item)
+        echo &amp;&quot;Found float {num} in \&quot;{item}\&quot;&quot;
+    except:
+        discard
+</code></pre>
 <h2 id="python">Python</h2>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
+<pre><code class="language-python">
+import datetime
 
-<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;John&quot;</span>
-<span class="n">age</span> <span class="o">=</span> <span class="mi">21</span>
-<span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+name = &quot;John&quot;
+age = 21
+date = datetime.datetime.now()
 
-<span class="c1"># String interpolation</span>
-<span class="n">str1</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;{name } age is </span><span class="si">{age}</span><span class="s2">, today is </span><span class="si">{date.day}</span><span class="s2">, </span><span class="si">{date.hour}</span><span class="s2">:</span><span class="si">{date.minute}</span><span class="s2">&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span>
+# String interpolation
+str1 = f&quot;{name } age is {age}, today is {date.day}, {date.hour}:{date.minute}&quot;
+print(str1)
 
-<span class="c1">#  String formatting</span>
-<span class="n">str1</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> age is </span><span class="si">{}</span><span class="s2">, today us </span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">:</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">day</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">hour</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">minute</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span>
+#  String formatting
+str1 = &quot;{} age is {}, today us {}, {}:{}&quot;.format(name, age, date.day, date.hour, date.minute)
+print(str1)
 
-<span class="c1"># float, hexadecimal</span>
-<span class="n">str2</span> <span class="o">=</span> <span class="s2">&quot;four decimals: </span><span class="si">{:.4f}</span><span class="s2">, hex for </span><span class="si">{}</span><span class="s2">: 0x</span><span class="si">{:x}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">0.123456</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">str2</span><span class="p">)</span>
+# float, hexadecimal
+str2 = &quot;four decimals: {:.4f}, hex for {}: 0x{:x}&quot;.format(0.123456, 16, 16)
+print(str2)
 
-<span class="c1"># parse string for numbers</span>
-<span class="n">elems</span> <span class="o">=</span> <span class="n">str2</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">elems</span><span class="p">:</span>
-    <span class="n">item</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-    <span class="n">item</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">num</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{num}</span><span class="s2"> in </span><span class="se">\&quot;</span><span class="si">{item}</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">except</span><span class="p">:</span>
-        <span class="k">pass</span>
-</code></pre></div>
-
-
+# parse string for numbers
+elems = str2.split(&quot; &quot;)
+for item in elems:
+    item = item.replace(&quot;,&quot;, &quot;&quot;)
+    item = item.replace(&quot;:&quot;, &quot;&quot;)
+    try:
+        num = float(item)
+        print(f&quot;Found {num} in \&quot;{item}\&quot;&quot;)
+    except:
+        pass
+</code></pre>
 <h2 id="rust">Rust</h2>
-<div class="codehilite"><pre><span></span><code><span class="c1">// [dependencies]</span>
-<span class="c1">// chrono = &quot;*&quot;</span>
-<span class="k">use</span><span class="w"> </span><span class="n">chrono</span>::<span class="p">{</span><span class="n">Datelike</span><span class="p">,</span><span class="w"> </span><span class="n">Timelike</span><span class="p">,</span><span class="w"> </span><span class="n">Utc</span><span class="p">};</span><span class="w"></span>
+<pre><code class="language-rust">// [dependencies]
+// chrono = &quot;*&quot;
+use chrono::{Datelike, Timelike, Utc};
 
-<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;John&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">21</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Utc</span>::<span class="n">now</span><span class="p">();</span><span class="w"></span>
+fn main() {
+    let name = &quot;John&quot;;
+    let age = 21;
+    let date = Utc::now();
 
-<span class="w">    </span><span class="c1">// STring formatting: string, int, date</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">str1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">format</span><span class="o">!</span><span class="p">(</span><span class="w"></span>
-<span class="w">        </span><span class="s">&quot;{} age is {} weekday is, {:?}, {:?}:{:?}&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="n">name</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="n">age</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="n">date</span><span class="p">.</span><span class="n">weekday</span><span class="p">(),</span><span class="w"></span>
-<span class="w">        </span><span class="n">date</span><span class="p">.</span><span class="n">hour</span><span class="p">(),</span><span class="w"></span>
-<span class="w">        </span><span class="n">date</span><span class="p">.</span><span class="n">minute</span><span class="p">()</span><span class="w"></span>
-<span class="w">    </span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">str1</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="c1">//float, hex</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">str2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">format</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;four decimals: {:.4}, hex for {}: 0x{:X}&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.123456</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">str2</span><span class="p">);</span><span class="w"></span>
+    // STring formatting: string, int, date
+    let str1 = &amp;format!(
+        &quot;{} age is {} weekday is, {:?}, {:?}:{:?}&quot;,
+        name,
+        age,
+        date.weekday(),
+        date.hour(),
+        date.minute()
+    );
+    println!(&quot;{}&quot;, str1);
+    //float, hex
+    let str2 = &amp;format!(&quot;four decimals: {:.4}, hex for {}: 0x{:X}&quot;, 0.123456, 16, 16);
+    println!(&quot;{}&quot;, str2);
 
-<span class="w">    </span><span class="c1">//extract nth character</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">chn2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str2</span><span class="p">.</span><span class="n">chars</span><span class="p">().</span><span class="n">nth</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;char: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">chn2</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="c1">//alternative</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">chn2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">str2</span><span class="p">[</span><span class="mi">2</span><span class="p">..</span><span class="mi">3</span><span class="p">];</span><span class="w"></span>
-<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;char: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">chn2</span><span class="p">);</span><span class="w"></span>
+    //extract nth character
+    let mut chn2 = str2.chars().nth(2).unwrap();
+    println!(&quot;char: {}&quot;, chn2);
+    //alternative
+    let chn2 = &amp;str2[2..3];
+    println!(&quot;char: {}&quot;, chn2);
 
-<span class="w">    </span><span class="c1">//substring</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">subs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">str2</span><span class="p">[</span><span class="mi">0</span><span class="p">..</span><span class="mi">3</span><span class="p">];</span><span class="w"></span>
-<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;subs: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">subs</span><span class="p">);</span><span class="w"></span>
+    //substring
+    let subs = &amp;str2[0..3];
+    println!(&quot;subs: {}&quot;, subs);
 
-<span class="w">    </span><span class="c1">// Parse string for numbers</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">elems</span>: <span class="nb">Vec</span><span class="o">&lt;&amp;</span><span class="kt">str</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str2</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">).</span><span class="n">collect</span><span class="p">();</span><span class="w"></span>
+    // Parse string for numbers
+    let elems: Vec&lt;&amp;str&gt; = str2.split(&quot; &quot;).collect();
 
-<span class="w">    </span><span class="c1">// Eliminate &#39;,&#39;, &#39;:&#39;</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">elems1</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elems</span><span class="p">.</span><span class="n">into_iter</span><span class="p">().</span><span class="n">map</span><span class="p">(</span><span class="o">|</span><span class="n">x</span><span class="o">|</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">)).</span><span class="n">collect</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="n">elems1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elems1</span><span class="p">.</span><span class="n">into_iter</span><span class="p">().</span><span class="n">map</span><span class="p">(</span><span class="o">|</span><span class="n">x</span><span class="o">|</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;:&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">)).</span><span class="n">collect</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">elems1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">match</span><span class="w"> </span><span class="n">item</span><span class="p">.</span><span class="n">parse</span>::<span class="o">&lt;</span><span class="kt">f64</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nb">Ok</span><span class="p">(</span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot; Found float {} in </span><span class="se">\&quot;</span><span class="s">{}</span><span class="se">\&quot;</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">item</span><span class="p">),</span><span class="w"></span>
-<span class="w">            </span><span class="nb">Err</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-
-
+    // Eliminate ',', ':'
+    let mut elems1: Vec&lt;String&gt; = elems.into_iter().map(|x| x.replace(&quot;,&quot;, &quot;&quot;)).collect();
+    elems1 = elems1.into_iter().map(|x| x.replace(&quot;:&quot;, &quot;&quot;)).collect();
+    for item in elems1 {
+        match item.parse::&lt;f64&gt;() {
+            Ok(num) =&gt; println!(&quot; Found float {} in \&quot;{}\&quot;&quot;, num, item),
+            Err(_) =&gt; {}
+        }
+    }
+}
+</code></pre>
 <h2 id="typescript">TypeScript</h2>
-<div class="codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nx">name1</span> <span class="o">=</span> <span class="s2">&quot;John&quot;</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">21</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+<pre><code class="language-typescript">
+let name1 = &quot;John&quot;;
+let age = 21;
+let date = new Date();
 
-<span class="c1">// String interpolation (use backtick)</span>
-<span class="kd">let</span> <span class="nx">str1</span> <span class="o">=</span> <span class="sb">`</span><span class="si">${</span><span class="nx">name1</span><span class="si">}</span><span class="sb"> age is </span><span class="si">${</span><span class="nx">age</span><span class="si">}</span><span class="sb">, today is </span><span class="si">${</span><span class="nx">date</span><span class="p">.</span><span class="nx">getDay</span><span class="p">()</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="nx">date</span><span class="p">.</span><span class="nx">getHours</span><span class="p">()</span><span class="si">}</span><span class="sb">:</span><span class="si">${</span><span class="nx">date</span><span class="p">.</span><span class="nx">getMinutes</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str1</span><span class="p">);</span>
+// String interpolation (use backtick)
+let str1 = `${name1} age is ${age}, today is ${date.getDay()}, ${date.getHours()}:${date.getMinutes()}`;
+console.log(str1);
 
-<span class="kd">let</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">16</span>
-<span class="kd">let</span> <span class="nx">str2</span> <span class="o">=</span> <span class="sb">`four decimals: </span><span class="si">${</span><span class="mf">1.23456</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="sb">, hex for </span><span class="si">${</span><span class="nx">num</span><span class="si">}</span><span class="sb"> is 0x</span><span class="si">${</span><span class="nx">num</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str2</span><span class="p">);</span>
+let num = 16
+let str2 = `four decimals: ${1.23456.toFixed(4)}, hex for ${num} is 0x${num.toString(16)}`;
+console.log(str2);
 
-<span class="c1">// Parse string for number</span>
-<span class="kd">let</span> <span class="nx">elems</span> <span class="o">=</span> <span class="nx">str2</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">);</span>
-<span class="nx">elems</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">item</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">num</span> <span class="o">=</span> <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">num</span><span class="p">))</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Found float </span><span class="si">${</span><span class="nx">num</span><span class="si">}</span><span class="sb"> in </span><span class="err">\</span><span class="sb">&quot;</span><span class="si">${</span><span class="nx">item</span><span class="si">}</span><span class="err">\</span><span class="sb">&quot;`</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">});</span>
-</code></pre></div>
+// Parse string for number
+let elems = str2.split(&quot; &quot;);
+elems.forEach(item =&gt; {
+    let num = parseFloat(item);
+    if (!isNaN(num)) {
+        console.log(`Found float ${num} in \&quot;${item}\&quot;`);
+    }
+});
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
                 
-              
-              
-                
-
-
-              
-            </article>
-          </div>
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
       </main>
       
-        
-<footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href="../List/" title="List" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-            </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                List
-              </div>
-            </div>
-          </a>
-        
-        
-          <a href="../Structure%20or%20Class/" title="Structure or Class" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Structure or Class
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
+        <footer class="md-footer">
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
-      </div>
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
 </footer>
       
     </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
     
-      <script src="../assets/javascripts/vendor.f81b9e8b.min.js"></script>
-      <script src="../assets/javascripts/bundle.23546af0.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
-      <script>
-        app = initialize({
-          base: "..",
-          features: [],
-          search: Object.assign({
-            worker: "../assets/javascripts/worker/search.58d22e8e.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dart.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/julia.min.js"></script>
+      
+        <script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+      
+        <script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"></script>
+      
+        <script src="../add_hljs_highlight.js"></script>
       
     
   </body>
