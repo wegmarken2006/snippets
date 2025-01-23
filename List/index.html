@@ -1834,22 +1834,21 @@ String getElemAt(List&lt;String&gt; lst, int index) {
 }
 </code></pre>
 <h2 id="go">Go</h2>
-<pre><code class="language-go">
-package main
+<pre><code class="language-go">package main
 
 import (
     &quot;fmt&quot;
-    &quot;sort&quot;
+    &quot;slices&quot;
     &quot;strings&quot;
 )
 
 func main() {
 
     //new empty list
-    lst1 := stringList{}
+    lst1 := []string{}
 
     //new initialized list
-    lst2 := stringList{&quot;str20&quot;, &quot;str21&quot;}
+    lst2 := []string{&quot;str20&quot;, &quot;str21&quot;}
 
     //append element
     lst1 = append(lst1, &quot;str10&quot;)
@@ -1861,7 +1860,7 @@ func main() {
     lst1 = append([]string{&quot;str00&quot;}, lst1...)
 
     //reverse
-    sort.Sort(sort.Reverse(lst1))
+    slices.Reverse(lst1)
 
     //trap out of bounds access
     elem := getElemAt(lst1, 100)
@@ -1869,30 +1868,31 @@ func main() {
 
     //sublist[&quot;str21&quot;, &quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]-&gt;[&quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]
     //list length
-    lst3 := lst1[1:len(lst1)]
+    lst3 := lst1[1:]
     fmt.Printf(&quot;\n%v&quot;, lst3)
 
+    //contains
+    if slices.Contains(lst1, &quot;str00&quot;) {
+        //index of element
+        ind := slices.Index(lst1, &quot;str00&quot;)
+        fmt.Printf(&quot;\nIndex %d&quot;, ind)
+    }
+
     //map and filter
-    lst4 := stringList{}
+    var lst4 []string
     for _, elem := range lst1 {
         lst4 = append(lst4, strings.ToUpper(elem))
     }
-    lst5 := stringList{}
+    var lst5 []string
     for _, elem := range lst4 {
         if elem != &quot;STR00&quot; {
             lst5 = append(lst5, elem)
         }
     }
-    fmt.Printf(&quot;\n%v&quot;, lst5)
+    fmt.Printf(&quot;\n%v\n&quot;, lst5)
 }
 
-type stringList []string
-
-func (p stringList) Len() int           { return len(p) }
-func (p stringList) Less(i, j int) bool { return p[i] &lt; p[j] }
-func (p stringList) Swap(i, j int)      { p[i], p[j] = p[j], p[i] }
-
-func getElemAt(lst stringList, index int) string {
+func getElemAt(lst []string, index int) string {
     defer recoverList()
     elem := lst[index]
     return elem
@@ -1901,6 +1901,7 @@ func getElemAt(lst stringList, index int) string {
 func recoverList() {
     recover()
 }
+
 </code></pre>
 <h2 id="julia">Julia</h2>
 <pre><code class="language-julia"># new empty list
@@ -2064,8 +2065,7 @@ lst5 = [elem for elem in filter(lambda x: x != &quot;STR00&quot;, lst4)]
 print(lst5)
 </code></pre>
 <h2 id="rust">Rust</h2>
-<pre><code class="language-rust">
-fn main() {
+<pre><code class="language-rust">fn main() {
     // new empty list
     let mut lst1: Vec&lt;&amp;str&gt; = vec![];
 
@@ -2087,16 +2087,21 @@ fn main() {
     //access elem with out of bounds check
     let elem = match lst1.get(100) {
         None =&gt; &quot;not found&quot;,
-        Some(x) =&gt; x
+        Some(x) =&gt; x,
     };
     println!(&quot;Elem {}&quot;, elem);
-
 
     // sublist[&quot;str21&quot;, &quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]-&gt;[&quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]
     // list length
     let lst3: Vec&lt;&amp;str&gt; = lst1[1..lst1.len()].to_vec();
 
     println!(&quot;{:?}&quot;, &amp;lst3);
+
+    //contains
+    if lst3.contains(&amp;&quot;str00&quot;) {
+        let index = lst3.iter().position(|&amp;i| i == &quot;str00&quot;).unwrap();
+        println!(&quot;Index {:?}&quot;, index);
+    }
 
     // map and filter
     let lst4: Vec&lt;_&gt; = lst3.into_iter().map(|x| x.to_uppercase()).collect();
