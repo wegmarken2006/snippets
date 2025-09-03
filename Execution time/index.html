@@ -961,6 +961,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       Python
@@ -1859,6 +1868,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       Python
@@ -2120,6 +2138,51 @@ var endt = ts.getTime() # END MEASURE
 
 echo perfects
 echo endt - start
+</code></pre>
+<h2 id="odin">Odin</h2>
+<pre><code class="language-go">
+package main
+
+import &quot;core:fmt&quot;
+import &quot;core:time&quot;
+
+main :: proc() {
+    start := time.now() // START MEASURE
+    perfects := classify_perfect(20001)
+    duration := time.since(start) // END MEASURE
+
+    fmt.println(&quot;\n&quot;, perfects)
+    fmt.println(&quot;\nElapsed: &quot;, duration)
+
+    delete(perfects)
+}
+
+classify_perfect :: proc(nnum: int) -&gt; [dynamic]int {
+    perfects := [dynamic]int{}
+    for n in 1 ..&lt; nnum {
+        divisors := find_proper_divisor(n)
+        defer delete(divisors)
+        sum := 0
+        for d in divisors {
+            sum += d
+        }
+        if sum == n {
+            append(&amp;perfects, n)
+        }
+    }
+    return perfects
+}
+
+find_proper_divisor :: proc(n: int) -&gt; [dynamic]int {
+    divisors := [dynamic]int{}
+    endloop := n / 2 + 1
+    for i in 1 ..&lt; endloop {
+        if n % i == 0 {
+            append(&amp;divisors, i)
+        }
+    }
+    return divisors
+}
 </code></pre>
 <h2 id="python">Python</h2>
 <pre><code class="language-python">

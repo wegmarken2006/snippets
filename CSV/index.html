@@ -1119,6 +1119,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       Python
@@ -1816,6 +1825,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       Python
@@ -1958,6 +1976,47 @@ csv_reader = CSV.File(filename)
 for row in csv_reader
     println(&quot;First: $(row.FirstName), Second: $(row.SecondName)&quot;)
 end
+</code></pre>
+<h2 id="odin">Odin</h2>
+<pre><code class="language-go">
+#+feature dynamic-literals
+package main
+
+import &quot;core:encoding/csv&quot;
+import &quot;core:fmt&quot;
+import &quot;core:os&quot;
+
+main :: proc() {
+    ll_words := [dynamic][]string{{&quot;FirstName&quot;, &quot;SecondName&quot;}, {&quot;John&quot;, &quot;Doe&quot;}, {&quot;Mark&quot;, &quot;Smith&quot;}}
+    defer delete(ll_words)
+
+    file_name := &quot;tmp001.csv&quot;
+    f, err := os.open(file_name, (os.O_CREATE | os.O_RDWR), 0o644)
+    if err != nil {
+        fmt.println(err)
+    }
+
+    w: csv.Writer
+    csv.writer_init(&amp;w, os.stream_from_handle(f))
+
+    for str_vec in ll_words {
+        csv.write(&amp;w, str_vec)
+    }
+    os.close(f)
+
+    fr, err2 := os.open(file_name, (os.O_RDWR), 0o644)
+    if err2 != nil {
+        fmt.println(err2)
+    }
+    defer os.close(fr)
+
+    r: csv.Reader
+    csv.reader_init(&amp;r, os.stream_from_handle(fr))
+    defer csv.reader_destroy(&amp;r)
+    records, _ := csv.read_all(&amp;r)
+
+    fmt.println(records)
+}
 </code></pre>
 <h2 id="python">Python</h2>
 <pre><code class="language-python">
