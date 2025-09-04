@@ -1179,6 +1179,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       Python
@@ -1780,6 +1789,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       Python
@@ -1875,7 +1893,56 @@ func allFiles(startingDir string, extension string) {
         return nil
     })
 }
+</code></pre>
+<h2 id="odin">Odin</h2>
+<pre><code class="language-go">
+package main
 
+import &quot;core:fmt&quot;
+import &quot;core:os&quot;
+import &quot;core:path/filepath&quot;
+import &quot;core:strings&quot;
+
+main :: proc() {
+    outr := [dynamic]string{}
+    all_files(&quot;/&quot;, &quot;.xml&quot;, &amp;outr)
+    fmt.println(outr)
+    delete(outr)
+}
+
+all_files :: proc(starting_dir: string, extension: string, outr: ^[dynamic]string) {
+    // no closures, must concentrate all parameters in a single struct
+    // to pass as rawptr
+    Params :: struct {
+        extension: string,
+        outr:      ^[dynamic]string,
+    }
+    params := Params{extension, outr}
+
+    filepath.walk(
+        starting_dir,
+        proc(info: os.File_Info, err: os.Error, params: rawptr) -&gt; (os.Error, bool) {
+            fpath := info.fullpath
+            if err != nil {
+                fmt.println(err)
+                return nil, false
+            }
+            if !info.is_dir {
+                extension := (^Params)(params).extension
+                outr := (^Params)(params).outr
+                if strings.has_suffix(fpath, extension) {
+                    fmt.println(fpath)
+                    ret, _ := append(outr, fpath)
+                    if ret &lt;= 0 {
+                        fmt.println(&quot;no append&quot;)
+                    }
+                }
+            }
+            return nil, false
+        },
+        &amp;params,
+    )
+}
 </code></pre>
 <h2 id="python">Python</h2>
 <pre><code class="language-python">import glob

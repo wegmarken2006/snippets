@@ -887,6 +887,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       Python
@@ -1861,6 +1870,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       Python
@@ -2201,7 +2219,54 @@ c1.addToBalance(10.0)
 
 # property, reading only through getter
 echo sf.fmt&quot;New {c1.person.first_name} balance: {c1.balance}&quot;
+</code></pre>
+<h2 id="odin">Odin</h2>
+<pre><code class="language-go">//file moda.odin, same directory, same package
 
+package main
+
+Person :: struct {
+    first_name:  string,
+    second_name: string,
+}
+
+Customer :: struct {
+    person:  Person,
+    balance: f64,
+}
+
+add_to_balance :: proc(c: ^Customer, sum: f64) {
+    c.balance += sum
+}
+
+get_balance :: proc(c: ^Customer) -&gt; f64 {
+    return c.balance
+}
+</code></pre>
+<pre><code class="language-go">
+package main
+
+import &quot;core:fmt&quot;
+
+main :: proc() {
+    p1 := new_person(&quot;Mark&quot;)
+    c1 := new_customer(p1)
+
+    add_to_balance(&amp;c1, 100.0)
+    add_to_balance(&amp;c1, 10.0)
+    balance := get_balance(&amp;c1)
+
+    //property
+    fmt.printf(&quot;\nNew %v balance: %v\n&quot;, c1.person.first_name, c1.balance)
+}
+
+new_person :: proc(f_name := &quot;John&quot;, s_name := &quot;Doe&quot;) -&gt; Person {
+    return Person{f_name, s_name}
+}
+
+new_customer :: proc(person: Person, balance := 0.0) -&gt; Customer {
+    return Customer{person, balance}
+}
 </code></pre>
 <h2 id="python">Python</h2>
 <pre><code class="language-python">

@@ -864,6 +864,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       Python
@@ -1843,6 +1852,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       Python
@@ -2069,6 +2087,63 @@ for item in elems:
         echo &amp;&quot;Found float {num} in \&quot;{item}\&quot;&quot;
     except:
         discard
+</code></pre>
+<h2 id="odin">Odin</h2>
+<pre><code class="language-go">
+package main
+
+import &quot;core:c/libc&quot;
+import &quot;core:fmt&quot;
+import &quot;core:strconv&quot;
+import &quot;core:strings&quot;
+//import &quot;core:time&quot;
+//import &quot;core:time/datetime&quot;
+
+
+main :: proc() {
+    name := &quot;John&quot;
+    age := 21
+
+    // resort to libc as core:time doesn't automatically handle localtime
+    t := libc.time(nil)
+    // Get the localtime
+    local := libc.localtime(&amp;t)
+    hour := local.tm_hour
+    minute := local.tm_min
+    weekday := local.tm_wday
+
+    /*
+    date := time.now()
+    buf: [time.MIN_HMS_LEN]u8
+    hms := time.to_string_hms(date, buf[:])
+    */
+
+    // String interpolation
+    str1 := fmt.tprintf(&quot;%s age is %d, weekday is %d, %d:%d\n&quot;, name, age, weekday, hour, minute)
+    fmt.print(str1)
+
+    str2 := fmt.tprintf(&quot;four decimals %.4f, hex for %d: 0x%x \n&quot;, 1.23456, 16, 16)
+    fmt.print(str2)
+
+    // Extract nth character
+    chn2 := str2[2]
+    fmt.printf(&quot;char: %c\n&quot;, chn2)
+
+    // Substring
+    subs := str2[0:3]
+    fmt.println(&quot;subs: &quot;, subs)
+
+    elems := strings.split(str2, &quot; &quot;)
+    defer delete(elems)
+
+    for item in elems {
+        titem := strings.trim(item, &quot;,:&quot;)
+        num, ok := strconv.parse_f32(titem)
+        if ok {
+            fmt.printf(&quot;Found float %f in \&quot;%s\&quot;\n&quot;, num, titem)
+        }
+    }
+}
 </code></pre>
 <h2 id="python">Python</h2>
 <pre><code class="language-python">

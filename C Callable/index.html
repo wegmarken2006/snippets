@@ -1762,7 +1762,6 @@
 <h1 id="c-callable">C Callable</h1>
 <h2 id="rust">Rust</h2>
 <pre><code class="language-rust">
-
 //[lib]
 //name = &quot;test_ffi&quot;
 //crate-type = [&quot;cdylib&quot;] #dynamic library
@@ -1770,12 +1769,12 @@ use std::os::raw::c_double;
 use std::os::raw::{c_uchar, c_int};
 use std::slice;
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 pub extern &quot;C&quot; fn mul_2(val: c_double) -&gt; c_double {
     val * 2.0
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 pub extern &quot;C&quot; fn inc_u8_vec(in_vec: *mut c_uchar, len: c_int) {
     assert!(!in_vec.is_null(), &quot;Null pointer in function&quot;);
 
