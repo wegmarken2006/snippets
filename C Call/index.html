@@ -1010,6 +1010,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       Python
@@ -1753,6 +1762,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       Python
@@ -1818,6 +1836,29 @@ void main() {
   print('Updated data: $updatedData');
 
   calloc.free(pointer);
+}
+</code></pre>
+<h2 id="odin">Odin</h2>
+<pre><code class="language-go">
+//copy test_ffi.dll, test_ffi.dll.lib
+
+package main
+
+import &quot;core:fmt&quot;
+
+foreign import test_ffi &quot;test_ffi.dll.lib&quot;
+
+foreign test_ffi {
+    mul_2 :: proc &quot;c&quot; (f64) -&gt; f64 ---
+    inc_u8_vec :: proc &quot;c&quot; (^[]int, int) ---
+}
+
+main :: proc() {
+    fmt.println(mul_2(3.0))
+    in_vec := []int{1, 2, 3, 4}
+    fmt.println(in_vec)
+    inc_u8_vec(&amp;in_vec, 4)
+    fmt.println(in_vec)
 }
 </code></pre>
 <h2 id="python">Python</h2>
