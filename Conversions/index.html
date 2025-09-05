@@ -1948,9 +1948,9 @@ func bytes_to_f32(b1 []byte) float32 {
 <pre><code class="language-go">
 package main
 
+import &quot;core:c/libc&quot;
 import &quot;core:fmt&quot;
 import &quot;core:strconv&quot;
-import &quot;core:c/libc&quot;
 import &quot;core:strings&quot;
 
 main :: proc() {
@@ -1964,15 +1964,20 @@ main :: proc() {
     s2 := bytes_to_str(v2)
     fmt.println(s2)
 
-    //int &lt;-&gt; string
+    // int &lt;-&gt; string
     s3 := fmt.tprintf(&quot;%d&quot;, 114)
     i3: int
     libc.sscanf(strings.clone_to_cstring(s3), &quot;%d&quot;, &amp;i3)
     fmt.println(i3)
+
+    // [^]u8 &lt;-&gt; string
+    mp1 := string_to_multip(&quot;hello&quot;)
+    str1 := multip_to_string(mp1)
+    fmt.println(str1)
 }
 
 i128_to_bytes :: proc(num: i128) -&gt; []u8 {
-    buf: [16]u8 
+    buf: [16]u8
     str := strconv.itoa(buf[:], int(num))
     out: []u8 //stack
     out = transmute([]u8)str
@@ -1994,6 +1999,17 @@ str_to_bytes :: proc(str: string) -&gt; []u8 {
 bytes_to_str :: proc(bs: []u8) -&gt; string {
     return string(bs)
 }
+
+multip_to_string :: proc(mp: [^]u8) -&gt; string {
+    cs := cstring(mp)
+    str := strings.clone_from_cstring(cs)
+    return str
+}
+
+string_to_multip :: proc(str: string) -&gt; [^]u8 {
+    return raw_data(str)
+}
+
 </code></pre>
 <h2 id="rust">Rust</h2>
 <pre><code class="language-rust">
