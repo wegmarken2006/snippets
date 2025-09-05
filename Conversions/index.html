@@ -768,6 +768,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rust" class="md-nav__link">
     <span class="md-ellipsis">
       Rust
@@ -1771,6 +1780,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rust" class="md-nav__link">
     <span class="md-ellipsis">
       Rust
@@ -1924,6 +1942,57 @@ func bytes_to_f32(b1 []byte) float32 {
     var f1 float64
     binary.Read(bb1, binary.LittleEndian, &amp;f1)
     return float32(f1)
+}
+</code></pre>
+<h2 id="odin">Odin</h2>
+<pre><code class="language-go">
+package main
+
+import &quot;core:fmt&quot;
+import &quot;core:strconv&quot;
+import &quot;core:c/libc&quot;
+import &quot;core:strings&quot;
+
+main :: proc() {
+    // int &lt;-&gt; bytes
+    b1 := i128_to_bytes(112)
+    i1 := bytes_to_i128(b1)
+    fmt.println(i1)
+
+    // str &lt;-&gt; bytes
+    v2 := str_to_bytes(&quot;113.45&quot;)
+    s2 := bytes_to_str(v2)
+    fmt.println(s2)
+
+    //int &lt;-&gt; string
+    s3 := fmt.tprintf(&quot;%d&quot;, 114)
+    i3: int
+    libc.sscanf(strings.clone_to_cstring(s3), &quot;%d&quot;, &amp;i3)
+    fmt.println(i3)
+}
+
+i128_to_bytes :: proc(num: i128) -&gt; []u8 {
+    buf: [16]u8 
+    str := strconv.itoa(buf[:], int(num))
+    out: []u8 //stack
+    out = transmute([]u8)str
+    out2: [dynamic]u8 //context.allocator
+    for elem in out {
+        append(&amp;out2, elem)
+    }
+    return out2[:]
+}
+
+bytes_to_i128 :: proc(bs: []u8) -&gt; i128 {
+    return i128(strconv.atoi(string(bs)))
+}
+
+str_to_bytes :: proc(str: string) -&gt; []u8 {
+    return transmute([]u8)str
+}
+
+bytes_to_str :: proc(bs: []u8) -&gt; string {
+    return string(bs)
 }
 </code></pre>
 <h2 id="rust">Rust</h2>
