@@ -1626,6 +1626,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       Python
@@ -1796,6 +1805,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       Python
@@ -1886,6 +1904,23 @@ func main() {
         out, _ := exec.Command(&quot;cmd&quot;, &quot;/C&quot;, &quot;dir&quot;).Output()
         output := string(out)
         Printf(&quot;\n%s&quot;, output)
+    }
+}
+</code></pre>
+<h2 id="odin">Odin</h2>
+<pre><code class="language-go">
+package main
+
+import &quot;core:c/libc&quot;
+
+main :: proc() {
+
+    //without output capture
+    if ODIN_OS == .Windows {
+        libc.system(&quot;cmd.exe /C dir&quot;)
+    }
+    if ODIN_OS == .Linux {
+        libc.system(&quot;/bin/sh -c ls&quot;)
     }
 }
 </code></pre>
