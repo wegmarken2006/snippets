@@ -1889,6 +1889,45 @@ void main() {
 </code></pre>
 <h2 id="odin">Odin</h2>
 <pre><code class="language-go">
+package main
+
+import &quot;core:encoding/json&quot;
+import &quot;core:fmt&quot;
+import &quot;core:os&quot;
+
+Config :: struct {
+    descr:  string,
+    i_list: []int,
+    s_list: []string,
+}
+
+main :: proc() {
+    conf := Config{&quot;Description&quot;, []int{1, 2, 3, 4}, []string{&quot;AAA&quot;, &quot;BBB&quot;, &quot;CCC&quot;}}
+
+    file_name := &quot;tmp001.json&quot;
+    f, err := os.open(file_name, (os.O_CREATE | os.O_RDWR), 0o644)
+    if err != nil {
+        fmt.println(err)
+    }
+
+    if json_data, err := json.marshal(conf); err == nil {
+        os.write(f, json_data)
+    } else {
+        fmt.println(&quot;Couldn't marshal struct!&quot;)
+    }
+    os.close(f)
+
+    if  read_data, ok := os.read_entire_file(file_name); ok {
+        conf2: Config
+        if json.unmarshal(read_data[:], &amp;conf2) == nil {
+            fmt.println(conf2)
+        } else {
+            fmt.println(&quot;Error unmarshaling&quot;)
+        }
+    } else {
+        fmt.println(&quot;Failed to read JSON file&quot;)
+    }
+}
 </code></pre>
 <h2 id="rust">Rust</h2>
 <pre><code class="language-rust">// serde =  { version = &quot;1.0.143&quot;, features = [&quot;derive&quot;] }
