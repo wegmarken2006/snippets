@@ -20,7 +20,7 @@
     
     
       
-        <title>Serialization - Runnable Snippets</title>
+        <title>JSON - Runnable Snippets</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#serialization" class="md-skip">
+        <a href="#json" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Serialization
+              JSON
             
           </span>
         </div>
@@ -1039,6 +1039,46 @@
                 
   
   
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Serialization
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            Serialization
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
   
   
     <li class="md-nav__item">
@@ -1079,7 +1119,7 @@
   
   
   <span class="md-ellipsis">
-    Serialization
+    JSON
     
   </span>
   
@@ -1092,7 +1132,7 @@
   
   
   <span class="md-ellipsis">
-    Serialization
+    JSON
     
   </span>
   
@@ -1124,9 +1164,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
+  <a href="#odin" class="md-nav__link">
     <span class="md-ellipsis">
-      Python
+      Odin
     </span>
   </a>
   
@@ -1168,6 +1208,14 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1762,9 +1810,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
+  <a href="#odin" class="md-nav__link">
     <span class="md-ellipsis">
-      Python
+      Odin
     </span>
   </a>
   
@@ -1795,96 +1843,93 @@
 
 
 
-<h1 id="serialization">Serialization</h1>
+<h1 id="json">JSON</h1>
 <h2 id="dart">Dart</h2>
-<pre><code class="language-dart">
-import 'dart:io';
+<pre><code class="language-dart">import 'dart:io';
 import 'dart:convert';
 
-void main() {
-  var map = {
-    &quot;first&quot;: [1, 2, 3, 4],
-    &quot;second&quot;: [10, 20, 30, 40]
+class Config {
+  String descr;
+  List&lt;int&gt; iList;
+  List&lt;String&gt; sList;
+  Config(this.descr, this.iList, this.sList);
+  dynamic fromJson(Map&lt;String, dynamic&gt; json) {
+    return Config(
+      json['description'],
+      List&lt;int&gt;.from(json['i_list']),
+      List&lt;String&gt;.from(json['s_list']),
+    );
+  }
+
+  static Map&lt;String, dynamic&gt; toJson(Config value) =&gt; {
+    'description': value.descr,
+    'i_list': value.iList,
+    's_list': value.sList,
   };
+}
 
-  print('$map?');
-
-  var fileName = &quot;tmp01.txt&quot;;
+void main() {
+  var conf = Config(&quot;Description&quot;, [1, 2, 3, 4], [&quot;AAA&quot;, &quot;BBB&quot;, &quot;CCC&quot;]);
+  var fileName = &quot;tmp01.json&quot;;
   var f = File(fileName);
-  var encodeMap = jsonEncode(map);
+  var encodeMap = jsonEncode(
+    conf,
+    toEncodable: (Object? value) =&gt; value is Config
+        ? Config.toJson(value)
+        : throw UnsupportedError('Cannot convert to JSON: $value'),
+  );
   f.writeAsString(encodeMap);
 
-  var map2 = Map();
+  Map&lt;String, dynamic&gt; data;
   f.readAsString().then((str1) {
-    map2 = jsonDecode(str1);
-    print('$map2');
+    data = jsonDecode(str1);
+    print('$data');
   });
 }
 </code></pre>
-<h2 id="python">Python</h2>
-<pre><code class="language-python">
-import pickle
-
-PICKLE_FILE_PATH = &quot;tmp01&quot;
-map_dump = {&quot;first&quot;: [1, 2, 3, 4], &quot;second&quot;: [10, 20, 30, 40]}
-fd1 = open(PICKLE_FILE_PATH, 'wb')
-# save map
-pickle.dump(map_dump, fd1)
-fd1.close()
-
-# recover map
-map_load = {}
-fd2 = open(PICKLE_FILE_PATH, 'rb')
-map_load =  pickle.load(fd2)
-fd2.close()
-print(map_load)
+<h2 id="odin">Odin</h2>
+<pre><code class="language-go">
 </code></pre>
 <h2 id="rust">Rust</h2>
-<pre><code class="language-rust">
-//[dependencies]
-//serde = &quot;1.0.105&quot;
-//serde_derive = &quot;1.0.105&quot;
-//bincode = &quot;1.2.1&quot;
-use std::collections::HashMap;
+<pre><code class="language-rust">// serde =  { version = &quot;1.0.143&quot;, features = [&quot;derive&quot;] }
+// serde_json = &quot;1.0.143&quot;
 
-use bincode::{deserialize, serialize};
-use serde_derive::{Deserialize, Serialize};
-use std::fs::{File, OpenOptions};
-use std::io::prelude::*; //read/write
+use std::{
+    fs::File,
+    io::{Error, Read, Write},
+};
 
-const FILE_SERIALIZE_PATH: &amp;str = &quot;tmp01&quot;;
-
-// struct enveloping the map
-#[derive(Clone, Debug, Deserialize, Serialize)]
-struct SMap {
-    map: HashMap&lt;String, Vec&lt;i32&gt;&gt;,
+#[derive(serde::Serialize, serde::Deserialize, Debug)]
+struct Config {
+    description: String,
+    i_list: Vec&lt;i32&gt;,
+    s_list: Vec&lt;String&gt;,
 }
 
-fn main() {
-    let mut map: HashMap&lt;String, Vec&lt;i32&gt;&gt; = HashMap::new();
-    //initialize HashMap
-    map.insert(&quot;first&quot;.to_string(), vec![1, 2, 3, 4]);
-    map.insert(&quot;second&quot;.to_string(), vec![10, 20, 30, 40]);
-    let s_map = SMap { map: map };
-
-    let mut fw_bin = match OpenOptions::new().write(true).open(FILE_SERIALIZE_PATH) {
-        Ok(file) =&gt; file,
-        Err(_) =&gt; match File::create(FILE_SERIALIZE_PATH) {
-            Ok(file) =&gt; file,
-            Err(_) =&gt; panic!(&quot;Cannot create LOG file&quot;),
-        },
+fn main() -&gt; Result&lt;(), Error&gt; {
+    // Create a Config instance
+    let conf = Config {
+        description: &quot;Description&quot;.to_string(),
+        i_list: vec![1, 2, 3, 4],
+        s_list: vec![&quot;AAA&quot;.to_string(), &quot;BBB&quot;.to_string(), &quot;CCC&quot;.to_string()],
     };
-    let s_map_dump: Vec&lt;u8&gt; = serialize(&amp;s_map).unwrap();
-    fw_bin.write(&amp;s_map_dump).unwrap();
-    let mut fr_bin = match OpenOptions::new().read(true).open(FILE_SERIALIZE_PATH) {
-        Ok(file) =&gt; file,
-        Err(_) =&gt; panic!(&quot;Cannot open file to read&quot;),
-    };
-    let mut s_map_load: Vec&lt;u8&gt; = vec![];
-    fr_bin.read_to_end(&amp;mut s_map_load).unwrap();
-    let s_map_restored: SMap = deserialize(&amp;s_map_load).unwrap();
 
-    println!(&quot;{:?}&quot;, s_map_restored.map);
+    // Serialize to JSON and write to file
+    let json_str = serde_json::to_string_pretty(&amp;conf)?;
+    let file_name = &quot;tmp01.json&quot;;
+    let mut f = File::create(file_name)?;
+    f.write(json_str.as_bytes())?;
+
+    // Read JSON from file and deserialize
+    let mut f = File::open(file_name)?;
+    let mut contents = &quot;&quot;.to_string();
+    f.read_to_string(&amp;mut contents)?;
+    let decoded: Config = serde_json::from_str(&amp;contents)?;
+
+    // Print the deserialized struct
+    println!(&quot;{:?}&quot;, decoded);
+
+    Ok(())
 }
 </code></pre>
 
