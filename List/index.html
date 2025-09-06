@@ -850,6 +850,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       Python
@@ -1925,6 +1934,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       Python
@@ -2275,6 +2293,57 @@ echo lst3
 var lst4 = map(lst3, proc (x: string): string = st.toUpper(x))
 var lst5 = filter(lst4, proc (x: string): bool = x != &quot;STR00&quot;)
 echo lst5
+</code></pre>
+<h2 id="odin">Odin</h2>
+<pre><code class="language-go">#+feature dynamic-literals
+package main
+
+import &quot;core:fmt&quot;
+import &quot;core:slice&quot;
+import &quot;core:strings&quot;
+
+
+main :: proc() {
+
+    // new empty
+    lst1: [dynamic]string
+
+    //new initialized list
+    lst2 := [dynamic]string{&quot;str20&quot;, &quot;str21&quot;}
+
+    //append element
+    append(&amp;lst1, &quot;str10&quot;)
+
+    //append list
+    append_elems(&amp;lst1, ..lst2[:])
+
+    //add head element
+    inject_at_elem(&amp;lst1, 0, &quot;str00&quot;)
+
+    //reverse
+    slice.reverse(lst1[:])
+
+    fmt.println(lst1)
+
+    //trap out of bounds access
+    //elem := lst1[100] will panic, how to trap?
+
+    //sublist[&quot;str21&quot;, &quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]-&gt;[&quot;str20&quot;, &quot;str10&quot;, &quot;str00&quot;]
+    //list length
+    lst3 := lst1[1:]
+    fmt.printf(&quot;%v, Length %d\n&quot;, lst3, len(lst3))
+
+    //contains
+    if slice.contains(lst1[:], &quot;str10&quot;) {
+        //index of element
+    }
+
+    //map and filter
+    lst4 := slice.mapper(lst1[:], proc(elem: string) -&gt; string {return strings.to_upper(elem)})
+
+    lst5 := slice.filter(lst4[:], proc(elem: string) -&gt; bool {return elem != &quot;STR00&quot;})
+    fmt.println(lst5)
+}
 </code></pre>
 <h2 id="python">Python</h2>
 <pre><code class="language-python">
