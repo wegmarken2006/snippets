@@ -772,6 +772,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       Python
@@ -1907,6 +1916,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       Python
@@ -2128,6 +2146,46 @@ echo words
 words.sort(proc (x, y: (string, int)): int = x[1] - y[1], order = al.SortOrder.Descending)
 
 echo words
+</code></pre>
+<h2 id="odin">Odin</h2>
+<pre><code class="language-go">
+#+feature dynamic-literals
+package main
+
+import &quot;core:fmt&quot;
+import &quot;core:slice&quot;
+
+main :: proc() {
+
+    // count words
+    word_list := []string{&quot;glass&quot;, &quot;table&quot;, &quot;chair&quot;, &quot;chair&quot;}
+    words := make(map[string]int)
+
+    for item in word_list {
+        words[item] += 1
+    }
+    fmt.println(words)
+
+    // sort by descending value
+
+    Words_struct :: struct {
+        key: string,
+        value: int
+    }
+    ws_arr: [dynamic]Words_struct
+
+    for key in words {
+        append(&amp;ws_arr, Words_struct{key, words[key]})
+    }
+
+    slice.sort_by(ws_arr[:], proc(ws1: Words_struct, ws2: Words_struct) -&gt; bool {
+        return ws1.key &gt; ws2.key
+    })
+
+    for i := 0; i &lt; len(words); i += 1 {
+        fmt.println(ws_arr[i].key, words[ws_arr[i].key])
+    }
+}
 </code></pre>
 <h2 id="python">Python</h2>
 <pre><code class="language-python">
