@@ -1114,6 +1114,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       Python
@@ -1889,6 +1898,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       Python
@@ -2063,6 +2081,52 @@ if not isNil(strmRead):
     while strmRead.readLine(line):
       echo line
 strmRead.close()
+</code></pre>
+<h2 id="odin">Odin</h2>
+<pre><code class="language-Go">package main
+
+import &quot;core:fmt&quot;
+import &quot;core:os&quot;
+import &quot;core:strings&quot;
+
+main :: proc() {
+    file_name := &quot;tmp01.txt&quot;
+
+    // Create and write to the file
+    file, err := os.open(file_name, os.O_CREATE | os.O_WRONLY | os.O_TRUNC, 0666)
+    if err != nil {
+        fmt.printf(&quot;Can't create %s\n&quot;, file_name)
+        os.exit(0)
+    }
+
+    to_write := &quot;This is\n\na text\nfile&quot;
+    _, err = os.write_string(file, to_write)
+    if err != nil {
+        fmt.println(&quot;Write error:&quot;, err)
+        os.exit(0)
+    }
+    os.close(file)
+
+    // Open and read the file
+    file, err = os.open(file_name, os.O_RDONLY, 0666)
+    if err != nil {
+        fmt.printf(&quot;Can't open %s\n&quot;, file_name)
+        os.exit(0)
+    }
+    defer os.close(file)
+
+    data, success := os.read_entire_file_from_handle(file)
+    if !success {
+        fmt.println(&quot;Read error:&quot;, err)
+        os.exit(0)
+    }
+
+    // Split by newline and print each line
+    lines := strings.split(string(data), &quot;\n&quot;)
+    for line in lines {
+        fmt.println(line)
+    }
+}
 </code></pre>
 <h2 id="python">Python</h2>
 <pre><code class="language-python">
