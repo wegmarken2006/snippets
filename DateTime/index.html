@@ -754,6 +754,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       Python
@@ -1876,6 +1885,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       Python
@@ -2061,6 +2079,42 @@ println(tomorrow)
 println(delta_w)
 println(delta_y)
 </code></pre>
+<h2 id="odin">Odin</h2>
+<pre><code class="language-go">
+package main
+
+import &quot;core:time/datetime&quot;
+import &quot;core:fmt&quot;
+import &quot;core:time&quot;
+import &quot;core:time/timezone&quot;
+import &quot;core:c/libc&quot;
+
+main :: proc() {
+
+    l_date := local_date()
+    weekday := datetime.day_of_week(i64(l_date.day))
+
+    tomorrow, _ := datetime.add_days_to_date(l_date, 1)
+
+    // difference between dates
+    next_week, _ := datetime.add_days_to_date(l_date, 7)
+    delta_w, _ := datetime.subtract_dates(next_week, l_date)
+
+    fmt.println(l_date)
+    fmt.println(weekday)
+    fmt.println(tomorrow)
+    fmt.println(delta_w.days)
+}
+
+local_date :: proc() -&gt; datetime.DateTime {
+    t := libc.time(nil)
+    local := libc.localtime(&amp;t)
+
+    l_now := datetime.Time{hour=i8(local.tm_hour), minute=i8(local.tm_min), second=i8(local.tm_sec)}
+    l_date := datetime.DateTime{day= i8(local.tm_mday),year=i64(local.tm_year)+1900, month=i8(local.tm_mon)+1, time=l_now}
+    return l_date
+}
+</code></pre>
 <h2 id="python">Python</h2>
 <pre><code class="language-python">
 import datetime as dt
@@ -2199,6 +2253,7 @@ fn main() {
     println(delta_d)
     println(delta_y)
 }
+
 </code></pre>
 
 
