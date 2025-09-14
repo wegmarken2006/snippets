@@ -1892,7 +1892,7 @@ main :: proc() {
 
 handle_connection :: proc(conn: net.TCP_Socket) {
     buffer := [4096]byte{}
-    content_type := &quot;Content-Type: text/html\r\n&quot;
+    content_type: string
 
     _, err := net.recv_tcp(conn, buffer[:])
     request := string(buffer[:])
@@ -1902,52 +1902,44 @@ handle_connection :: proc(conn: net.TCP_Socket) {
     for line in lines {
         if strings.has_prefix(line, &quot;GET&quot;) {
             parts := strings.split(line, &quot; &quot;)
-            //fmt.println(line)
-            if len(parts[1]) &gt; 1 {
+            file_buf: []byte
+            err: os.Error
+            if parts[1] == &quot;/&quot; {
+                file_buf, err = os.read_entire_file_from_filename_or_err(&quot;index.html&quot;)
+                if err != nil {
+                    fmt.printf(&quot;Cannot read index.html, %s\n&quot;, err)
+                    continue
+                }
+                content_type = &quot;Content-Type: text/html\r\n&quot;
+            } else {
                 path := parts[1][1:] // eliminate initial /
                 //fmt.println(path)
                 if strings.has_suffix(path, &quot;.js&quot;) {
                     content_type = &quot;Content-Type: text/javascript\r\n&quot;
+                } else {
+                    content_type = &quot;Content-Type: text/html\r\n&quot;
                 }
 
-                file_buf, err := os.read_entire_file_from_filename_or_err(path)
+                file_buf, err = os.read_entire_file_from_filename_or_err(path)
                 if err != nil {
-                    //fmt.printf(&quot;Cannot read file  *%s*, %s\n&quot;, path, err)
+                    fmt.printf(&quot;Cannot read file  *%s*, %s\n&quot;, path, err)
                     continue
                 }
-                request_body := file_buf[:]
-                response := fmt.tprintf(
-                    &quot;HTTP/1.1 200 OK\r\n&quot; +
-                    &quot;%s&quot; +
-                    &quot;Content-Length: %d\r\n&quot; +
-                    &quot;Connection: close\r\n&quot; +
-                    &quot;\r\n%s&quot;,
-                    content_type,
-                    len(request_body),
-                    request_body,
-                )
-                net.send_tcp(conn, transmute([]byte)response)
             }
+            request_body := file_buf[:]
+            response := fmt.tprintf(
+                &quot;HTTP/1.1 200 OK\r\n&quot; +
+                &quot;%s&quot; +
+                &quot;Content-Length: %d\r\n&quot; +
+                &quot;Connection: close\r\n&quot; +
+                &quot;\r\n%s&quot;,
+                content_type,
+                len(request_body),
+                request_body,
+            )
+            net.send_tcp(conn, transmute([]byte)response)
         }
     }
-    html_buf, err2 := os.read_entire_file_from_filename_or_err(&quot;index.html&quot;)
-    if err2 != nil {
-        fmt.printf(&quot;Cannot read index.html, %s\n&quot;, err2)
-        return
-    }
-    request_body := html_buf[:]
-    response := fmt.tprintf(
-        &quot;HTTP/1.1 200 OK\r\n&quot; +
-        &quot;%s&quot; +
-        &quot;Content-Length: %d\r\n&quot; +
-        &quot;Connection: close\r\n&quot; +
-        &quot;\r\n%s&quot;,
-        content_type,
-        len(request_body),
-        request_body,
-    )
-    net.send_tcp(conn, transmute([]byte)response)
-
     net.close(conn)
 }
 </code></pre>
