@@ -1480,6 +1480,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#dart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dart
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#odin" class="md-nav__link">
     <span class="md-ellipsis">
       Odin
@@ -1813,6 +1822,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#dart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dart
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#odin" class="md-nav__link">
     <span class="md-ellipsis">
       Odin
@@ -1847,6 +1865,64 @@
 
 
 <h1 id="webserver">Webserver</h1>
+<h2 id="dart">Dart</h2>
+<pre><code class="language-dart">
+import 'dart:io';
+import 'dart:isolate';
+
+Future&lt;void&gt; main() async {
+  var receivePort = ReceivePort();
+
+  var isolate = await Isolate.spawn((SendPort sendPort) async {
+
+    final server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
+    var address = server.address.address;
+    var port = server.port;
+    sendPort.send(&quot;http://$address:$port&quot;);
+
+    await for (HttpRequest request in server) {
+      var path = request.uri.path;
+      if (path == &quot;/&quot;) {
+        var indexH = File(&quot;index.html&quot;);
+        try {
+          var content = await indexH.readAsString();
+          request.response.headers.contentType = ContentType.html;
+          request.response.write(content);
+        } catch (e) {
+          print(e);
+        }
+      } else {
+        path = path.replaceFirst('/', '');
+        if (path.endsWith(&quot;.js&quot;)) {
+          request.response.headers.contentType = ContentType.parse(
+            &quot;text/javascript&quot;,
+          );
+        } else {
+          request.response.headers.contentType = ContentType.html;
+        }
+        var file = File(path);
+        try {
+          var content = await file.readAsString();
+          request.response.write(content);
+        } catch (e) {
+          print(e);
+        }
+      }
+      await request.response.close();
+    }
+    await server.close(force: true);
+  }, receivePort.sendPort);
+
+  receivePort.listen((message) {
+    print(&quot;Serving on $message&quot;);
+
+    print('\nPress any key and Enter to quit');
+    stdin.readLineSync();
+    isolate.kill();
+    exit(0);
+  });
+}
+</code></pre>
 <h2 id="odin">Odin</h2>
 <pre><code class="language-go">
 package main
