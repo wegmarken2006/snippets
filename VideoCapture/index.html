@@ -1739,6 +1739,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       Python
@@ -1825,6 +1834,15 @@
   <a href="#flutter" class="md-nav__link">
     <span class="md-ellipsis">
       Flutter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odin
     </span>
   </a>
   
@@ -1977,6 +1995,73 @@ class _CameraAppState extends State&lt;MyApp&gt; {
       ),
     );
   }
+}
+</code></pre>
+<h2 id="odin">Odin</h2>
+<pre><code class="language-go">
+package main
+// get c bindings from https://github.com/friolator/OpenCV-C
+// may need to change opencv version
+// Linux: install opencv, put libOpenCVC.so where the .odin file is
+// Windows: put OpenCVC.lib, OpenCVC.dll and the opencv dll (like opencv_world452.dll)
+// where the .odin file is
+
+import &quot;core:dynlib&quot;
+import &quot;core:fmt&quot;
+import &quot;core:c/libc&quot;
+import &quot;core:c&quot;
+
+when ODIN_OS == .Linux {
+    foreign import cv &quot;libOpenCVC.so&quot;
+} else when ODIN_OS == .Windows {
+    foreign import cv &quot;OpenCVC.lib&quot;
+}
+
+ColorConversionCodes :: enum {
+    CVC_COLOR_RGB2GRAY = 7,
+}
+
+@(default_calling_convention = &quot;c&quot;, link_prefix = &quot;CVC&quot;)
+foreign cv {
+    imshow :: proc (windowName: cstring, image: rawptr) ---
+    waitKey :: proc (delay: i32) -&gt; i32 ---
+    destroyAllWindows :: proc () ---
+    MatFree :: proc (mat: rawptr) ---
+    imread :: proc (filename: cstring, flags: i32) -&gt; rawptr ---
+    VideoCaptureCreateWithIndex :: proc &quot;c&quot; (index: i32) -&gt; rawptr ---
+    MatCreate :: proc () -&gt; rawptr ---
+    VideoCaptureRead :: proc (video_capture: rawptr, image: rawptr) -&gt; bool ---
+    cvtColor :: proc (src: rawptr, dst: rawptr, code: i32, dstCn: i32) ---
+}
+
+main :: proc() {
+    library_path: string
+    if ODIN_OS == .Linux {
+        library_path = &quot;libs/libOpenCVC.so&quot;
+
+        library, ok := dynlib.load_library(library_path)
+        if !ok {
+            fmt.eprintln(dynlib.last_error())
+            return
+        }
+    }
+    video_stream := VideoCaptureCreateWithIndex(0)
+
+    for {
+        frame := MatCreate()
+        if VideoCaptureRead(video_stream, frame) {
+            gray := MatCreate()
+            cvtColor(frame, gray, i32(ColorConversionCodes.CVC_COLOR_RGB2GRAY), 0)
+            imshow(&quot;Camera&quot;, frame)
+            ch := waitKey(10)
+            MatFree(gray)
+            if ch != -1 {
+                break
+            }
+        }
+        MatFree(frame)
+    }
+    destroyAllWindows()
 }
 </code></pre>
 <h2 id="python">Python</h2>
