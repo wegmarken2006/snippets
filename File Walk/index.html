@@ -1964,53 +1964,58 @@ func allFiles(startingDir string, extension string) {
 }
 </code></pre>
 <h2 id="odin">Odin</h2>
-<pre><code class="language-go">
-package main
+<pre><code class="language-go">package main
 
 import &quot;core:fmt&quot;
 import &quot;core:os&quot;
-import &quot;core:path/filepath&quot;
 import &quot;core:strings&quot;
 
 main :: proc() {
-    outr := [dynamic]string{}
-    all_files(&quot;/&quot;, &quot;.xml&quot;, &amp;outr)
-    fmt.println(outr)
+    outr := all_files(&quot;./&quot;, &quot;.pdf&quot;)
+    for elem in outr {
+        fmt.println(elem)
+    }
+
     delete(outr)
 }
 
-all_files :: proc(starting_dir: string, extension: string, outr: ^[dynamic]string) {
-    // no closures, must concentrate all parameters in a single struct
-    // to pass as rawptr
-    Params :: struct {
-        extension: string,
-        outr:      ^[dynamic]string,
-    }
-    params := Params{extension, outr}
+all_files :: proc(starting_dir: string, extension: string) -&gt; [dynamic]string {
 
-    filepath.walk(
-        starting_dir,
-        proc(info: os.File_Info, err: os.Error, params: rawptr) -&gt; (os.Error, bool) {
-            fpath := info.fullpath
-            if err != nil {
-                fmt.println(err)
-                return nil, false
+    outr: [dynamic]string
+
+    w := os.walker_create(starting_dir)
+    defer os.walker_destroy(&amp;w)
+
+    for info in os.walker_walk(&amp;w) {
+        // Optionally break on the first error:
+        // _ = walker_error(&amp;w) or_break
+
+        // Or, handle error as we go:
+        if path, err := os.walker_error(&amp;w); err != nil {
+            fmt.eprintfln(&quot;failed walking %s: %s&quot;, path, err)
+            continue
+        }
+
+        // Or, do not handle errors during iteration, and just check the error at the end.
+
+        if info.type != os.File_Type.Directory {
+            if strings.has_suffix(info.fullpath, extension) {
+                //clone fullpath which has short life
+                f_path := fmt.tprintf(&quot;%s&quot;, info.fullpath)
+                append(&amp;outr, f_path)
+                continue
             }
-            if !info.is_dir {
-                extension := (^Params)(params).extension
-                outr := (^Params)(params).outr
-                if strings.has_suffix(fpath, extension) {
-                    fmt.println(fpath)
-                    ret, _ := append(outr, fpath)
-                    if ret &lt;= 0 {
-                        fmt.println(&quot;no append&quot;)
-                    }
-                }
-            }
-            return nil, false
-        },
-        &amp;params,
-    )
+        }
+
+        //fmt.printfln(&quot;%#v&quot;, info)
+    }
+
+    // Handle error if one happened during iteration at the end:
+    if path, err := os.walker_error(&amp;w); err != nil {
+        fmt.eprintfln(&quot;failed walking %s: %v&quot;, path, err)
+    }
+
+    return outr
 }
 </code></pre>
 <h2 id="python">Python</h2>

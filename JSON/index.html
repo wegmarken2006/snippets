@@ -1911,8 +1911,7 @@ void main() {
 }
 </code></pre>
 <h2 id="odin">Odin</h2>
-<pre><code class="language-go">
-package main
+<pre><code class="language-go">package main
 
 import &quot;core:encoding/json&quot;
 import &quot;core:fmt&quot;
@@ -1928,7 +1927,11 @@ main :: proc() {
     conf := Config{&quot;Description&quot;, []int{1, 2, 3, 4}, []string{&quot;AAA&quot;, &quot;BBB&quot;, &quot;CCC&quot;}}
 
     file_name := &quot;tmp001.json&quot;
-    f, err := os.open(file_name, (os.O_CREATE | os.O_RDWR), 0o644)
+      f, err := os.open(
+          file_name,
+          os.O_CREATE | os.O_RDWR | os.O_TRUNC,
+          os.Permissions_Read_Write_All,
+      )
     if err != nil {
         fmt.println(err)
     }
@@ -1940,7 +1943,8 @@ main :: proc() {
     }
     os.close(f)
 
-    if  read_data, ok := os.read_entire_file(file_name); ok {
+    read_data, err2 := os.read_entire_file(file_name, context.allocator)
+    if err2 == os.ERROR_NONE {
         conf2: Config
         if json.unmarshal(read_data[:], &amp;conf2) == nil {
             fmt.println(conf2)
